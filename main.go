@@ -21,16 +21,25 @@ type Product struct {
 	Price uint
 }
 
+func customerMaker() (injection.BaseModel, error) {
+	return &Customer{
+		ID:   1,
+		Name: "Mahdi",
+	}, nil
+}
+
 func main() {
 	err := godotenv.Load(filepath.Join(".", ".env"))
 	if err != nil {
 	}
-	injection.NewInjection()
+	i := injection.NewInjection()
 	dsn := "Initial Catalog=whatsappium;MultipleActiveResultSets=true;Data Source=95.216.198.79,12403;User ID=SA;Password=FB9GRdv&kLUKNgID;MultipleActiveResultSets=true;TrustServerCertificate=True;"
 	db, err := gorm.Open(sqlserver.Open(dsn), &gorm.Config{})
 	// initialize gofr object
 	app := gofr.New()
 	app.AddGorm(db)
+
+	i.AddTransient(&Customer{}, customerMaker)
 	//ctx = context.WithValue(ctx, db.txnCtxKey, tx)
 	//txn, ok := ctx.Value(db.txnCtxKey).(Transaction)
 	//app.UseMiddlewareWithContainer()
@@ -47,10 +56,30 @@ func main() {
 		var customers []Customer
 
 		// Getting the customer from the database using SQL
-		err := ctx.Gorm.WithContext(ctx).AutoMigrate(&Product{})
-
-		// return the customer
-		return customers, err
+		//err := ctx.Gorm.WithContext(ctx).AutoMigrate(&Product{})
+		customer, _, err := i.GetInstance(ctx, &Customer{})
+		if err != nil {
+			return nil, err
+		}
+		okCustomer, ok := customer.(*Customer)
+		if !ok {
+			return nil, &injection.InjectionError{
+				Message: "Customer instance not found",
+			}
+		}
+		customers = append(customers, *okCustomer)
+		customer, _, err = i.GetInstance(ctx, &Customer{})
+		if err != nil {
+			return nil, err
+		}
+		okCustomer, ok = customer.(*Customer)
+		if !ok {
+			return nil, &injection.InjectionError{
+				Message: "Customer instance not found",
+			}
+		}
+		customers = append(customers, *okCustomer)
+		return customers, nil
 	})
 
 	app.Run()

@@ -3,6 +3,8 @@ package injection
 import (
 	"context"
 	"reflect"
+
+	"gofr.dev/pkg/gofr"
 )
 
 const (
@@ -10,39 +12,42 @@ const (
 )
 
 type Injection struct {
-	instances          map[reflect.Type]*interface{}
-	scopedInstances    map[reflect.Type]func() (*interface{}, error)
-	transientInstances map[reflect.Type]func() (*interface{}, error)
+	instances          map[reflect.Type]BaseModel // Change from *BaseModel to BaseModel
+	scopedInstances    map[reflect.Type]func() (BaseModel, error)
+	transientInstances map[reflect.Type]func() (BaseModel, error)
+}
+
+type BaseModel interface {
 }
 
 func NewInjection() *Injection {
 	return &Injection{
-		instances:          make(map[reflect.Type]*interface{}),
-		scopedInstances:    make(map[reflect.Type]func() (*interface{}, error)),
-		transientInstances: make(map[reflect.Type]func() (*interface{}, error)),
+		instances:          make(map[reflect.Type]BaseModel),
+		scopedInstances:    make(map[reflect.Type]func() (BaseModel, error)),
+		transientInstances: make(map[reflect.Type]func() (BaseModel, error)),
 	}
 }
 
-func (i *Injection) AddSingleton(obj *interface{}) {
-	tpe := reflect.TypeOf(&obj)
-	i.instances[tpe] = obj
+func (i *Injection) AddSingleton(obj BaseModel) {
+	tpe := reflect.TypeOf(obj)
+	i.instances[tpe] = obj // Store the BaseModel interface directly, not a pointer to it
 }
 
-func (i *Injection) AddScoped(obj *interface{}, scopedMaker func() (*interface{}, error)) {
-	tpe := reflect.TypeOf(&obj)
+func (i *Injection) AddScoped(obj BaseModel, scopedMaker func() (BaseModel, error)) {
+	tpe := reflect.TypeOf(obj)
 	i.scopedInstances[tpe] = scopedMaker
 }
 
-func (i *Injection) AddTransient(obj *interface{}, transientMaker func() (*interface{}, error)) {
-	tpe := reflect.TypeOf(&obj)
+func (i *Injection) AddTransient(obj BaseModel, transientMaker func() (BaseModel, error)) {
+	tpe := reflect.TypeOf(obj)
 	i.transientInstances[tpe] = transientMaker
 }
 
-func (i *Injection) GetInstance(ctx context.Context, obj *interface{}) (*interface{}, context.Context, error) {
-	tpe := reflect.TypeOf(&obj)
+func (i *Injection) GetInstance(ctx *gofr.Context, obj BaseModel) (any, context.Context, error) {
+	tpe := reflect.TypeOf(obj)
 	exists := ctx.Value(tpe.String())
 	if exists != nil {
-		return &exists, ctx, nil
+		return exists, ctx, nil
 	}
 	if instance, ok := i.instances[tpe]; ok {
 		return instance, ctx, nil
@@ -52,7 +57,7 @@ func (i *Injection) GetInstance(ctx context.Context, obj *interface{}) (*interfa
 		if err != nil {
 			return nil, ctx, err
 		}
-		ctx = context.WithValue(ctx, tpe.String(), instance)
+		ctx.Context = context.WithValue(ctx.Context, tpe.String(), instance)
 		return instance, ctx, nil
 	}
 	if transientMaker, ok := i.transientInstances[tpe]; ok {
