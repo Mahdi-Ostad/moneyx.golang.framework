@@ -33,9 +33,9 @@ func (d *DefaultMetrics) SetGauge(name string, value float64, labels ...string) 
 
 var (
 	// Discard logger will print any log to io.Discard
-	Discard = New(NewMoneyxLog(), GormConfig{}, &DefaultMetrics{})
+	Discard = NewGormLogger(NewMoneyxLog(), GormConfig{}, &DefaultMetrics{})
 	// Default Default logger
-	Default = New(NewMoneyxLog(), GormConfig{
+	Default = NewGormLogger(NewMoneyxLog(), GormConfig{
 		SlowThreshold:             200 * time.Millisecond,
 		LogLevel:                  logger.Warn,
 		IgnoreRecordNotFoundError: false,
@@ -51,7 +51,7 @@ var (
 )
 
 // New initialize logger
-func New(writer *MoneyxLog, config GormConfig, metrics sql.Metrics) logger.Interface {
+func NewGormLogger(writer *MoneyxLog, config GormConfig, metrics sql.Metrics) logger.Interface {
 	var (
 		infoStr      = "%s\n[info] "
 		warnStr      = "%s\n[warn] "

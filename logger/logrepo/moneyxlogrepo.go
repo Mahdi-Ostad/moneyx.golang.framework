@@ -8,8 +8,7 @@ import (
 	"sync"
 	"time"
 
-	//mssql "github.com/denisenkom/go-mssqldb"
-	"gorm.io/driver/sqlserver"
+	mssql "github.com/microsoft/go-mssqldb"
 	"moneyx.golang.framework/config"
 )
 
@@ -188,8 +187,7 @@ func (r *MoneyxLogRepo) bulkInsertDb(messages []LogMessage) (isFatal bool, err e
 			break
 		}
 	}
-	//bulkimportStr := mssql.CopyIn(tableName, mssql.BulkOptions{}, "level", "message", "timestamp", "stacktrace")
-	bulkimportStr := ""
+	bulkimportStr := mssql.CopyIn(tableName, mssql.BulkOptions{}, "level", "message", "timestamp", "stacktrace")
 	stmt, err := r.db.Prepare(bulkimportStr)
 	if err != nil {
 		return isFatal, err

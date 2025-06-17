@@ -181,7 +181,7 @@ func (l *GoFrLogger) prettyPrint(e *GoFrLogEntry, out io.Writer) {
 }
 
 // NewLogger creates a new logger instance with the specified logging level.
-func NewLogger(level logging.Level, logRepo *logrepo.MoneyxLogRepo) logging.Logger {
+func NewGoFrLogger(level logging.Level, logRepo *logrepo.MoneyxLogRepo) logging.Logger {
 	l := &GoFrLogger{
 		normalOut: os.Stdout,
 		errorOut:  os.Stderr,

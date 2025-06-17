@@ -5,10 +5,12 @@ import (
 
 	"github.com/joho/godotenv"
 	"gofr.dev/pkg/gofr"
+	"gofr.dev/pkg/gofr/logging"
 	"gorm.io/driver/sqlserver"
 	"gorm.io/gorm"
 	"moneyx.golang.framework/injection"
 	"moneyx.golang.framework/logger"
+	"moneyx.golang.framework/logger/logrepo"
 )
 
 type Customer struct {
@@ -35,10 +37,10 @@ func main() {
 	}
 	i := injection.NewInjection()
 	// initialize gofr object
-	app := gofr.New()
-	dsn := "Initial Catalog=whatsappium;MultipleActiveResultSets=true;Data Source=95.216.198.79,12403;User ID=SA;Password=FB9GRdv&kLUKNgID;MultipleActiveResultSets=true;TrustServerCertificate=True;"
+	app := gofr.New(logger.NewGoFrLogger(logging.INFO, logrepo.NewMoneyxLogRepo()))
+	dsn := "Initial Catalog=tempdb;MultipleActiveResultSets=true;Data Source=DESKTOP-J3OFINQ;User ID=sa;Password=mahdi1380;MultipleActiveResultSets=true;TrustServerCertificate=True;"
 	db, err := gorm.Open(sqlserver.Open(dsn), &gorm.Config{
-		Logger: logger.New(logger.NewMoneyxLog(), logger.GormConfig{}, app.Metrics()),
+		Logger: logger.NewGormLogger(logger.NewMoneyxLog(), logger.GormConfig{}, app.Metrics()),
 	})
 	app.AddGorm(db)
 
