@@ -8,6 +8,7 @@ import (
 	"gorm.io/driver/sqlserver"
 	"gorm.io/gorm"
 	"moneyx.golang.framework/injection"
+	"moneyx.golang.framework/logger"
 )
 
 type Customer struct {
@@ -33,10 +34,12 @@ func main() {
 	if err != nil {
 	}
 	i := injection.NewInjection()
-	dsn := "Initial Catalog=whatsappium;MultipleActiveResultSets=true;Data Source=95.216.198.79,12403;User ID=SA;Password=FB9GRdv&kLUKNgID;MultipleActiveResultSets=true;TrustServerCertificate=True;"
-	db, err := gorm.Open(sqlserver.Open(dsn), &gorm.Config{})
 	// initialize gofr object
 	app := gofr.New()
+	dsn := "Initial Catalog=whatsappium;MultipleActiveResultSets=true;Data Source=95.216.198.79,12403;User ID=SA;Password=FB9GRdv&kLUKNgID;MultipleActiveResultSets=true;TrustServerCertificate=True;"
+	db, err := gorm.Open(sqlserver.Open(dsn), &gorm.Config{
+		Logger: logger.New(logger.NewMoneyxLog(), logger.GormConfig{}, app.Metrics()),
+	})
 	app.AddGorm(db)
 
 	i.AddTransient(&Customer{}, customerMaker)
