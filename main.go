@@ -2,6 +2,7 @@ package main
 
 import (
 	"path/filepath"
+	"time"
 
 	"github.com/joho/godotenv"
 	"gofr.dev/pkg/gofr"
@@ -11,6 +12,9 @@ import (
 	"moneyx.golang.framework/injection"
 	"moneyx.golang.framework/logger"
 	"moneyx.golang.framework/logger/logrepo"
+	RoutineManagement "moneyx.golang.framework/routinemanagement"
+
+	moneyxproto "moneyx.golang.framework/proto"
 )
 
 type Customer struct {
@@ -31,18 +35,27 @@ func customerMaker() (injection.BaseModel, error) {
 	}, nil
 }
 
+func doWork(heartbeat chan<- struct{}) {
+	time.Sleep(time.Second)
+	for i := 0; i < 10; i++ {
+		time.Sleep(time.Millisecond * 500)
+		heartbeat <- struct{}{}
+	}
+}
+
 func main() {
 	err := godotenv.Load(filepath.Join(".", ".env"))
 	if err != nil {
 	}
 	i := injection.NewInjection()
 	// initialize gofr object
-	app := gofr.New(logger.NewGoFrLogger(logging.INFO, logrepo.NewMoneyxLogRepo()))
+	app := gofr.New(logger.NewGoFrLogger(logging.DEBUG, logrepo.NewMoneyxLogRepo()))
 	dsn := "Initial Catalog=tempdb;MultipleActiveResultSets=true;Data Source=DESKTOP-J3OFINQ;User ID=sa;Password=mahdi1380;MultipleActiveResultSets=true;TrustServerCertificate=True;"
 	db, err := gorm.Open(sqlserver.Open(dsn), &gorm.Config{
 		Logger: logger.NewGormLogger(logger.NewMoneyxLog(), logger.GormConfig{}, app.Metrics()),
 	})
 	app.AddGorm(db)
+	moneyxproto.RegisterWhatsappServiceServerWithGofr(app, moneyxproto.NewWhatsappServiceGoFrServer())
 
 	i.AddTransient(&Customer{}, customerMaker)
 	//ctx = context.WithValue(ctx, db.txnCtxKey, tx)

@@ -1,0 +1,32 @@
+import "google/protobuf/empty.proto";
+import "ariyana/framework/common.proto";
+option go_package = "moneyx.golang.framework/proto";
+service  WhatsappService{
+    rpc CheckUserState(google.protobuf.Empty) returns(StatusQueryProto);
+    rpc Initialize(google.protobuf.Empty) returns(InitializeQueryProto);
+    rpc SendMessage(SendMessageCommandProto) returns(SendMessageResultProto);
+    rpc SayHello(google.protobuf.Empty) returns (GreetingResponse);
+    rpc SignOut(ariyana.framework.StringIdArg) returns (StatusQueryProto);
+}
+    
+message SendMessageResultProto{
+    required bool IsDone = 1;
+}
+
+message StatusQueryProto{
+    required bool IsValid = 1;
+}
+
+message InitializeQueryProto{
+    required string QrCode = 1;
+    required string ExpireTime = 2;
+}
+
+message SendMessageCommandProto{
+    required string PhoneNumber =1;
+    required string Text = 2;
+}
+
+message GreetingResponse{
+    required string Response = 1;
+}

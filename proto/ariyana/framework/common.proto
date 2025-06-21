@@ -1,0 +1,133 @@
+﻿syntax = "proto3";
+package ariyana.framework;
+option csharp_namespace = "Ariyana.Framework.GrpcClient";
+option go_package = "moneyx.golang.framework/proto/ariyana/framework";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+
+message MoneyProto{
+	string CurrencyCode = 1;
+	double Amount = 2;
+}
+
+message PhoneProto{
+	string CountryCode = 1;
+	string Number = 2;
+	repeated int32 CommunicationWays = 14;
+}
+
+message PhraseItemProto{
+	string Text =1;
+	bool ShouldTranslate = 2;
+}
+
+message TypeMessagesQueryProto{
+	repeated TypeProto Types =1;
+}
+
+message TypeProto{
+	int32 Code = 1;
+	string Title = 2;
+}
+
+message ColorTypeProto{
+	int32 Code = 1;
+	string Title = 2;
+	string Color = 3;
+}
+
+message ResultProto {
+	bool IsDone = 1;
+	string Id=2;
+}
+
+message CreateTransactionResultProto{
+	bool IsDone = 1;
+	string StateId = 2;
+	string TransactionId = 3;
+}
+
+message IntQueryProto{
+	int32 Result = 1;
+}
+
+message IntIdArg{
+	int32 Id =1;
+}
+
+message StringIdArg{
+	string Id =1;
+}
+
+message PaginatedStringArgs{
+	string StringItem = 1;
+	int32 PageIndex =2;
+	int32 PageCount =3;
+}
+
+message PaginatedIntArgs{
+	int32 IntItem = 1;
+	int32 PageIndex =2;
+	int32 PageCount =3;
+}
+
+message TransactionMoneyProto{
+	bool IsDebtor = 1;
+	MoneyProto Money = 2;
+}
+
+
+message StringResultQueryProto{
+	string result = 1;
+}
+
+message GetActionLogsArgs{
+    int32 PageIndex=2;
+    int32 PageCount=3;
+    string AggregateId=4;
+}
+
+message GetActionLogsQueryProto{
+    repeated ActionLogProto ActionLogs=1;
+    int32 TotalCount=2;
+}
+
+message SagaStateQueryProto{
+	string Status = 1;
+	string TempId = 2;
+	string StatusMessage=3;
+	repeated ExceptionMetadataProto Metadatas = 4;
+}
+
+message ExceptionMetadataProto{
+	string Hook = 1;
+	string Value = 2;
+	int32 MetadataType = 3;
+}
+
+message ActionLogProto{
+    string UserId=1;
+    string UserFullName=2;
+    repeated ariyana.framework.PhraseItemProto DescriptionPhrases=3;
+}
+
+message FileProto{
+	bytes Content = 1;
+	string Extension = 2;
+}
+
+message DescriptionMetadataProto{
+	string Value =1;
+	string Hook =2;
+	int32 Type=3;
+}
+
+message MetaDataTemplateItem{
+    string Language = 1;
+    string Template = 2;
+    string Code = 3;
+}
+message MetaDataTemplateQueryProto{
+    repeated MetaDataTemplateItem MetaDataTemplateItems=1;
+}
