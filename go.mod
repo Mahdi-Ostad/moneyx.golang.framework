@@ -12,6 +12,13 @@ require (
 )
 
 require (
+	github.com/ThreeDotsLabs/watermill v1.4.6 // indirect
+	github.com/lithammer/shortuuid/v3 v3.0.7 // indirect
+	github.com/oklog/ulid v1.3.1 // indirect
+	github.com/shivajichalise/validator v1.0.2 // indirect
+)
+
+require (
 	cloud.google.com/go v0.120.0 // indirect
 	cloud.google.com/go/auth v0.16.1 // indirect
 	cloud.google.com/go/auth/oauth2adapt v0.2.8 // indirect

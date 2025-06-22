@@ -33,7 +33,7 @@ func getOrCreateHealthServer() *healthServer {
 	return globalHealthServer
 }
 
-func registerServerWithGofr(app *gofr.App, srv any, registerFunc func(grpc.ServiceRegistrar, any)) {
+func registerServerWithGofr(app *gofr.App, srv any, val any, registerFunc func(grpc.ServiceRegistrar, any, any)) {
 	var s grpc.ServiceRegistrar = app
 	h := getOrCreateHealthServer()
 
@@ -49,7 +49,7 @@ func registerServerWithGofr(app *gofr.App, srv any, registerFunc func(grpc.Servi
 	}
 
 	// Register the provided server
-	registerFunc(s, srv)
+	registerFunc(s, srv, val)
 }
 
 func (h *healthServer) Check(ctx *gofr.Context, req *healthpb.HealthCheckRequest) (*healthpb.HealthCheckResponse, error) {

@@ -8,12 +8,16 @@ package proto
 
 import (
 	"context"
+	"errors"
 	
 	"gofr.dev/pkg/gofr"
 	"gofr.dev/pkg/gofr/container"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/status"
+
+	MoneyxErrors "moneyx.golang.framework/moneyxerrors"
+	Validator "moneyx.golang.framework/validator"
 	
 	healthpb "google.golang.org/grpc/health/grpc_health_v1"
 	emptypb "google.golang.org/protobuf/types/known/emptypb"
@@ -27,6 +31,11 @@ func NewWhatsappServiceGoFrServer() *WhatsappServiceGoFrServer {
 	}
 }
 
+// NewWhatsappServiceGoFrValidation creates a new instance of WhatsappServiceGoFrValidation
+func NewWhatsappServiceGoFrValidation() *WhatsappServiceGoFrValidation {
+	return &WhatsappServiceGoFrValidation{}
+}
+
 // WhatsappServiceServerWithGofr is the interface for the server implementation
 type WhatsappServiceServerWithGofr interface {
 	CheckUserState(*gofr.Context) (any, error)
@@ -36,12 +45,22 @@ type WhatsappServiceServerWithGofr interface {
 	SignOut(*gofr.Context) (any, error)
 }
 
+// WhatsappServiceValidationWithGofr is the interface for the validation implementation
+type WhatsappServiceValidationWithGofr interface {
+	CheckUserState(*Validator.EntryValidator[*EmptyWrapper])
+	Initialize(*Validator.EntryValidator[*EmptyWrapper])
+	SendMessage(*Validator.EntryValidator[*SendMessageCommandProtoWrapper])
+	SayHello(*Validator.EntryValidator[*EmptyWrapper])
+	SignOut(*Validator.EntryValidator[*StringIdArgWrapper])
+}
+
 // WhatsappServiceServerWrapper wraps the server and handles request and response logic
 type WhatsappServiceServerWrapper struct {
 	WhatsappServiceServer
 	*healthServer
 	Container *container.Container
 	server    WhatsappServiceServerWithGofr
+	validator WhatsappServiceValidationWithGofr
 }
 
 
@@ -49,11 +68,19 @@ type WhatsappServiceServerWrapper struct {
 
 // Unary method handler for CheckUserState
 func (h *WhatsappServiceServerWrapper) CheckUserState(ctx context.Context, req *emptypb.Empty) (*StatusQueryProto, error) {
-	gctx := h.getGofrContext(ctx, &EmptyWrapper{ctx: ctx, Empty: req})
+	wrapper := &EmptyWrapper{ctx: ctx, Empty: req}
+	gctx := h.getGofrContext(ctx, wrapper)
 	
+	entryValidator := Validator.NewEntryValidator[*EmptyWrapper](wrapper)
+	h.validator.CheckUserState(entryValidator)
+	var err error
+	err = entryValidator.Validate()
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, err.Error())
+	}
 	res, err := h.server.CheckUserState(gctx)
 	if err != nil {
-		return nil, err
+		return nil, getStatusCodeError(err)
 	}
 
 	resp, ok := res.(*StatusQueryProto)
@@ -65,11 +92,19 @@ func (h *WhatsappServiceServerWrapper) CheckUserState(ctx context.Context, req *
 }
 // Unary method handler for Initialize
 func (h *WhatsappServiceServerWrapper) Initialize(ctx context.Context, req *emptypb.Empty) (*InitializeQueryProto, error) {
-	gctx := h.getGofrContext(ctx, &EmptyWrapper{ctx: ctx, Empty: req})
+	wrapper := &EmptyWrapper{ctx: ctx, Empty: req}
+	gctx := h.getGofrContext(ctx, wrapper)
 	
+	entryValidator := Validator.NewEntryValidator[*EmptyWrapper](wrapper)
+	h.validator.Initialize(entryValidator)
+	var err error
+	err = entryValidator.Validate()
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, err.Error())
+	}
 	res, err := h.server.Initialize(gctx)
 	if err != nil {
-		return nil, err
+		return nil, getStatusCodeError(err)
 	}
 
 	resp, ok := res.(*InitializeQueryProto)
@@ -81,11 +116,19 @@ func (h *WhatsappServiceServerWrapper) Initialize(ctx context.Context, req *empt
 }
 // Unary method handler for SendMessage
 func (h *WhatsappServiceServerWrapper) SendMessage(ctx context.Context, req *SendMessageCommandProto) (*SendMessageResultProto, error) {
-	gctx := h.getGofrContext(ctx, &SendMessageCommandProtoWrapper{ctx: ctx, SendMessageCommandProto: req})
+	wrapper := &SendMessageCommandProtoWrapper{ctx: ctx, SendMessageCommandProto: req}
+	gctx := h.getGofrContext(ctx, wrapper)
 	
+	entryValidator := Validator.NewEntryValidator[*SendMessageCommandProtoWrapper](wrapper)
+	h.validator.SendMessage(entryValidator)
+	var err error
+	err = entryValidator.Validate()
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, err.Error())
+	}
 	res, err := h.server.SendMessage(gctx)
 	if err != nil {
-		return nil, err
+		return nil, getStatusCodeError(err)
 	}
 
 	resp, ok := res.(*SendMessageResultProto)
@@ -97,11 +140,19 @@ func (h *WhatsappServiceServerWrapper) SendMessage(ctx context.Context, req *Sen
 }
 // Unary method handler for SayHello
 func (h *WhatsappServiceServerWrapper) SayHello(ctx context.Context, req *emptypb.Empty) (*GreetingResponse, error) {
-	gctx := h.getGofrContext(ctx, &EmptyWrapper{ctx: ctx, Empty: req})
+	wrapper := &EmptyWrapper{ctx: ctx, Empty: req}
+	gctx := h.getGofrContext(ctx, wrapper)
 	
+	entryValidator := Validator.NewEntryValidator[*EmptyWrapper](wrapper)
+	h.validator.SayHello(entryValidator)
+	var err error
+	err = entryValidator.Validate()
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, err.Error())
+	}
 	res, err := h.server.SayHello(gctx)
 	if err != nil {
-		return nil, err
+		return nil, getStatusCodeError(err)
 	}
 
 	resp, ok := res.(*GreetingResponse)
@@ -113,11 +164,19 @@ func (h *WhatsappServiceServerWrapper) SayHello(ctx context.Context, req *emptyp
 }
 // Unary method handler for SignOut
 func (h *WhatsappServiceServerWrapper) SignOut(ctx context.Context, req *framework.StringIdArg) (*StatusQueryProto, error) {
-	gctx := h.getGofrContext(ctx, &StringIdArgWrapper{ctx: ctx, StringIdArg: req})
+	wrapper := &StringIdArgWrapper{ctx: ctx, StringIdArg: req}
+	gctx := h.getGofrContext(ctx, wrapper)
 	
+	entryValidator := Validator.NewEntryValidator[*StringIdArgWrapper](wrapper)
+	h.validator.SignOut(entryValidator)
+	var err error
+	err = entryValidator.Validate()
+	if err != nil {
+		return nil, status.Errorf(codes.InvalidArgument, err.Error())
+	}
 	res, err := h.server.SignOut(gctx)
 	if err != nil {
-		return nil, err
+		return nil, getStatusCodeError(err)
 	}
 
 	resp, ok := res.(*StatusQueryProto)
@@ -132,10 +191,11 @@ func (h *WhatsappServiceServerWrapper) SignOut(ctx context.Context, req *framewo
 func (h *WhatsappServiceServerWrapper) mustEmbedUnimplementedWhatsappServiceServer() {}
 
 // RegisterWhatsappServiceServerWithGofr registers the server
-func RegisterWhatsappServiceServerWithGofr(app *gofr.App, srv WhatsappServiceServerWithGofr) {
-	registerServerWithGofr(app, srv, func(s grpc.ServiceRegistrar, srv any) {
+func RegisterWhatsappServiceServerWithGofr(app *gofr.App, srv WhatsappServiceServerWithGofr, val WhatsappServiceValidationWithGofr) {
+	registerServerWithGofr(app, srv, val, func(s grpc.ServiceRegistrar, srv any, val any) {
 		wrapper := &WhatsappServiceServerWrapper{
 			server: srv.(WhatsappServiceServerWithGofr),
+			validator: val.(WhatsappServiceValidationWithGofr),
 			healthServer: getOrCreateHealthServer(),
 		}
 
@@ -151,5 +211,19 @@ func (h *WhatsappServiceServerWrapper) getGofrContext(ctx context.Context, req g
 		Context:   ctx,
 		Container: h.Container,
 		Request:   req,
+	}
+}
+
+// getStatusCodeError returns the proper status code and error
+func getStatusCodeError(err error) error {
+	var domainErr *MoneyxErrors.DomainException
+	var domainAggregateErr *MoneyxErrors.DomainAggregateLockException
+	switch {
+	case errors.As(err, &domainErr):
+		return status.Errorf(codes.Aborted, domainErr.MessageTemplate, domainErr.DescriptionMetadata)
+	case errors.As(err, &domainAggregateErr):
+		return status.Errorf(codes.Aborted, domainAggregateErr.MessageTemplate, domainAggregateErr.DescriptionMetadata)
+	default:
+		return status.Errorf(codes.Unknown, "Something went wrong!")
 	}
 }

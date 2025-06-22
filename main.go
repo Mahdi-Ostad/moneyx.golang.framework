@@ -1,9 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"path/filepath"
 	"time"
 
+	"github.com/google/uuid"
 	"github.com/joho/godotenv"
 	"gofr.dev/pkg/gofr"
 	"gofr.dev/pkg/gofr/logging"
@@ -12,7 +14,6 @@ import (
 	"moneyx.golang.framework/injection"
 	"moneyx.golang.framework/logger"
 	"moneyx.golang.framework/logger/logrepo"
-	RoutineManagement "moneyx.golang.framework/routinemanagement"
 
 	moneyxproto "moneyx.golang.framework/proto"
 )
@@ -44,6 +45,8 @@ func doWork(heartbeat chan<- struct{}) {
 }
 
 func main() {
+	y, _ := uuid.NewUUID()
+	fmt.Printf("Correlation: %v", y)
 	err := godotenv.Load(filepath.Join(".", ".env"))
 	if err != nil {
 	}
@@ -54,8 +57,10 @@ func main() {
 	db, err := gorm.Open(sqlserver.Open(dsn), &gorm.Config{
 		Logger: logger.NewGormLogger(logger.NewMoneyxLog(), logger.GormConfig{}, app.Metrics()),
 	})
+	injection.NewInjection().AddSingleton(app.Metrics())
 	app.AddGorm(db)
-	moneyxproto.RegisterWhatsappServiceServerWithGofr(app, moneyxproto.NewWhatsappServiceGoFrServer())
+	app.Metrics()
+	moneyxproto.RegisterWhatsappServiceServerWithGofr(app, moneyxproto.NewWhatsappServiceGoFrServer(), moneyxproto.NewWhatsappServiceGoFrValidation())
 
 	i.AddTransient(&Customer{}, customerMaker)
 	//ctx = context.WithValue(ctx, db.txnCtxKey, tx)

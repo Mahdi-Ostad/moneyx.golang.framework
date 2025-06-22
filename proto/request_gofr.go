@@ -16,6 +16,53 @@ import (
 )
 
 // Request Wrappers
+type StringIdArgWrapper struct {
+	ctx context.Context
+	*framework.StringIdArg
+}
+
+func (h *StringIdArgWrapper) Context() context.Context {
+	return h.ctx
+}
+
+func (h *StringIdArgWrapper) Param(s string) string {
+	return ""
+}
+
+func (h *StringIdArgWrapper) PathParam(s string) string {
+	return ""
+}
+
+func (h *StringIdArgWrapper) Bind(p interface{}) error {
+	ptr := reflect.ValueOf(p)
+	if ptr.Kind() != reflect.Ptr {
+		return fmt.Errorf("expected a pointer, got %T", p)
+	}
+
+	hValue := reflect.ValueOf(h.StringIdArg).Elem()
+	ptrValue := ptr.Elem()
+
+	for i := 0; i < hValue.NumField(); i++ {
+		field := hValue.Type().Field(i)
+		if field.Name == "state" || field.Name == "sizeCache" || field.Name == "unknownFields" {
+			continue
+		}
+
+		if field.IsExported() {
+			ptrValue.Field(i).Set(hValue.Field(i))
+		}
+	}
+
+	return nil
+}
+
+func (h *StringIdArgWrapper) HostName() string {
+	return ""
+}
+
+func (h *StringIdArgWrapper) Params(s string) []string {
+	return nil
+}
 type EmptyWrapper struct {
 	ctx context.Context
 	*emptypb.Empty
@@ -108,52 +155,5 @@ func (h *SendMessageCommandProtoWrapper) HostName() string {
 }
 
 func (h *SendMessageCommandProtoWrapper) Params(s string) []string {
-	return nil
-}
-type StringIdArgWrapper struct {
-	ctx context.Context
-	*framework.StringIdArg
-}
-
-func (h *StringIdArgWrapper) Context() context.Context {
-	return h.ctx
-}
-
-func (h *StringIdArgWrapper) Param(s string) string {
-	return ""
-}
-
-func (h *StringIdArgWrapper) PathParam(s string) string {
-	return ""
-}
-
-func (h *StringIdArgWrapper) Bind(p interface{}) error {
-	ptr := reflect.ValueOf(p)
-	if ptr.Kind() != reflect.Ptr {
-		return fmt.Errorf("expected a pointer, got %T", p)
-	}
-
-	hValue := reflect.ValueOf(h.StringIdArg).Elem()
-	ptrValue := ptr.Elem()
-
-	for i := 0; i < hValue.NumField(); i++ {
-		field := hValue.Type().Field(i)
-		if field.Name == "state" || field.Name == "sizeCache" || field.Name == "unknownFields" {
-			continue
-		}
-
-		if field.IsExported() {
-			ptrValue.Field(i).Set(hValue.Field(i))
-		}
-	}
-
-	return nil
-}
-
-func (h *StringIdArgWrapper) HostName() string {
-	return ""
-}
-
-func (h *StringIdArgWrapper) Params(s string) []string {
 	return nil
 }
