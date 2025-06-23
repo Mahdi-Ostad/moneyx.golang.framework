@@ -1,0 +1,27 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ContinueConversationForExchanger";
+option go_package = "moneyx.golang.framework/integration/ContinueConversationForExchanger";
+package ContinueConversationForExchanger;
+
+import "Common.proto";
+
+message RollbackContinuedConversationForExchangerFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message ContinueConversationForExchangerFilesResponseIntegratedCommand {
+  bool IsDone = 1;
+  repeated string FileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ContinueConversationForExchangerFilesIntegratedCommand {
+  repeated Common.FileItem Files = 1;
+  int32 ConversationId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+

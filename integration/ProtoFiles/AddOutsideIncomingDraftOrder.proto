@@ -1,0 +1,36 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddOutsideIncomingDraftOrder";
+option go_package = "moneyx.golang.framework/integration/AddOutsideIncomingDraftOrder";
+import "Common.proto";
+
+package AddOutsideIncomingDraftOrder;
+
+message AddOutsideIncomingDraftOrderAccountingDocumentsIntegratedCommand {
+  string PaymentPlace = 1;
+  string PaymentPlaceId = 2;
+  Common.MoneyDocument Money = 3;
+  string Description = 4;
+  string SenderName = 5;
+  string ReceiverName = 6;
+  string DraftNumber = 7;
+  int64 Date = 8;
+  string BranchId = 9;
+  string DraftOrderId = 10;
+  string ManagerId = 11;
+  string CorrelationId = 12;
+  string Id = 13;
+}
+
+message AddOutsideIncomingDraftOrderAccountingDocumentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackAddedOutsideIncomingDraftOrderIntegratedCommand {
+  bool IsCompleted = 1;
+  string Message = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}

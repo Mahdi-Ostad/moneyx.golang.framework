@@ -1,0 +1,27 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.EditPayOrder";
+option go_package = "moneyx.golang.framework/integration/EditPayOrder";
+package EditPayOrder;
+
+import "Common.proto";
+
+message EditPaymentOrderIntegratedCommand {
+    repeated ReceiptItem Receipts = 1;
+    repeated int32 RemovedReceipts = 2;
+    bool UpdateCreditLimit = 3;
+    string ManagerId = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message ReceiptItem {
+    int32 ReceiptId = 1;
+    Common.Money ReceiptMoney = 2;
+}
+
+message EditPaymentOrderResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}

@@ -1,0 +1,73 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.EditCheque";
+option go_package = "moneyx.golang.framework/integration/EditCheque";
+package EditCheque;
+
+import "Common.proto";
+
+message StoreEditedChequeFileChangesResponseIntegratedCommand {
+  bool Status = 1;
+  repeated string AddedFileIds = 2;
+  string Message = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message StoreEditedChequeFileChangesIntegratedCommand {
+  repeated Common.FileItem Files = 1;
+  repeated string DeletedFiles = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message EditBankBookChequeDocumentResponseIntegratedCommand {
+  bool IsCompleted = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EditBankBookChequeDocumentIntegratedCommand {
+  string ChequeId = 1;
+  string ChequeNumber = 2;
+  Common.Money ChequeMoney = 3;
+  string BankAccountTitle = 4;
+  string BranchName = 5;
+  string BankAccountId = 6;
+  Common.NullableString ModifiedNewBankAccountId = 7;
+  int64 ChequeRegistrationDate = 8;
+  int64 DueDate = 9;
+  string Description = 10;
+  ChequeChangeState ChequeState = 11;
+  string ChequeBankName = 12;
+  string CustomerAccountId = 13;
+  string ManagerId = 14;
+  string CorrelationId = 15;
+  string Id = 16;
+}
+
+enum ChequeChangeState {
+  RemoveChequeAddReceipt = 0;
+  RemoveReceiptAddCheque = 1;
+  AddCheque = 2;
+  EditCheque = 3;
+  RemoveDocument = 4;
+  AddDocumet = 5;
+  EditDocumet = 6;
+  RemoveCheque = 7;
+}
+
+message CommitOrRollbackEditedChequeFilesIntegratedCommand {
+  bool IsCommited = 1;
+  string Message = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackBankBookEditedChequeDocumentIntegratedCommand {
+  bool IsCommited = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+

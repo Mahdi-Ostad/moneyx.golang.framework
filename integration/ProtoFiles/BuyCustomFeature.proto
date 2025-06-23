@@ -1,0 +1,79 @@
+syntax = "proto3";
+import "Common.proto";
+option csharp_namespace = "Ariyana.Framework.Schema.BuyCustomFeature";
+option go_package = "moneyx.golang.framework/integration/BuyCustomFeature";
+package BuyCustomFeature;
+
+
+message CustomFeatureCheckCustomerActivationIntegratedCommand {
+  string UserName = 1;
+  string AccountId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message CustomFeatureCheckCustomerActivationResponseIntegratedCommand {
+  bool IsEnable = 1;
+  string CustomerId = 2;
+  Common.Failure Failure = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message CustomFeatureCreditReductionIntegratedCommand {
+  string AccountNumber = 1;
+  string PackageName = 2;
+  string TransactionId = 3;
+  Common.Money ExchangerProfit = 4;
+  Common.Money ExchangerPrice = 5;
+  string OperatorName = 6;
+  string MobileNumber = 7;
+  string ManagerId = 8;
+  string CorrelationId = 9;
+  string Id = 10;
+}
+
+message CommitOrRollbackCustomFeatureCreditReductionIntegratedCommand {
+  bool IsCommitted = 1;
+  Common.CreditReductionMetaContext Context = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CustomFeatureCreditReductionResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddAccountringCustomFeatureDocumentsIntegratedCommand {
+  Common.BuyChargeAccountingInfo BuyChargeInfo = 1;
+  string CustomerId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message AddAccountingCustomFeatureDocumentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackAddedCustomFeatureAccountingDocumentIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message SubmitOrCancelCustomFeatureIntegratedCommand {
+  bool IsDone = 1;
+  string Message = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}

@@ -1,0 +1,26 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.DetermineDocumentWithAccountingTransaction";
+option go_package = "moneyx.golang.framework/integration/DetermineDocumentWithAccountingTransaction";
+package DetermineDocumentWithAccountingTransaction;
+
+import "Common.proto";
+
+message DetermineDocumentWithAccountingTransactionFilesIntegratedCommand {
+  repeated Common.FileItem Files = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message DetermineDocumentWithAccountingTransactionFilesResponseIntegratedCommand {
+  bool Status = 1;
+  repeated string NewFileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RollbackDeterminedDocumentWithAccountingTransactionFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+

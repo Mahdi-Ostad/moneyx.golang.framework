@@ -1,0 +1,28 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ExtendCustomerExpireDateBySupport";
+option go_package = "moneyx.golang.framework/integration/ExtendCustomerExpireDateBySupport";
+package ExtendCustomerExpireDateBySupport;
+
+import "Common.proto";
+
+message ExtendExpireTimeResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ExtendExpireTimeIntegratedCommand {
+  string UserName = 1;
+  int64 ExpireDate = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackExtendExpireTimeIntegratedCommand {
+  bool IsDone = 1;
+  string UserName = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+

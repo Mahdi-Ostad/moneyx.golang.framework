@@ -1,0 +1,61 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.BuyChargeCredit";
+option go_package = "moneyx.golang.framework/integration/BuyChargeCredit";
+package BuyChargeCredit;
+
+import "Common.proto";
+
+message AddBuyChargeCreditBankDocumentIntegratedCommand {
+  string BankId = 1;
+  string AccountId = 2;
+  Common.Money Money = 3;
+  bool UpdateCreditLimit = 4;
+  string ManagerId = 5;
+  string CorrelationId = 6;
+  string Id = 7;
+}
+
+message AddBuyChargeCreditBranchDocumentIntegratedCommand {
+  string BranchId = 1;
+  string AccountId = 2;
+  Common.Money Money = 3;
+  bool UpdateCreditLimit = 4;
+  string ManagerId = 5;
+  string CorrelationId = 6;
+  string Id = 7;
+}
+
+message AddBuyChargeCreditBankDocumentResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string BankTransactionId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message AddBuyChargeCreditBranchDocumentReponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string DraftOrderId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message CommitOrRollbackAddedBuyChargeCreditBankDocumentIntegratedCommand {
+  bool IsDone = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackAddedBuyChargeCreditBranchDocumentIntegratedCommand {
+  bool IsDone = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message ShaparakBuyCreditResponseIntegratedCommand {
+  bool IsDone = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+

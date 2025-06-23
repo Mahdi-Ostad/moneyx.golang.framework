@@ -1,0 +1,168 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddMiscellaneousDraft";
+option go_package = "moneyx.golang.framework/integration/AddMiscellaneousDraft";
+import "Common.proto";
+
+package AddMiscellaneousDraft;
+
+message AddMiscellaneousAccountingDocumentsIntegratedCommand {
+  string MiscellaneousNumber = 1;
+  string SenderName = 2;
+  string SenderId = 3;
+  string ReceiverName = 4;
+  string ReceiverId = 5;
+  string TransactionId = 6;
+  string PaymentPlace = 7;
+  string PaymentPlaceId = 8;
+  string OrdinaryCustomerAccountId = 9;
+  string ExchangeCustomerAccountId = 10;
+  int64 Date = 11;
+  Common.Money DraftMoney = 12;
+  Common.Money ReceivedMoney = 13;
+  Common.MoneyDocument OrdinaryCustomerCommission = 14;
+  Common.Money PaidMoney = 15;
+  string OrdinaryCustomerRate = 16;
+  string ExchangeCustomerRate = 17;
+  string Description = 18;
+  bool IsPrivate = 19;
+  bool UpdateCreditLimit = 20;
+  string ManagerId = 21;
+  string CorrelationId = 22;
+  string Id = 23;
+}
+
+message AddMiscellaneousAccountingDocumentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddMiscellaneousDraftFilesIntegratedCommand {
+  repeated Common.FileItem Files = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddMiscellaneousDraftFilesResponseIntegratedCommand {
+  bool IsDone = 1;
+  repeated string Files = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message BankReceiptMiscellaneousInfo {
+  string BankAccountId = 1;
+  string OldTransactionId = 2;
+  Common.Money Money = 3;
+  Common.MoneyDocument CommissionMoney = 4;
+  string Rate = 5;
+  Common.NullableInt64 Date = 6;
+  string ReceiptNumber = 7;
+}
+
+message AddBankMiscellaneousIntegratedCommand {
+  BankReceiptMiscellaneousInfo FromBankInfo = 1;
+  BankReceiptMiscellaneousInfo ToBankInfo = 2;
+  string TransactionId = 3;
+  string SenderFullName = 4;
+  string SenderId = 5;
+  string ReceiverFullName = 6;
+  string ReceiverId = 7;
+  string OtherNumber = 8;
+  Common.Money Money = 9;
+  string PaymentPlace = 10;
+  string Description = 11;
+  string ManagerId = 12;
+  string CorrelationId = 13;
+  string Id = 14;
+}
+
+message AddBankMiscellaneousResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.ResponseOldBankReceiptInfo FromBank = 2;
+  Common.ResponseOldBankReceiptInfo ToBank = 3;
+  Common.Failure Failure = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message CommitOrRollbackAddBankMiscellaneousIntegratedCommand {
+  bool Commit = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message EditBankReceiptMiscellaneousInfo {
+  string OldBankAccountId = 1;
+  string NewBankAccountId = 2;
+  Common.Money Money = 3;
+  Common.MoneyDocument CommissionMoney = 4;
+  string Rate = 5;
+  int64 Date = 6;
+  string ReceiptNumber = 7;
+}
+
+message EditBankMiscellaneousIntegratedCommand {
+  EditBankReceiptMiscellaneousInfo FromBankInfo = 1;
+  EditBankReceiptMiscellaneousInfo ToBankInfo = 2;
+  string TransactionId = 3;
+  string SenderFullName = 4;
+  string SenderId = 5;
+  string ReceiverFullName = 6;
+  string ReceiverId = 7;
+  string OtherNumber = 8;
+  Common.Money Money = 9;
+  string PaymentPlace = 10;
+  string Description = 11;
+  string ManagerId = 12;
+  string CorrelationId = 13;
+  string Id = 14;
+}
+
+message EditBankMiscellaneousResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackEditBankMiscellaneousIntegratedCommand {
+  bool Commit = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RemoveBankMiscellaneousIntegratedCommand {
+  string FromBankAccountId = 1;
+  string ToBankAccountId = 2;
+  string TransactionId = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message RemoveBankMiscellaneousResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackRemoveBankMiscellaneousIntegratedCommand {
+  bool Commit = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackAddedMiscellaneousDraftIntegratedCommand {
+  bool IsCommited = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RollbackAddedMiscellaneousDraftFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}

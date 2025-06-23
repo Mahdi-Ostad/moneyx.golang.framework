@@ -1,0 +1,57 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddCheque";
+option go_package = "moneyx.golang.framework/integration/AddCheque";
+import "Common.proto";
+
+package AddCheque;
+
+// Messages
+
+message AddBankBookChequeDocumentIntegratedCommand {
+    string TransactionId = 1;
+    string ChequeNumber = 2;
+    Common.Money ChequeMoney = 3;
+    string BankAccountTitle = 4;
+    string BranchName = 5;
+    string BankAccountId = 6;
+    int64 Date = 7;
+    int64 DueDate = 8;
+    string Description = 9;
+    string ManagerId = 10;
+    string CorrelationId = 11;
+    string Id = 12;
+}
+
+message AddBankBookChequeDocumentResponseIntegratedCommand {
+    bool IsCompleted = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message AddChequeFilesIntegratedCommand {
+    repeated Common.FileItem Files = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message AddChequeFilesResponseIntegratedCommand {
+    bool Status = 1;
+    repeated string Files = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackAddedBankBookChequeDocumentIntegratedCommand {
+    bool IsCommited = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message RollbackAddedChequeFilesIntegratedCommand {
+    bool Status = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}

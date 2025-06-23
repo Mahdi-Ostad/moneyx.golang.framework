@@ -1,0 +1,73 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddOrEditCompany";
+option go_package = "moneyx.golang.framework/integration/AddOrEditCompany";
+import "Common.proto";
+
+package AddOrEditCompany;
+
+message AddOrEditImmediatelyCompanyAccountIntegratedCommand {
+  bool HasEmployeeEditAccountAccess = 1;
+  string AccountNumber = 2;
+  string AccountTitle = 3;
+  string CustomerId = 4;
+  string CustomerFullName = 5;
+  repeated Common.AccountOpeningBalance OpeningBalances = 6;
+  Common.WhatsappConnector Connector = 7;
+  string ManagerId = 8;
+  string CorrelationId = 9;
+  string Id = 10;
+}
+
+message AddImmediatelyCompanyAccountResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddOrEditCompanyImageIntegratedCommand {
+  Common.FileItem ProfileImage = 1;
+  string RemovedProfileImageId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message AddOrEditCompanyImageResponseIntegratedCommand {
+  bool IsDone = 1;
+  string StoredFileId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackAddedImmediatelyCompanyIntegratedCommand {
+  bool IsCommited = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message EditAccountOwnerCompanyFullNameIntegratedCommand {
+  string PersonId = 1;
+  string FullName = 2;
+  Common.WhatsappConnector Connector = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message EditAccountOwnerCompanyFullNameResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RollbackEditedAccountOwnerCompanyFullNameIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message RollbackStoredOrRemovedCompanyImageIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}

@@ -1,0 +1,121 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.IncreaseThirdPartyCredit";
+option go_package = "moneyx.golang.framework/integration/IncreaseThirdPartyCredit";
+package IncreaseThirdPartyCredit;
+
+import "Common.proto";
+
+message RollbackIncreasedThirdPartyCreditAttachmentsIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message IncreaseThirdPartyCreditBranchDocumentResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message IncreaseThirdPartyCreditBranchDocumentIntegratedCommand {
+  string ProviderName = 1;
+  string TransactionId = 2;
+  string BranchId = 3;
+  int64 Date = 4;
+  Common.Money Money = 5;
+  int32 DraftNumber = 6;
+  int32 DrfatOtherNumber = 7;
+  SenderInfoIntegratedItem SenderInfo = 8;
+  ReceiverInfoIntegratedItem ReceiverInfo = 9;
+  string Rate = 10;
+  string Description = 11;
+  string PlaceOfPayment = 12;
+  string ManagerId = 13;
+  string CorrelationId = 14;
+  string Id = 15;
+}
+
+message SenderInfoIntegratedItem {
+  string FullName = 1;
+  string SenderId = 2;
+}
+
+message ReceiverInfoIntegratedItem {
+  string FullName = 1;
+  string FatherName = 2;
+  string ReceiverId = 3;
+}
+
+message IncreaseThirdPartyCreditBankReceiptResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message IncreaseThirdPartyCreditBankReceiptIntegratedCommand {
+  string ProviderName = 1;
+  string BankId = 2;
+  string TransactionId = 3;
+  bool IsPayment = 4;
+  Common.Money Money = 5;
+  Common.NullableString OldBankTransactionId = 6;
+  string ReceiptNumber = 7;
+  int64 Date = 8;
+  string Description = 9;
+  string ManagerId = 10;
+  string CorrelationId = 11;
+  string Id = 12;
+}
+
+message IncreaseThirdPartyCreditAttachmentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  repeated string FileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message IncreaseThirdPartyCreditAttachmentsIntegratedCommand {
+  repeated Common.FileItem Files = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message IncreaseThirdPartyCreditAccountingDocumentResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message IncreaseThirdPartyCreditAccountingDocumentIntegratedCommand {
+  string ProviderName = 1;
+  string TransactionId = 2;
+  string AccountId = 3;
+  int64 Date = 4;
+  Common.Money Money = 5;
+  string Description = 6;
+  string ManagerId = 7;
+  string CorrelationId = 8;
+  string Id = 9;
+}
+
+message CommitOrRollbackIncreasedThirdPartyCreditBranchDocumentIntegratedCommand {
+  bool IsCompleted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackIncreasedThirdPartyCreditBankReceiptIntegratedCommand {
+  bool IsCompleted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackIncreasedThirdPartyCreditAccountingDocumentIntegratedCommand {
+  bool IsCompleted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+

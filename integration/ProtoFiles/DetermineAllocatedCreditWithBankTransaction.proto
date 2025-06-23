@@ -1,0 +1,69 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.DetermineAllocatedCreditWithBankTransaction";
+option go_package = "moneyx.golang.framework/integration/DetermineAllocatedCreditWithBankTransaction";
+package DetermineAllocatedCreditWithBankTransaction;
+
+import "Common.proto";
+
+message RollbackDeterminedAllocatedCreditWithBankTransactionAttachmentsIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message DetermineAllocatedCreditWithBankTransactionResponseIntegratedCommand {
+  bool IsDone = 1;
+  repeated string OldFileIds = 2;
+  Common.BankReceiptInfo OldBankInfo = 3;
+  Common.Failure FailureMessage = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message DetermineAllocatedCreditWithBankTransactionRemoveAccountingUnknownBankDocumentResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message DetermineAllocatedCreditWithBankTransactionRemoveAccountingUnknownBankDocumentIntegratedCommand {
+  string OldTransactionId = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message DetermineAllocatedCreditWithBankTransactionIntegratedCommand {
+  Common.BankReceiptInfo NewBankReceiptInfo = 1;
+  Common.NullableString OldTransactionId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message DetermineAllocatedCreditWithBankTransactionAttachmentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  repeated string NewFileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message DetermineAllocatedCreditWithBankTransactionAttachmentsIntegratedCommand {
+  repeated Common.FileItem FileItems = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackDeterminedAllocatedCreditWithBankTransactionRemoveAccountingUnknownBankDocumentIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackDeterminedAllocatedCreditWithBankTransactionIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+

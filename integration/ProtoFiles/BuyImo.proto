@@ -1,0 +1,105 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.BuyImo";
+option go_package = "moneyx.golang.framework/integration/BuyImo";
+package BuyImo;
+
+import "Common.proto";
+
+message BuyImoIntegratedCommand {
+  string TransactionId = 1;
+  string UserId = 2;
+  string OperatorSystem = 3;
+  string AmountPackage = 4;
+  string ImoCount = 5;
+  string ImoId = 6;
+  string PackageCode = 7;
+  string CorrelationId = 8;
+  string Id = 9;
+}
+
+message BuyImoResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string ServiceProviderRefNumber = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message BuyImoCreditReductionIntegratedCommand {
+  string AccountId = 1;
+  string PackageTitle = 2;
+  string ChargeTransactionId = 3;
+  Common.Money Commission = 4;
+  Common.Money ExchangerDeductedMoney = 5;
+  string OperatorName = 6;
+  string PhoneNumber = 7;
+  string ManagerId = 8;
+  string CorrelationId = 9;
+  string Id = 10;
+}
+
+message BuyImoCreditReductionResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ImoCheckCustomerActivationIntegratedCommand {
+  string UserName = 1;
+  string AccountId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message ImoCheckCustomerActivationResponseIntegratedCommand {
+  bool IsEnable = 1;
+  string CustomerId = 2;
+  Common.Failure Failure = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message ImoCheckManagerChargeActivationIntegratedCommand {
+  string ManagerId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message ImoCheckManagerChargeActivationResponseIntegratedCommand {
+  bool IsEnable = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddAccountingBuyImoDocumentsIntegratedCommand {
+  Common.BuyChargeAccountingInfo BuyChargeInfo = 1;
+  string CustomerId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message AddAccountingBuyImoDocumentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackAddedBuyImoAccountingDocumentIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackBuyImoCreditReductionIntegratedCommand {
+  bool IsCommitted = 1;
+  Common.CreditReductionMetaContext Context = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+

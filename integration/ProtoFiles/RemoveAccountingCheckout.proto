@@ -1,0 +1,29 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RemoveAccountingCheckout";
+option go_package = "moneyx.golang.framework/integration/RemoveAccountingCheckout";
+package RemoveAccountingCheckout;
+
+import "Common.proto";
+
+message RemoveArchivedCheckoutDocumentsResponseIntegratedCommand {
+  bool IsSuccessful = 1;
+  repeated Common.AccountDocumentDto ArchiveDocumentsItem = 2;
+  Common.Failure Failure = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message RemoveArchivedCheckoutDocumentsIntegratedCommand {
+  string AccountId = 1;
+  int32 CheckoutId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message CommitOrRollbackRemovedAccountingCheckoutIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+

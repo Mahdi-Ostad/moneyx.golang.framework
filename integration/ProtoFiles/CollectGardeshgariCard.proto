@@ -1,0 +1,35 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.CollectGardeshgariCard";
+option go_package = "moneyx.golang.framework/integration/CollectGardeshgariCard";
+package CollectGardeshgariCard;
+
+message CollectGardeshgariCardInfoIntegratedQuery {
+  string CustomerId = 1;
+  string PhoneId = 2;
+  string IdentityDocumentId = 3;
+  string AddressId = 4;
+  string ManagerId = 5;
+  string CorrelationId = 6;
+  string Id = 7;
+}
+
+message CollectGardeshgariCardInfoResponseIntegratedQuery {
+  string FirstName = 1;
+  string MiddleName = 2;
+  string LastName = 3;
+  string FatherName = 4;
+  int64 Birthday = 5;
+  string AddressCountryCode = 6;
+  int32 AddressStateCode = 7;
+  int32 AddressCityCode = 8;
+  string AddressPostalCode = 9;
+  string AddressText = 10;
+  string ImageId = 11;
+  string PhoneCountryCode = 12;
+  string PhoneNumber = 13;
+  string DocumentDescription = 14;
+  string DocumentNumber = 15;
+  string CorrelationId = 16;
+  string Id = 17;
+}
+

@@ -1,0 +1,29 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.CreateMaknakWallet";
+option go_package = "moneyx.golang.framework/integration/CreateMaknakWallet";
+import "Common.proto";
+
+package CreateMaknakWallet;
+
+message CreateAccountingWalletAccountByUserIntegratedCommand {
+    string AccountNumber = 1;
+    string AccountTitle = 2;
+    string CustomerId = 3;
+    string CustomerFullName = 4;
+    string ManagerId = 5;
+    string CorrelationId = 6;
+    string Id = 7;
+}
+
+message CreateAccountingWalletAccountByUserResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackCreateAccountingWalletAccountByUserIntegratedCommand {
+    bool IsCommit = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}

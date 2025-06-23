@@ -1,0 +1,53 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RemoveCheque";
+option go_package = "moneyx.golang.framework/integration/RemoveCheque";
+package RemoveCheque;
+
+import "Common.proto";
+
+message RollbackRemovedChequeFilesIntegratedCommand {
+  bool Status = 1;
+  repeated string RemovedFiles = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message RemoveChequeFilesResponseIntegratedCommand {
+  bool Status = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveChequeFilesIntegratedCommand {
+  repeated string Files = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveBankBookChequeDocumentResponseIntegratedCommand {
+  bool Status = 1;
+  Common.Failure Failure = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message RemoveBankBookChequeDocumentIntegratedCommand {
+  string BankId = 1;
+  string TransactionId = 2;
+  bool IsPassed = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message CommitOrRollbackRemovedBankBookChequeDocumentIntegratedCommand {
+  bool IsCommitted = 1;
+  string Id = 2;
+  string CorrelationId = 3;
+  string ManagerId = 4;
+}
+

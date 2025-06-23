@@ -1,0 +1,71 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RemoveTradeCurrency";
+option go_package = "moneyx.golang.framework/integration/RemoveTradeCurrency";
+package RemoveTradeCurrency;
+
+import "Common.proto";
+
+message RollbackRemovedTradeCurrencyFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message RemoveTradeCurrencyFilesResponseIntegratedCommand {
+  bool IsCompleted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RemoveTradeCurrencyFilesIntegratedCommand {
+  repeated string FileIds = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveTradeCurrencyBankReceiptsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveTradeCurrencyBankReceiptsIntegratedCommand {
+  Common.NullableString SellerBankId = 1;
+  Common.NullableString BuyerBankId = 2;
+  string TransactionId = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message RemoveTradeCurrencyAccountingDocumentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveTradeCurrencyAccountingDocumentsIntegratedCommand {
+  Common.NullableString BuyerAccountId = 1;
+  Common.NullableString SellerAccountId = 2;
+  string TranId = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message CommitOrRollbackRemovedTradeCurrencyBankReceiptIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackRemovedTradeCurrencyAccountingDocumentsIntegratedCommand {
+  bool IsCommitted = 1;
+  Common.WhatsappInfo BuyerWhatsappInfo = 2;
+  Common.WhatsappInfo SellerWhatsappInfo = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+

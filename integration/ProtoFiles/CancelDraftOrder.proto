@@ -1,0 +1,102 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.CancelDraftOrder";
+option go_package = "moneyx.golang.framework/integration/CancelDraftOrder";
+package CancelDraftOrder;
+
+import "Common.proto";
+
+message AddAccountingCancelledDraftDocumentsIntegratedCommand {
+  string PaymentPlace = 1;
+  string PaymentPlaceId = 2;
+  string AccountId = 3;
+  Common.MoneyDocument DraftMoney = 4;
+  string DraftOrderId = 5;
+  string Description = 6;
+  bool IsPrivate = 7;
+  string DraftOrderNumber = 8;
+  string BranchName = 9;
+  string SenderName = 10;
+  string SenderId = 11;
+  string ReceiverName = 12;
+  string ReceiverId = 13;
+  bool IsOutgoingDraftOrder = 14;
+  int64 Date = 15;
+  bool UpdateCreditLimit = 16;
+  Common.NullableString RemovedUnknownBankTransactionId = 17;
+  Common.Money DescriptionDraftMoney = 18;
+  string Rate = 19;
+  int32 CancelledDraftNumber = 20;
+  string ManagerId = 21;
+  string CorrelationId = 22;
+  string Id = 23;
+}
+
+message AddBankBookCancelledDraftDocumentResponseIntegratedCommand {
+  bool Status = 1;
+  string ReceiptNumber = 2;
+  Common.NullableInt64 UnknownTransactionDate = 3;
+  Common.Failure Failure = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message AddBankBookCancelledDraftDocumentIntegratedCommand {
+  string BankId = 1;
+  string DraftOrderId = 2;
+  int32 DraftOrderNumber = 3;
+  Common.MoneyDocument DraftOrderMoneyDocument = 4;
+  Common.NullableString ReceiptDocumentTransaction = 5;
+  string ReceiptNumber = 6;
+  int64 Date = 7;
+  string SenderId = 8;
+  string SenderName = 9;
+  string ReciverId = 10;
+  string ReceiverName = 11;
+  string BranchId = 12;
+  string Description = 13;
+  bool IsPrivate = 14;
+  int32 CancelledDraftNumber = 15;
+  string ManagerId = 16;
+  string CorrelationId = 17;
+  string Id = 18;
+}
+
+message AddCancelledDraftFilesIntegratedCommand {
+  repeated Common.FileItem Files = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddCancelledDraftFilesResponseIntegratedCommand {
+  bool Status = 1;
+  repeated string FileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackAddedAccountingCancelledDraftDocumentsIntegratedCommand {
+  bool IsCommitted = 1;
+  Common.WhatsappInfo WhatsappInfo = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackAddedBankBookCancelledDraftDocumentIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RollbackAddedCancelledDraftFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message AddAccountingCancelledDraftDocumentsResponseIntegratedCommand {
+  bool Status = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+

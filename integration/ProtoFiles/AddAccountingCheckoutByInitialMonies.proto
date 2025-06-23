@@ -1,0 +1,28 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddAccountingCheckoutByInitialMonies";
+option go_package = "moneyx.golang.framework/integration/AddAccountingCheckoutByInitialMonies";
+import "Common.proto";
+
+package AddAccountingCheckoutByInitialMonies;
+
+// Messages
+
+message AddCheckoutByInitialMoniesInAccountingIntegratedCommand {
+    string AccountId = 1;
+    repeated Common.AccountDocumentDto ArchiveDocumentsItem = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message AddCheckoutByInitialMoniesInAccountingResponseIntegratedCommand {
+    bool Status = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackAddCheckoutByInitialMoniesInAccountingIntegratedCommand {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}

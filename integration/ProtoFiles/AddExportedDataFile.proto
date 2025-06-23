@@ -1,0 +1,27 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddExportedDataFile";
+option go_package = "moneyx.golang.framework/integration/AddExportedDataFile";
+import "Common.proto";
+
+package AddExportedDataFile;
+
+// Messages
+
+message AddExportedDataFileIntegratedCommand {
+    Common.FileItem File = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message AddExportedDataFileResponseIntegratedCommand {
+    bool IsDone = 1;
+    string File = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message RollbackAddedExportedDataFileIntegratedCommand {
+    string CorrelationId = 1;
+    string Id = 2;
+}

@@ -1,0 +1,150 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.BuyFmcgPackage";
+option go_package = "moneyx.golang.framework/integration/BuyFmcgPackage";
+package BuyFmcgPackage;
+
+import "Common.proto";
+
+message BuyFmcgIntegratedCommand {
+  string TransactionId = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message BuyFmcgResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.NullableInt32 OrderId = 2;
+  Common.Failure Failure = 3;
+  string ServiceProviderRefNumber = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message FmcgCreditReductionIntegratedCommand {
+  string AccountId = 1;
+  string PackageTitle = 2;
+  string ChargeTransactionId = 3;
+  Common.Money Commission = 4;
+  Common.Money ExchangerDeductedMoney = 5;
+  string OperatorName = 6;
+  string PhoneNumber = 7;
+  string ManagerId = 8;
+  string CorrelationId = 9;
+  string Id = 10;
+}
+
+message FmcgCreditReductionResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackFmcgCreditReductionIntegratedCommand {
+  bool IsCommitted = 1;
+  Common.CreditReductionMetaContext Context = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddAccountingFmcgDocumentsIntegratedCommand {
+  Common.BuyChargeAccountingInfo BuyChargeInfo = 1;
+  string CustomerId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message AddAccountingFmcgDocumentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackFmcgAccountingDocumentIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message FmcgCheckManagerChargeActivationIntegratedCommand {
+  string ManagerId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message FmcgCheckManagerChargeActivationResponseIntegratedCommand {
+  bool IsEnable = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message FmcgCheckCustomerActivationIntegratedCommand {
+  string UserName = 1;
+  string AccountId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message FmcgCheckCustomerActivationResponseIntegratedCommand {
+  bool IsEnable = 1;
+  string CustomerId = 2;
+  Common.Failure Failure = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message InitalizeBuyIntegratedCommand {
+  string MizbanId = 1;
+  Common.NullableInt32 DeliveryTimeScheduleId = 2;
+  Common.NullableInt32 AreaId = 3;
+  string CustomerName = 4;
+  string PhoneNumber = 5;
+  int32 StoreId = 6;
+  int32 AddressId = 7;
+  string Description = 8;
+  repeated FmcgOrderIntegratedItem Items = 9;
+  string CorrelationId = 10;
+  string Id = 11;
+}
+
+message InitalizeBuyResponseIntegratedCommand {
+  Common.NullableDouble TotalAmount = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message BuyFmcgFinalizeIntegratedCommand {
+  bool IsConfirmed = 1;
+  string RejectReason = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message BuyCustomFeatureFinalizeCommand {
+  string FeatureName = 1;
+  string AccountNumber = 2;
+  string ManagerId = 3;
+  int32 ServiceProviderId = 4;
+  double ExchangerPrice = 5;
+  double CustomerPrice = 6;
+  string ToCurrencyCode = 7;
+  string OperatorName = 8;
+  string MobileNumber = 9;
+  string PackageTitle = 10;
+  string CustomerId = 11;
+  string UserId = 12;
+  string CorrelationId = 13;
+  string Id = 14;
+}
+
+message FmcgOrderIntegratedItem {
+    int32 Id = 1;
+    string Type = 2;
+    int32 Quantity = 3;
+}

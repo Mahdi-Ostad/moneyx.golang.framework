@@ -1,0 +1,26 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RemoveExportedDataFile";
+option go_package = "moneyx.golang.framework/integration/RemoveExportedDataFile";
+package RemoveExportedDataFile;
+
+message RemoveExportedDataFileIntegratedCommand {
+    repeated ToRemoveFileItem FileIds = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message RemoveExportedDataFileResponseIntegratedCommand {
+    bool IsDone = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message RollbackRemovedExportedDataFileIntegratedCommand {
+    string CorrelationId = 1;
+    string Id = 2;
+}
+
+message ToRemoveFileItem {
+    string FileId = 1;
+    string ManagerId = 2;
+}

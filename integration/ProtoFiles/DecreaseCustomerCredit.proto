@@ -1,0 +1,93 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.DecreaseCustomerCredit";
+option go_package = "moneyx.golang.framework/integration/DecreaseCustomerCredit";
+import "Common.proto";
+
+package DecreaseCustomerCredit;
+
+message AddAccountingDocumentInDecreaseCreditByAdminIntegratedCommand {
+    string AccountId = 1;
+    string TransactionId = 2;
+    int64 Date = 3;
+    Common.Money Money = 4;
+    string Description = 5;
+    string OldBankTransactionId = 6;
+    string ManagerId = 7;
+    string CorrelationId = 8;
+    string Id = 9;
+}
+
+message AddAccountingDocumentInDecreaseCreditByAdminResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackAddAccountingDocumentInDecreaseCreditByAdminIntegratedCommand {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message AddBankDocumentInDecreaseCreditByAdminIntegratedCommand {
+    NewBankTransactionInfoDecreaseAdminCreditIntegratedItem NewTransactionInfo = 1;
+    OldBankTransactionInfoDecreaseAdminCreditIntegratedItem Old = 2;
+    string TranId = 3;
+    string ManagerId = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message AddBankDocumentInDecreaseCreditByAdminResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    DecreaseCreditByAdminOldBankTransactionDetailsIntegratedItem OldBankTransactionDetails = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message CommitOrRollbackAddBankDocumentInDecreaseCreditByAdminIntegratedCommand {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message DecreaseCreditByAdminOldBankTransactionDetailsIntegratedItem {
+    string ReceiptNumber = 1;
+    int64 Date = 2;
+}
+
+message NewBankTransactionInfoDecreaseAdminCreditIntegratedItem {
+    string ReceiptNumber = 1;
+    string BankId = 2;
+    Common.Money Money = 3;
+    int64 Date = 4;
+    string Description = 5;
+}
+
+message OldBankTransactionInfoDecreaseAdminCreditIntegratedItem {
+    string TranId = 1;
+    string BankId = 2;
+    Common.Money Money = 3;
+}
+
+message AddDecreaseCreditByAdminAttachmentsIntegratedCommand {
+    repeated Common.FileItem Files = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message AddDecreaseCreditByAdminAttachmentsResponseIntegratedCommand {
+    bool IsDone = 1;
+    repeated string FileIds = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackAddDecreaseCreditByAdminAttachmentsIntegratedCommand {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}

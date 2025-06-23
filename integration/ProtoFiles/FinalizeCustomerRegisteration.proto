@@ -1,0 +1,28 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.FinalizeCustomerRegisteration";
+option go_package = "moneyx.golang.framework/integration/FinalizeCustomerRegisteration";
+package FinalizeCustomerRegisteration;
+
+import "Common.proto";
+
+message FinalizeExpireTimeResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message FinalizeExpireTimeIntegratedCommand {
+  string UserName = 1;
+  int64 ExpireDate = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackFinalizeExpireTimeIntegratedCommand {
+  bool IsDone = 1;
+  string UserName = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+

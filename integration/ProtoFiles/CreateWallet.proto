@@ -1,0 +1,15 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.CreateWallet";
+option go_package = "moneyx.golang.framework/integration/CreateWallet";
+package CreateWallet;
+
+message CreateCustomerWalletIntegratedCommand {
+    string FirstName = 1;
+    string LastName = 2;
+    string PhoneCountryCode = 3;
+    string PhoneNumber = 4;
+    string NationalCountryCode = 5;
+    string UserId = 6;
+    string CorrelationId = 7;
+    string Id = 8;
+}

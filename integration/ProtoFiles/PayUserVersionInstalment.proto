@@ -1,0 +1,28 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.PayUserVersionInstalment";
+option go_package = "moneyx.golang.framework/integration/PayUserVersionInstalment";
+package PayUserVersionInstalment;
+
+import "Common.proto";
+
+message PayInstalmentExpireDateResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message PayInstalmentExpireDateIntegratedCommand {
+  string UserName = 1;
+  int64 ExpireDate = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackPayInstalmentExpireDateIntegratedCommand {
+  bool IsDone = 1;
+  string UserName = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+

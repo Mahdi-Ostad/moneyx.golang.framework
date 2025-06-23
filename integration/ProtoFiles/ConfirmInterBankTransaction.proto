@@ -1,0 +1,24 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ConfirmInterBankTransaction";
+option go_package = "moneyx.golang.framework/integration/ConfirmInterBankTransaction";
+package ConfirmInterBankTransaction;
+
+message DenyInterBankTransactionFilesIntegratedCommand {
+  repeated string FileIds = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message DenyInterBankTransactionFilesResponseIntegratedCommand {
+  bool IsDone = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RollbackDeniedBankInterTransactionFiles {
+  string ManagerId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+

@@ -1,0 +1,25 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddPersonAttachment";
+option go_package = "moneyx.golang.framework/integration/AddPersonAttachment";
+import "Common.proto";
+
+package AddPersonAttachment;
+
+message AddPersonAttachmentIntegratedCommand {
+  Common.FileItem ProfileImage = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddPersonAttachmentResponseIntegratedCommand {
+  bool IsDone = 1;
+  string StoredFileId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RollbackAddedPersonAttachmentIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}

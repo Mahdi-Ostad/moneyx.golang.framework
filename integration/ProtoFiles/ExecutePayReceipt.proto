@@ -1,0 +1,50 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ExecutePayReceipt";
+option go_package = "moneyx.golang.framework/integration/ExecutePayReceipt";
+package ExecutePayReceipt;
+
+import "Common.proto";
+
+message RollbackExecutedPayReceiptFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message ExecutePayReceiptReponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ExecutePayReceiptIntegratedCommand {
+  string DebtorAccountId = 1;
+  string CreditorAccountId = 2;
+  bool IsPrivate = 3;
+  int64 Date = 4;
+  Common.MoneyDocument DebtorCommission = 5;
+  Common.MoneyDocument CreditorCommission = 6;
+  bool UpdateCreditLimit = 7;
+  repeated string FileIds = 8;
+  Common.Money Money = 9;
+  string Description = 10;
+  int32 ReceiptId = 11;
+  string MangerId = 12;
+  string CorrelationId = 13;
+  string Id = 14;
+}
+
+message ExecutePayReceiptFilesReponseIntegratedCommand {
+  bool Status = 1;
+  repeated string FileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ExecutePayReceiptFilesIntegratedCommand {
+  repeated Common.FileItem Files = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+

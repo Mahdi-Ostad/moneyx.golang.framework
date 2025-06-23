@@ -1,0 +1,100 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.EditTradeCurrency";
+option go_package = "moneyx.golang.framework/integration/EditTradeCurrency";
+package EditTradeCurrency;
+
+import "Common.proto";
+
+message RollbackEditedTradeCurrencyFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message EditTradeCurrencyFilesResponseIntegratedCommand {
+  bool Status = 1;
+  repeated string FileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EditTradeCurrencyFilesIntegratedCommand {
+  repeated Common.FileItem AddedFiles = 1;
+  repeated string RemovedFileIds = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message EditTradeCurrencyBankReciptsResponseIntegartedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EditTradeCurrencyBankReciptsIntegartedCommand {
+  EditBankReceiptInfo BuyerBankInfo = 1;
+  EditBankReceiptInfo SellerBankInfo = 2;
+  int64 Date = 3;
+  string Description = 4;
+  string TradeTransationId = 5;
+  OpponnentMetadata AccountInfo = 6;
+  string Rate = 7;
+  bool IsPrivate = 8;
+  string ManagerId = 9;
+  string CorrelationId = 10;
+  string Id = 11;
+}
+
+message EditBankReceiptInfo {
+  string BankId = 1;
+  Common.MoneyDocument Money = 2;
+  Common.MoneyDocument CommissionMoney = 3;
+}
+
+message EditTradeCurrencyAccountingDocumentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EditTradeCurrencyAccountingDocumentsIntegratedCommand {
+  EditAccountingDocumentInfo BuyerDocumentInfo = 1;
+  EditAccountingDocumentInfo SellerDocumentInfo = 2;
+  int64 Date = 3;
+  string Description = 4;
+  string TranId = 5;
+  OpponnentMetadata BankInfo = 6;
+  string Rate = 7;
+  bool IsPrivate = 8;
+  bool UpdateCreditLimit = 9;
+  string ManagerId = 10;
+  string CorrelationId = 11;
+  string Id = 12;
+}
+
+message OpponnentMetadata {
+  string Id = 1;
+  Common.Money Money = 2;
+}
+
+message EditAccountingDocumentInfo {
+  string AccountId = 1;
+  Common.MoneyDocument Money = 2;
+  Common.MoneyDocument CommissionMoney = 3;
+}
+
+message CommitOrRollbackEditedTradeCurrencyDocumentsIntegratedCommand {
+  bool IsCommited = 1;
+  repeated Common.AccountingWhatsappInfo WhatsappInfo = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackEditedTradeCurrencyBankReceiptsIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+

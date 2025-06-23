@@ -1,0 +1,114 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.BuyAveaCharge";
+option go_package = "moneyx.golang.framework/integration/BuyAveaCharge";
+package BuyAveaCharge;
+
+import "Common.proto";
+
+// BuyAveaChargeByAfghanCellIntegratedCommand
+message BuyAveaChargeByAfghanCellIntegratedCommand {
+    double AmountPackage = 1;
+    string TransactionId = 2;
+    string ChargeNumber = 3;
+    string PackageCode = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+// BuyAveaChargeByAfghanCellResponseIntegratedCommand
+message BuyAveaChargeByAfghanCellResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string ServiceProviderRefNumber = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+// BuyAveaChargeCreditReductionIntegratedCommand
+message BuyAveaChargeCreditReductionIntegratedCommand {
+    string AccountId = 1;
+    string PackageTitle = 2;
+    string ChargeTransactionId = 3;
+    Common.Money Commission = 4;
+    Common.Money ExchangerDeductedMoney = 5;
+    string OperatorName = 6;
+    string PhoneNumber = 7;
+    string ManagerId = 8;
+    string CorrelationId = 9;
+    string Id = 10;
+}
+
+// BuyAveaChargeCreditReductionResponseIntegratedCommand
+message BuyAveaChargeCreditReductionResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+// AveaCheckCustomerActivationIntegratedCommand
+message AveaCheckCustomerActivationIntegratedCommand {
+    string UserName = 1;
+    string AccountId = 2;
+    string ManagerId = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+// AveaCheckCustomerActivationResponseIntegratedCommand
+message AveaCheckCustomerActivationResponseIntegratedCommand {
+    bool IsEnable = 1;
+    string CustomerId = 2;
+    Common.Failure Failure = 3;
+    string ManagerId = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+// AveaCheckManagerChargeActivationIntegratedCommand
+message AveaCheckManagerChargeActivationIntegratedCommand {
+    string ManagerId = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+// AveaCheckManagerChargeActivationResponseIntegratedCommand
+message AveaCheckManagerChargeActivationResponseIntegratedCommand {
+    bool IsEnable = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+// AddAccountingBuyAveaChargeDocumentsIntegratedCommand
+message AddAccountingBuyAveaChargeDocumentsIntegratedCommand {
+    Common.BuyChargeAccountingInfo BuyChargeInfo = 1;
+    string CustomerId = 2;
+    string ManagerId = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+// AddAccountingBuyAveaChargeDocumentsResponseIntegratedCommand
+message AddAccountingBuyAveaChargeDocumentsResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+// CommitOrRollbackAddedBuyAveaChargeAccountingDocumentIntegratedCommand
+message CommitOrRollbackAddedBuyAveaChargeAccountingDocumentIntegratedCommand {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+// CommitOrRollbackBuyAveaChargeCreditReductionIntegratedCommand
+message CommitOrRollbackBuyAveaChargeCreditReductionIntegratedCommand {
+    bool IsCommitted = 1;
+    Common.CreditReductionMetaContext Context = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+

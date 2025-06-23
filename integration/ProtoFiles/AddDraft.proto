@@ -1,0 +1,103 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddDraft";
+option go_package = "moneyx.golang.framework/integration/AddDraft";
+import "Common.proto";
+
+package AddDraft;
+
+// Messages
+
+message AddAccountingDraftDocumentsIntegratedCommand {
+    string PaymentPlace = 1;
+    string PaymentPlaceId = 2;
+    string AccountId = 3;
+    bool IsUnexecuted = 4;
+    Common.MoneyDocument DraftMoney = 5;
+    Common.MoneyDocument DraftCommission = 6;
+    string DraftOrderId = 7;
+    string Description = 8;
+    bool IsPrivate = 9;
+    string DraftOrderNumber = 10;
+    string BranchName = 11;
+    string SenderName = 12;
+    string SenderId = 13;
+    string ReceiverName = 14;
+    string ReceiverId = 15;
+    bool IsOutgoingDraftOrder = 16;
+    int64 Date = 17;
+    bool UpdateCreditLimit = 18;
+    Common.NullableString RemovedUnknownBankTransactionId = 19;
+    Common.Money DescriptionDraftMoney = 20;
+    string Rate = 21;
+    string ManagerId = 22;
+    string CorrelationId = 23;
+    string Id = 24;
+}
+
+message AddAccountingDraftDocumentsResponseIntegratedCommand {
+    bool Status = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message AddBankBookDraftDocumentIntegratedCommand {
+    string BankId = 1;
+    string DraftOrderId = 2;
+    int32 DraftOrderNumber = 3;
+    Common.MoneyDocument DraftOrderMoneyDocument = 4;
+    Common.NullableString ReceiptDocumentTransaction = 5;
+    string ReceiptNumber = 6;
+    int64 Date = 7;
+    string SenderId = 8;
+    string SenderName = 9;
+    string ReciverId = 10;
+    string ReceiverName = 11;
+    string BranchId = 12;
+    string Description = 13;
+    bool IsPrivate = 14;
+    string ManagerId = 15;
+    string CorrelationId = 16;
+    string Id = 17;
+}
+
+message AddBankBookDraftDocumentResponseIntegratedCommand {
+    bool Status = 1;
+    string ReceiptNumber = 2;
+    Common.NullableInt64 UnknownTransactionDate = 3;
+    Common.Failure Failure = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message AddDraftFilesIntegratedCommand {
+    repeated Common.FileItem Files = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message AddDraftFilesResponseIntegratedCommand {
+    bool Status = 1;
+    repeated string FileIds = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackAddedAccountingDraftDocumentsIntegratedCommand {
+    bool IsCommitted = 1;
+    Common.WhatsappInfo WhatsappInfo = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackAddedBankBookDraftDocumentIntegratedCommand {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message RollbackAddedDraftFilesIntegratedCommand {
+    string CorrelationId = 1;
+    string Id = 2;
+}

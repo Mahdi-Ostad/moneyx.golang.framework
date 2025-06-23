@@ -1,0 +1,19 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.JiraAnalyzer";
+option go_package = "moneyx.golang.framework/integration/JiraAnalyzer";
+package JiraAnalyzer;
+
+message JiraAnalyzerStatusIntegratedCommand {
+    string IssueId = 1;
+    string Content = 2;
+    IssueItem IssueType = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+enum IssueItem {
+    Invalid = 0;
+    FakeReport = 1;
+    FutureDevelopment = 2;
+    ReadyToDeploy = 3;
+}

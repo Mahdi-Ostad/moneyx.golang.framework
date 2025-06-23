@@ -1,0 +1,76 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.EditBankTransaction";
+option go_package = "moneyx.golang.framework/integration/EditBankTransaction";
+package EditBankTransaction;
+
+import "Common.proto";
+
+message RollbackEditedBankTransactionFiles {
+  repeated string AddedFileIds = 1;
+  repeated string RemovedFileIds = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message EditBankTransactionFilesResponseIntegratedCommand {
+  bool IsDone = 1;
+  repeated string AddedFileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EditBankTransactionFilesIntegratedCommand {
+  repeated Common.FileItem AddFiles = 1;
+  repeated string RemovedFiles = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message EditAccountingBankTransactionDocumentResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EditAccountingBankTransactionDocumentIntegratedCommand {
+  bool IsDebtor = 1;
+  int64 Datetime = 2;
+  string BankId = 3;
+  string ReceiptNumber = 4;
+  string BranchName = 5;
+  repeated EditAccountingInfo AccountingInfos = 6;
+  bool IsPrivate = 7;
+  string Description = 8;
+  bool UpdateCreditLimit = 9;
+  string TransactionId = 10;
+  string ManagerId = 11;
+  string CorrelationId = 12;
+  string Id = 13;
+}
+
+message EditAccountingInfo {
+  string AccountId = 1;
+  Common.Money TransactionMoney = 2;
+  Common.Money Commission = 3;
+  BankTransactionChangeState ChangeState = 4;
+}
+
+enum BankTransactionChangeState {
+  AddKnown = 0;
+  RemoveKnown = 1;
+  EditKnown = 2;
+  AddUnknown = 3;
+  RemoveUnknown = 4;
+  EditUnknown = 5;
+}
+
+message CommitOrRollbackEditedAccountingDocumentsIntegratedCommand {
+  bool IsCompleted = 1;
+  repeated Common.AccountingWhatsappInfo WhatsappInfo = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+

@@ -1,0 +1,56 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.CustomerPayment";
+option go_package = "moneyx.golang.framework/integration/CustomerPayment";
+package CustomerPayment;
+
+import "Common.proto";
+
+message CustomerPaymentAccountingIntegratedCommand {
+    string AccountId = 1;
+    string ManagerId = 2;
+    Common.MoneyDocument Money = 3;
+    int64 ExtractTransactionDate = 4;
+    string TransactionId = 5;
+    string RefrenceNumber = 6;
+    string CorrelationId = 7;
+    string Id = 8;
+}
+
+message CustomerPaymentAccountingResponseIntegratedCommand {
+    string CorrelationId = 1;
+    string Id = 2;
+}
+
+message CustomerPaymentCreditManagementIntegratedCommand {
+    string ManagerId = 1;
+    Common.MoneyDocument Money = 2;
+    string Description = 3;
+    string TransactionId = 4;
+    int64 Date = 5;
+    string AccountNumber = 6;
+    string RefrenceNumber = 7;
+    string CorrelationId = 8;
+    string Id = 9;
+}
+
+message CustomerPaymentCreditManagementResponseIntegratedCommand {
+    string CorrelationId = 1;
+    string Id = 2;
+}
+
+message CustomerPaymentBankBookIntegratedCommand {
+    Common.MoneyDocument Money = 1;
+    string ReceiptNumber = 2;
+    int64 Date = 3;
+    string Description = 4;
+    string TransactionId = 5;
+    string AccountId = 6;
+    string CustomerManagerId = 7;
+    string CorrelationId = 8;
+    string Id = 9;
+}
+
+message CustomerPaymentBankBookResponseIntegratedCommand {
+    string CorrelationId = 1;
+    string Id = 2;
+}

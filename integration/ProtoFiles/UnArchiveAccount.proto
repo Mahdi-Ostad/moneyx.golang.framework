@@ -1,0 +1,28 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.UnArchiveAccount";
+option go_package = "moneyx.golang.framework/integration/UnArchiveAccount";
+package UnArchiveAccount;
+
+import "Common.proto";
+
+message EditUnArchivedAccountCustomerIntegratedCommand {
+    string AccountId = 1;
+    string AccountName = 2;
+    string CustomerId = 3;
+    string ManagerId = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message EditUnArchivedAccountCustomerResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackEditUnArchivedAccountCustomerResponseIntegratedCommand {
+    bool IsCommited = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}

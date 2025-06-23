@@ -1,0 +1,75 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.OverallReports";
+option go_package = "moneyx.golang.framework/integration/OverallReports";
+package OverallReports;
+
+import "Common.proto";
+
+enum ReportType {
+  Branches = 0;
+  CustomerAccounts = 1;
+  Banks = 2;
+  UnexecutedDraft = 3;
+  UnknownBank = 4;
+  Costs = 5;
+  CreditAccount = 6;
+  Tpm = 7;
+  CashAccount = 8;
+}
+
+enum AccountType {
+  BranchesType = 0;
+  CustomerAccountsType = 1;
+  BanksType = 2;
+}
+
+enum IntegratedChequeStatus {
+  SaveToCachDeskOrBank = 0;
+  SaveToCustomerAccount = 1;
+  CacheToMoney = 2;
+  Returned = 3;
+}
+
+message IntegratedCurrencyStatus {
+  string CurrencyCode = 1;
+  double SumDebitAmount = 2;
+  double SumCreditAmount = 3;
+}
+
+message StoreStatusIntegratedCommand {
+  string ReportId = 1;
+  ReportType Type = 2;
+  repeated IntegratedCurrencyStatus Statuses = 3;
+  string GroupId = 4;
+  string ManagerId = 5;
+  string CorrelationId = 6;
+  string Id = 7;
+}
+
+message StoreCommissionStatusIntegratedCommand {
+  string AccountId = 1;
+  AccountType Type = 2;
+  repeated IntegratedCurrencyStatus Statuses = 3;
+  Common.NullableString GroupId = 4;
+  string ManagerId = 5;
+  string CorrelationId = 6;
+  string Id = 7;
+}
+
+message ChangeChequeStatusIntegratedCommand {
+  IntegratedChequeStatus Status = 1;
+  bool PlusOne = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message AssignedCurrencyWasChangedIntegratedCommand {
+  string CurrencyCode = 1;
+  double DollarRate = 2;
+  bool IsMultiple = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+

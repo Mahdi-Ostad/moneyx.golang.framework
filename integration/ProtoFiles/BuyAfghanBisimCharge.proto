@@ -1,0 +1,122 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.BuyAfghanBisimCharge";
+option go_package = "moneyx.golang.framework/integration/BuyAfghanBisimCharge";
+import "Common.proto";
+
+package BuyAfghanBisimCharge;
+
+message AddAccountingBuyAfghanBisimChargeDocumentsIntegratedCommand {
+    Common.BuyChargeAccountingInfo BuyChargeInfo = 1;
+    string CustomerId = 2;
+    string ManagerId = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message AddAccountingBuyAfghanBisimChargeDocumentsResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message AfghanBisimCheckCustomerActivationIntegratedCommand {
+    string UserName = 1;
+    string AccountId = 2;
+    string ManagerId = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message AfghanBisimCheckCustomerActivationResponseIntegratedCommand {
+    bool IsEnable = 1;
+    string CustomerId = 2;
+    Common.Failure Failure = 3;
+    string ManagerId = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message AfghanBisimCheckManagerChargeActivationIntegratedCommand {
+    string ManagerId = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message AfghanBisimCheckManagerChargeActivationResponseIntegratedCommand {
+    bool IsEnable = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message BuyAfghanBisimChargeByKarimyarIntegratedCommand {
+    double AmountPackage = 1;
+    string TransactionId = 2;
+    string ChargeNumber = 3;
+    string PackageCode = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message BuyAfghanBisimChargeByKarimyarResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message BuyAfghanBisimChargeByNaqdinehIntegratedCommand {
+    double AmountPackage = 1;
+    string TransactionId = 2;
+    string ChargeNumber = 3;
+    string PackageCode = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message BuyAfghanBisimChargeByNaqdinehResponseIntegratedCommand {
+    bool IsDone = 1;
+    string ServiceProviderRefNumber = 2;
+    Common.Failure Failure = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message BuyAfghanBisimChargeCreditReductionIntegratedCommand {
+    string AccountId = 1;
+    string PackageTitle = 2;
+    string ChargeTransactionId = 3;
+    Common.Money Commission = 4;
+    Common.Money ExchangerDeductedMoney = 5;
+    string OperatorName = 6;
+    string PhoneNumber = 7;
+    string ManagerId = 8;
+    string CorrelationId = 9;
+    string Id = 10;
+}
+
+message BuyAfghanBisimChargeCreditReductionResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackAddedBuyAfghanBisimChargeAccountingDocumentIntegratedCommand {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message CommitOrRollbackBuyAfghanBisimChargeCreditReductionIntegratedCommand {
+    bool IsCommitted = 1;
+    Common.CreditReductionMetaContext Context = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message RollbackBuyAfghanBisimChargeDocumentsIntegratedCommand {
+    string CorrelationId = 1;
+    string Id = 2;
+}

@@ -1,0 +1,29 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RemoveBranchCheckout";
+option go_package = "moneyx.golang.framework/integration/RemoveBranchCheckout";
+package RemoveBranchCheckout;
+
+import "Common.proto";
+
+message RemoveArchiveCheckoutDocumentsResponseIntegratedCommand {
+  bool BranchResponseIsSuccessful = 1;
+  repeated Common.BranchDocumentDto ArchiveDocumentsItem = 2;
+  Common.Failure Failure = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message RemoveArchiveCheckoutDocumentsIntegratedCommand {
+  string BranchId = 1;
+  int32 CheckoutId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message CommitOrRollbackRemovedBranchCheckoutIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+

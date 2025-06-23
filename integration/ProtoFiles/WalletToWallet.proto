@@ -1,0 +1,113 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.WalletToWallet";
+option go_package = "moneyx.golang.framework/integration/WalletToWallet";
+package WalletToWallet;
+
+import "Common.proto";
+
+message AddCustomerAccountDocumentsWalletToWalletIntegratedCommand {
+    CustomerAccountWalletMetadata SenderMetadata = 1;
+    CustomerAccountWalletMetadata ReceiverMetadata = 2;
+    string TransactionId = 3;
+    int64 Date = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message AddCustomerAccountDocumentsWalletToWalletResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackAddCustomerAccountDocumentsWalletToWalletIntegratedCommand {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message CustomerAccountWalletMetadata {
+    string AccountId = 1;
+    string CustomerId = 2;
+    string ManagerId = 3;
+    Common.MoneyDocument Money = 4;
+}
+
+message ExchangerWalletMetadata {
+    string AccountId = 1;
+    string ManagerId = 2;
+    Common.MoneyDocument Money = 3;
+}
+
+message AddExchangerDocumentsWalletToWalletIntegratedCommand {
+    ExchangerWalletMetadata SenderMetadata = 1;
+    ExchangerWalletMetadata ReceiverMetadata = 2;
+    string TransactionId = 3;
+    int64 Date = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message AddExchangerDocumentsWalletToWalletResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackAddExchangerDocumentsWalletToWalletIntegratedCommand {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message CustomerActivationMetadata {
+    string UserName = 1;
+    string AccountId = 2;
+    string ManagerId = 3;
+}
+
+message WalletToWalletCheckTransferLimitIntegratedMessage {
+    string SenderManagerId = 1;
+    Common.Money SenderMoney = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message WalletToWalletCheckTransferLimitResponseIntegratedMessage {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message WalletToWalletCheckManagerIntegratedCommand {
+    string SenderManagerId = 1;
+    string ReceiverManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message WalletToWalletCheckManagerResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message WalletToWalletCheckCustomerActivationIntegratedCommand {
+    string UserName = 1;
+    string AccountId = 2;
+    string ManagerId = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message WalletToWalletCheckCustomerActivationResponseIntegratedCommand {
+    bool IsDone = 1;
+    string SenderCustomerId = 2;
+    Common.Failure Failure = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}

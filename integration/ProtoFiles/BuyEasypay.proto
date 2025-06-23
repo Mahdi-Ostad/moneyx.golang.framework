@@ -1,0 +1,102 @@
+syntax = "proto3";
+import "Common.proto";
+option csharp_namespace = "Ariyana.Framework.Schema.BuyEasypay";
+option go_package = "moneyx.golang.framework/integration/BuyEasypay";
+package BuyEasypay;
+
+message BuyEasypayIntegratedCommand {
+  string UserId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message BuyEasypayResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message BuyEasypayCreditReductionIntegratedCommand {
+  string AccountId = 1;
+  string PackageTitle = 2;
+  string ChargeTransactionId = 3;
+  Common.Money Commission = 4;
+  Common.Money ExchangerDeductedMoney = 5;
+  string OperatorName = 6;
+  string PhoneNumber = 7;
+  string ManagerId = 8;
+  string CorrelationId = 9;
+  string Id = 10;
+}
+
+message BuyEasypayCreditReductionResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackBuyEasypayCreditReductionIntegratedCommand {
+  bool IsCommitted = 1;
+  Common.CreditReductionMetaContext context = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddAccountingBuyEasypayDocumentsIntegratedCommand {
+  Common.BuyChargeAccountingInfo BuyChargeInfo = 1;
+  string CustomerId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message AddAccountingBuyEasypayDocumentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackAddedBuyEasypayChargeAccountingDocumentIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RollbackBuyEasypayDocumentsIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message EasypayCheckManagerChargeActivationIntegratedCommand {
+  string ManagerId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message EasypayCheckManagerChargeActivationResponseIntegratedCommand {
+  bool IsEnable = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EasypayCheckCustomerActivationIntegratedCommand {
+  string UserName = 1;
+  string AccountId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message EasypayCheckCustomerActivationResponseIntegratedCommand {
+  bool IsEnable = 1;
+  string CustomerId = 2;
+  Common.Failure Failure = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+

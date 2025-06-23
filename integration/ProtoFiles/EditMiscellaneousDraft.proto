@@ -1,0 +1,27 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.EditMiscellaneousDraft";
+option go_package = "moneyx.golang.framework/integration/EditMiscellaneousDraft";
+package EditMiscellaneousDraft;
+
+import "Common.proto";
+
+message RollbackEditedMiscellaneousDraftFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message EditMiscellaneousDraftFilesResponseIntegratedCommand {
+  bool Status = 1;
+  repeated string FileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EditMiscellaneousDraftFilesIntegratedCommand {
+  repeated Common.FileItem Files = 1;
+  repeated string DeletedFileIds = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+

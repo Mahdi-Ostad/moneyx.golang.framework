@@ -1,0 +1,27 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RegisterCryptoCurrencyTicket";
+option go_package = "moneyx.golang.framework/integration/RegisterCryptoCurrencyTicket";
+package RegisterCryptoCurrencyTicket;
+
+import "Common.proto";
+
+message RollbackRegisteredCryptoCurrencyTicketConversationFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message RegisterCryptoCurrencyTicketConversationFilesResponseIntegratedCommand {
+  bool IsDone = 1;
+  repeated string FileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RegisterCryptoCurrencyTicketConversationFilesIntegratedCommand {
+  repeated Common.FileItem Files = 1;
+  int32 ConversationId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+

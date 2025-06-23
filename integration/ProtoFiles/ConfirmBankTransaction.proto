@@ -1,0 +1,62 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ConfirmBankTransaction";
+option go_package = "moneyx.golang.framework/integration/ConfirmBankTransaction";
+import "Common.proto";
+
+package ConfirmBankTransaction;
+
+message ConfirmAccountingBankTransactionDocumentIntegratedCommand {
+    repeated ConfirmAccountBankTransactionItem Transactions = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message ConfirmAccountBankTransactionItem {
+    bool IsDebtor = 1;
+    bool IsKnown = 2;
+    int64 Datetime = 3;
+    string BankId = 4;
+    string ReceiptNumber = 5;
+    string BranchName = 6;
+    repeated Common.AccountingInfo AccountingInfos = 7;
+    string TransactionId = 8;
+    string TransactionNumber = 9;
+    bool IsPrivate = 10;
+    string Description = 11;
+    bool UpdateCreditLimit = 12;
+    repeated Common.AccountingWhatsappInfo WhatsappInfos = 13;
+}
+
+message DenyBankTransactionFilesIntegratedCommand {
+    repeated string FileIds = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message ConfirmAccountingBankTransactionDocumentResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message DenyBankTransactionFilesResponseIntegratedCommand {
+    bool IsDone = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message CommitOrRollbackConfirmedAccountingDocumentsIntegratedCommand {
+    bool IsCompleted = 1;
+    string Message = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message RollbackDeniedBankTransactionFiles {
+    string ManagerId = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}

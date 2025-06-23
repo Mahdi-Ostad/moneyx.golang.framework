@@ -1,0 +1,45 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RemovePerson";
+option go_package = "moneyx.golang.framework/integration/RemovePerson";
+package RemovePerson;
+
+import "Common.proto";
+
+message RollbackRemovedPersonFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message RemovePersonFilesResponseIntegratedCommand {
+  bool IsCompleted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RemovePersonFilesIntegratedCommand {
+  repeated string FileIds = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveCustomerAccountsResponseIntegratedCommand {
+  bool IsCompleted = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveCustomerAccountsIntegratedCommand {
+  string CustomerId = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackRemovedCustomerAccountsIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+

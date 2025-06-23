@@ -1,0 +1,50 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RemoveBankTransaction";
+option go_package = "moneyx.golang.framework/integration/RemoveBankTransaction";
+package RemoveBankTransaction;
+
+import "Common.proto";
+
+message RollbackRemovedBankTransactionFiles {
+  repeated string Ids = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveBankTransactionFilesResponseIntegratedCommand {
+  bool IsDone = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RemoveBankTransactionFilesIntegratedCommand {
+  repeated string FileIds = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveAccountingBankTransactionDocumentResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveAccountingBankTransactionDocumentIntegratedCommand {
+  repeated string AccountIds = 1;
+  string TransactionId = 2;
+  bool IsKnown = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message CommitOrRollbackRemovedAccountingDocumentsIntegratedCommand {
+  bool IsCommited = 1;
+  repeated Common.AccountingWhatsappInfo WhatsappInfo = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+

@@ -1,0 +1,25 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ExtendCustomerVersion";
+option go_package = "moneyx.golang.framework/integration/ExtendCustomerVersion";
+package ExtendCustomerVersion;
+
+message ExtendUserVersionResponseIntegratedCommand {
+  bool IsDone = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message ExtendUserVersionIntegratedCommand {
+  string UserName = 1;
+  int64 ExpireDate = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackExtendUserVersionIntegratedCommand {
+  bool IsDone = 1;
+  string UserName = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+

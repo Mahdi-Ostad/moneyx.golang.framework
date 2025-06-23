@@ -1,0 +1,13 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.CheckStatusMobtakeran";
+option go_package = "moneyx.golang.framework/integration/CheckStatusMobtakeran";
+package CheckStatusMobtakeran;
+
+message CheckStatusMobtakeranIntegratedCommand {
+  string TransactionId = 1;
+  string OperatorName = 2;
+  string StateId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+

@@ -1,0 +1,25 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddRealPerson";
+option go_package = "moneyx.golang.framework/integration/AddRealPerson";
+import "Common.proto";
+
+package AddRealPerson;
+
+message AddRealPersonImageIntegratedCommand {
+  Common.FileItem ProfileImage = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddRealPersonImageResponseIntegratedCommand {
+  bool IsDone = 1;
+  string StoredFileId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RollbackStoredAddedRealPersonImageIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}

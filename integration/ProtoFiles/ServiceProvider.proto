@@ -1,0 +1,12 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ServiceProvider";
+option go_package = "moneyx.golang.framework/integration/ServiceProvider";
+package ServiceProvider;
+
+message ServiceProviderCreditorDocumentIntegratedCommand {
+    double Amount = 1;
+    int64 CreateTime = 2;
+    int32 ServiceProviderId = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}

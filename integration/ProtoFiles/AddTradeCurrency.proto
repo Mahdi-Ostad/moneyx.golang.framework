@@ -1,0 +1,119 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddTradeCurrency";
+option go_package = "moneyx.golang.framework/integration/AddTradeCurrency";
+import "Common.proto";
+
+package AddTradeCurrency;
+
+message AddTradeCurrencyAccountingDocumentsIntegratedCommand {
+  AddAccountingDocumentInfo BuyerDocumentInfo = 1;
+  AddAccountingDocumentInfo SellerDocumentInfo = 2;
+  Common.NullableString BuyerRemovedUnknownTransactionId = 3;
+  Common.NullableString SellerRemovedUnknownTransactionId = 4;
+  int64 Date = 5;
+  string Description = 6;
+  string TranId = 7;
+  OpponentMetadata BankInfo = 8;
+  string Rate = 9;
+  bool IsPrivate = 10;
+  bool UpdateCreditLimit = 11;
+  string ManagerId = 12;
+  string CorrelationId = 13;
+  string Id = 14;
+}
+
+message OpponentMetadata {
+  string Id = 1;
+  Common.Money Money = 2;
+}
+
+message AddAccountingDocumentInfo {
+  string AccountId = 1;
+  Common.MoneyDocument Money = 2;
+  Common.MoneyDocument CommissionMoney = 3;
+}
+
+message AddTradeCurrencyAccountingDocumentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddTradeCurrencyBankReceiptsIntegratedCommand {
+  AddBankReceiptInfo BuyerBankInfo = 1;
+  AddBankReceiptInfo SellerBankInfo = 2;
+  int64 Date = 3;
+  string Description = 4;
+  string TradeTransactionId = 5;
+  OpponentMetadata AccountInfo = 6;
+  string Rate = 7;
+  bool IsPrivate = 8;
+  string ManagerId = 9;
+  string CorrelationId = 10;
+  string Id = 11;
+}
+
+message AddBankReceiptInfo {
+  string BankId = 1;
+  NewBankReceiptInfo NewBankReceiptInfo = 2;
+  OldBankReceiptInfo OldBankReceiptInfo = 3;
+  Common.MoneyDocument CommissionMoney = 4;
+}
+
+message NewBankReceiptInfo {
+  string ReceiptNumber = 1;
+  int64 Date = 2;
+  Common.MoneyDocument Money = 3;
+}
+
+message OldBankReceiptInfo {
+  Common.NullableString OldTransactionId = 1;
+}
+
+message AddTradeCurrencyBankReceiptsResponseIntegratedCommand {
+  bool IsDone = 1;
+  ResponseOldBankReceiptInfo BuyerOldBankReceiptInfo = 2;
+  ResponseOldBankReceiptInfo SellerOldBankReceiptInfo = 3;
+  Common.Failure Failure = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message ResponseOldBankReceiptInfo {
+  string OldBankReceiptInfo = 1;
+  int64 ReceiptDate = 2;
+}
+
+message AddTradeCurrencyFilesIntegratedCommand {
+  repeated Common.FileItem Files = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddTradeCurrencyFilesResponseIntegratedCommand {
+  bool IsDone = 1;
+  repeated string Files = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackAddedTradeCurrencyBankReceiptsIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackAddedTradeCurrencyDocumentsIntegratedCommand {
+  bool IsCommitted = 1;
+  Common.WhatsappInfo BuyerWhatsappInfo = 2;
+  Common.WhatsappInfo SellerWhatsappInfo = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message RollbackAddedTradeCurrencyFilesTransactionFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}

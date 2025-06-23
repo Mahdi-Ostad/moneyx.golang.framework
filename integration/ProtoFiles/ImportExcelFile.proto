@@ -1,0 +1,40 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ImportExcelFile";
+option go_package = "moneyx.golang.framework/integration/ImportExcelFile";
+package ImportExcelFile;
+
+import "Common.proto";
+
+message ImportExcelFileDocumentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ImportExcelFileDocumentsIntegratedCommand {
+  repeated ExcelRecord ExcelRecords = 1;
+  string BankId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message ExcelRecord {
+  bool IsDebtor = 1;
+  int64 Date = 2;
+  string BankAccountTitle = 3;
+  string BranchName = 4;
+  string ReceiptNumber = 5;
+  Common.Money TarnsactionMoney = 6;
+  string TransactionId = 7;
+  string Description = 8;
+}
+
+message CommitOrRollBackImportedExcelFileDocuments {
+  bool IsCompleted = 1;
+  string Message = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+

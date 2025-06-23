@@ -1,0 +1,20 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RemoveAssignedCurrency";
+option go_package = "moneyx.golang.framework/integration/RemoveAssignedCurrency";
+package RemoveAssignedCurrency;
+
+import "Common.proto";
+
+message CanAssignedCurrencyBeRemovedIntegratedCommand {
+    string CurrencyCode = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CanAssignedCurrencyBeRemovedResponseIntegratedCommand {
+    bool CanBeRemoved = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}

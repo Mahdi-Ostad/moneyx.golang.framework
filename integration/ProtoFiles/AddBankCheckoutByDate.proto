@@ -1,0 +1,28 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddBankCheckoutByDate";
+option go_package = "moneyx.golang.framework/integration/AddBankCheckoutByDate";
+import "Common.proto";
+
+package AddBankCheckoutByDate;
+
+// Messages
+
+message AddBankCheckoutByDateIntegratedCommand {
+    string BankId = 1;
+    repeated Common.BankDocumentDto ArchiveDocumentsItem = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message AddBankCheckoutByDateResponseIntegratedCommand {
+    bool Status = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackAddedBankCheckoutByDateIntegratedCommand {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}

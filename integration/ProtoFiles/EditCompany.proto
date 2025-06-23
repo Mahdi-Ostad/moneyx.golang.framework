@@ -1,0 +1,26 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.EditCompany";
+option go_package = "moneyx.golang.framework/integration/EditCompany";
+package EditCompany;
+
+import "Common.proto";
+
+message EditCompanyImageIntegratedCommand {
+    Common.FileItem ProfileImage = 1;
+    string RemovedProfileImageId = 2;
+    string ManagerId = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message EditCompanyImageResponseIntegratedCommand {
+    bool IsDone = 1;
+    string StoredFileId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message RollbackStoredOrRemovedEditedCompanyImageIntegratedCommand {
+    string CorrelationId = 1;
+    string Id = 2;
+}

@@ -1,0 +1,376 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ActionLog";
+option go_package = "moneyx.golang.framework/integration/ActionLog";
+import "Common.proto";
+
+package ActionLog;
+
+// Enums
+
+enum ChequeStatusEnum {
+    SavedToCustomerAccount = 0;
+    SavedToCashDeskOrBankAccount = 1;
+    HasReturned = 2;
+    CashedToMoney = 3;
+}
+
+enum DraftType {
+    Draft = 0;
+    Executed = 1;
+}
+
+enum LogType {
+    Create = 0; 
+    Update = 1;
+    Delete = 2;
+}
+
+// Messages
+
+message AccountActionLogIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata AccountName = 2;
+    string LogType = 3;
+    string UserSubjectId = 4;
+    string ManagerId = 5;
+    string CorrelationId = 6;
+    string Id = 7;
+}
+
+message BankActionLogIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata BankName = 2;
+    LogMetadata Currency = 3;
+    LogMetadata CardNumber = 4;
+    string LogType = 5;
+    string UserSubjectId = 6;
+    string ManagerId = 7;
+    string CorrelationId = 8;
+    string Id = 9;
+}
+
+message ChangeBankTransactionLogIntegratedCommand {
+    string TrackingId = 1;
+    repeated Common.AccountingInfo OpponentInfoes = 2;
+    LogMetadata BankAccountName = 3;
+    LogMetadata Description = 4;
+    bool IsInterBank = 5;
+    LogType LogType = 6;
+    string UserSubjectId = 7;
+    string TrackingNumber = 8;
+    Common.NullableBool IsWithdraw = 9;
+    bool IsPrivate = 10;
+    string ManagerId = 11;
+    string CorrelationId = 12;
+    string Id = 13;
+}
+
+message BranchActionLogIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata BranchName = 2;
+    LogMetadata Currency = 3;
+    LogMetadata CustomerName = 4;
+    LogType LogType = 5;
+    string UserSubjectId = 6;
+    string ManagerId = 7;
+    string CorrelationId = 8;
+    string Id = 9;
+}
+
+message BuySellCurrencyLogIntegratedCommand {
+    string TrackingId = 1;
+    bool IsBuy = 2;
+    Common.Money BuyerMoney = 3;
+    Common.MoneyDocument BuyerCommission = 4;
+    LogMetadata BuyerFullName = 5;
+    LogMetadata SellerFullName = 6;
+    Common.Money SellerMoney = 7;
+    Common.MoneyDocument SellerCommission = 8;
+    LogMetadata Rate = 9;
+    LogType LogType = 10;
+    string UserSubjectId = 11;
+    bool IsPrivate = 12;
+    string Description = 13;
+    string ManangerId = 14;
+    string CorrelationId = 15;
+    string Id = 16;
+}
+
+message CashTransactionLogIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata OppositeAccountFullName = 2;
+    LogMetadata Description = 3;
+    LogType LogType = 4;
+    string UserSubjectId = 5;
+    bool IsReceived = 6;
+    Common.Money Money = 7;
+    Common.Money CommissionMoney = 8;
+    string ManagerId = 9;
+    string CorrelationId = 10;
+    string Id = 11;
+}
+
+message ChangeDraftLogIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata DraftOrderNumber = 2;
+    LogMetadata Branch = 3;
+    LogMetadata Amount = 4;
+    LogMetadata Currency = 5;
+    LogMetadata OldRate = 6;
+    LogMetadata NewRate = 7;
+    LogMetadata RateCurrency = 8;
+    LogMetadata CommissionAmount = 9;
+    LogMetadata CommissionCurrency = 10;
+    LogType LogType = 11;
+    string UserSubjectId = 12;
+    bool IsPrivate = 13;
+    string ManangerId = 14;
+    string CorrelationId = 15;
+    string Id = 16;
+}
+
+message ChangeRateDraftActionLogIntegratedCommand {
+    string TrackingId = 1;
+    string DraftNumber = 2;
+    bool IsOutgoing = 3;
+    LogMetadata Branch = 4;
+    string OldRate = 5;
+    string NewRate = 6;
+    Common.Money DraftMoney = 7;
+    Common.Money EquivalentMoney = 8;
+    Common.MoneyDocument DraftCommission = 9;
+    string UserSubjectId = 10;
+    string ManagerId = 11;
+    string CorrelationId = 12;
+    string Id = 13;
+}
+
+message ChequeTransactionIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata BankName = 2;
+    LogMetadata DocumentNumber = 3;
+    LogMetadata Amount = 4;
+    LogMetadata CurrencyCode = 5;
+    LogMetadata DocDate = 6;
+    LogMetadata AccountTitle = 7;
+    LogMetadata Opposite = 8;
+    LogMetadata Description = 9;
+    ChequeStatusEnum ChequeStatus = 10;
+    bool IsPayment = 11;
+    LogType LogType = 12;
+    string UserSubjectId = 13;
+    bool IsPrivate = 14;
+    Common.MoneyDocument AssignorCommission = 15;
+    Common.MoneyDocument ReceiverCommission = 16;
+    string ManagerId = 17;
+    string CorrelationId = 18;
+    string Id = 19;
+}
+
+message CompanyActionLogIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata CompanyName = 2;
+    LogType LogType = 3;
+    string UserSubjectId = 4;
+    string ManagerId = 5;
+    string CorrelationId = 6;
+    string Id = 7;
+}
+
+message CurrencyActionLogIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata Currency = 2;
+    LogMetadata Rate = 3;
+    LogType LogType = 4;
+    string UserSubjectId = 5;
+    string ManagerId = 6;
+    string CorrelationId = 7;
+    string Id = 8;
+}
+
+message CustomerAccountsTransactionLogIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata FromAccountFullName = 2;
+    Common.Money FromCommission = 3;
+    bool FromCommisionBuy = 4;
+    LogMetadata ToAccountFullName = 5;
+    Common.Money ToCommission = 6;
+    bool ToCommisionBuy = 7;
+    Common.Money Money = 8;
+    LogMetadata Description = 9;
+    LogType LogType = 10;
+    string UserSubjectId = 11;
+    bool IsPrivate = 12;
+    string ManagerId = 13;
+    string CorrelationId = 14;
+    string Id = 15;
+}
+
+message CustomerActionLogIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata CustomerName = 2;
+    LogType LogType = 3;
+    string UserSubjectId = 4;
+    string ManagerId = 5;
+    string CorrelationId = 6;
+    string Id = 7;
+}
+
+message DraftActionLogIntegratedCommand {
+    string TrackingId = 1;
+    bool IsOutgoing = 2;
+    LogMetadata DraftOrderNumber = 3;
+    LogMetadata Branch = 4;
+    LogMetadata SenderFullName = 5;
+    LogMetadata ReceiverFullName = 6;
+    Common.Money DraftMoney = 7;
+    Common.Money ReceivedMoney = 8;
+    Common.MoneyDocument DraftCommission = 9;
+    Common.MoneyDocument BranchCommission = 10;
+    LogMetadata OppositeSide = 11;
+    LogMetadata Description = 12;
+    DraftType ActionType = 13;
+    LogType LogType = 14;
+    string UserSubjectId = 15;
+    bool IsPrivate = 16;
+    string Rate = 17;
+    string ManagerId = 18;
+    string CorrelationId = 19;
+    string Id = 20;
+}
+
+message ImportExcelFileLogIntegratedCommand {
+    LogMetadata BankId = 1;
+    string UserSubjectId = 2;
+    LogType LogType = 3;
+    string ManagerId = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message PayOrderLogIntegratedCommand {
+    LogMetadata FromAccountId = 1;
+    LogMetadata ToAccountId = 2;
+    LogMetadata PayOrderReceiptId = 3;
+    string UserSubjectId = 4;
+    LogType LogType = 5;
+    string ManagerId = 6;
+    string CorrelationId = 7;
+    string Id = 8;
+}
+
+message PaymentOrderActionLogIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata FromAccount = 2;
+    LogMetadata Amount = 3;
+    LogMetadata Currency = 4;
+    repeated EnrollingAccountInfo OpponentInfos = 5;
+    LogType LogType = 6;
+    string UserSubjectId = 7;
+    string ManagerId = 8;
+    string CorrelationId = 9;
+    string Id = 10;
+}
+
+message EnrollingAccountInfo {
+    LogMetadata AccountId = 1;
+    Common.Money TransactionMoney = 2;
+}
+
+message UnknownBankTransactionLogIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata BankId = 2;
+    LogMetadata TransactionNumber = 3;
+    LogType LogType = 4;
+    string UserSubjectId = 5;
+    string ManagerId = 6;
+    bool IsWithdraw = 7;
+    Common.Money Money = 8;
+    string Description = 9;
+    string CorrelationId = 10;
+    string Id = 11;
+}
+
+message AddIncomingPendDraftLogIntegratedCommand {
+    string TrackingId = 1;
+    LogMetadata BranchId = 2;
+    LogType LogType = 3;
+    string UserSubjectId = 4;
+    LogMetadata DraftNumber = 5;
+    double Amount = 6;
+    string CurrencyCode = 7;
+    string ManagerId = 8;
+    string CorrelationId = 9;
+    string Id = 10;
+}
+
+message RemovePendIncomingDraftLogIntegratedCommand {
+    string DraftId = 1;
+    LogMetadata BranchId = 2;
+    LogMetadata DraftNumber = 3;
+    string UserSubjectId = 4;
+    LogType LogType = 5;
+    double Amount = 6;
+    string CurrencyCode = 7;
+    string ManagerId = 8;
+    string CorrelationId = 9;
+    string Id = 10;
+}
+
+message RemoveAccountingCheckoutActionLogsIntegratedCommand {
+  string TrackingId = 1;
+  string AccountName = 2;
+  LogType LogType = 3;
+  string UserSubjectId = 4;
+  string ManagerId = 5;
+  string CorrelationId = 6;
+  string Id = 7;
+}
+
+message CheckoutStatusIntegratedItem {
+  string CurrencyCode = 1;
+  double Balance = 2;
+  bool IsDebt = 3;
+}
+
+message AddAccountingCheckoutByInitialMoniesActionLogIntegratedCommand {
+  string TrackingId = 1;
+  repeated CheckoutStatusIntegratedItem Statuses = 2;
+  repeated Common.MoneyDocument InitialMonies = 3;
+  string AccountName = 4;
+  LogType LogType = 5;
+  string UserSubjectId = 6;
+  string ManagerId = 7;
+  string CorrelationId = 8;
+  string Id = 9;
+}
+
+message AddAccountingCheckoutByDateActionLogsIntegratedCommand {
+  string TrackingId = 1;
+  repeated CheckoutStatusIntegratedItem Statuses = 2;
+  string AccountName = 3;
+  LogType LogType = 4;
+  string UserSubjectId = 5;
+  string ManagerId = 6;
+  string CorrelationId = 7;
+  string Id = 8;
+}
+
+message AddAccountingCheckoutByIndexActionLogsIntegratedCommand {
+  string TrackingId = 1;
+  repeated CheckoutStatusIntegratedItem Statuses = 2;
+  string AccountName = 3;
+  LogType LogType = 4;
+  int32 RowNumber = 5;
+  string UserSubjectId = 6;
+  string ManagerId = 7;
+  string CorrelationId = 8;
+  string Id = 9;
+}
+
+message LogMetadata {
+    string Value = 1;
+    int32 MetadataType = 2;
+}
+
+// Add other nested/related messages as needed, e.g. Money, MoneyDocument, etc.

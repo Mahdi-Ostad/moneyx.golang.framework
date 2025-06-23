@@ -1,0 +1,66 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RefundCustomerPayment";
+option go_package = "moneyx.golang.framework/integration/RefundCustomerPayment";
+package RefundCustomerPayment;
+
+import "Common.proto";
+
+message RefundCustomerPaymentAccountingIntegratedCommand {
+    string ManagerId = 1;
+    string AccountId = 2;
+    string TransactionId = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message RefundCustomerPaymentAccountingResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackRefundCustomerPaymentAccountingIntegratedCommand {
+    bool IsCommited = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message RefundCustomerPaymentCreditManagementIntegratedCommand {
+    string ManagerId = 1;
+    string TransactionId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message RefundCustomerPaymentCreditManagementResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackRefundCustomerPaymentCreditManagementIntegratedCommand {
+    bool IsCommited = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message RefundCustomerPaymentBankBookIntegratedCommand {
+    string TransactionId = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message RefundCustomerPaymentBankBookResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackRefundCustomerPaymentBankBookIntegratedCommand {
+    bool IsCommited = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}

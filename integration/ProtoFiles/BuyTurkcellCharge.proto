@@ -1,0 +1,102 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.BuyTurkcellCharge";
+option go_package = "moneyx.golang.framework/integration/BuyTurkcellCharge";
+package BuyTurkcellCharge;
+
+import "Common.proto";
+
+message AddAccountingBuyTurkcellChargeDocumentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message TurkcellCheckCustomerActivationResponseIntegratedCommand {
+  bool IsEnable = 1;
+  string CustomerId = 2;
+  Common.Failure Failure = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message BuyTurkcellChargeCreditReductionResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message BuyTurkcellChargeByAfghanCellResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string ServiceProviderRefNumber = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message TurkcellCheckManagerChargeActivationResponseIntegratedCommand {
+  bool IsEnable = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message TurkcellCheckManagerChargeActivationIntegratedCommand {
+  string ManagerId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message TurkcellCheckCustomerActivationIntegratedCommand {
+  string UserName = 1;
+  string AccountId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message BuyTurkcellChargeCreditReductionIntegratedCommand {
+  string AccountId = 1;
+  string PackageTitle = 2;
+  string ChargeTransactionId = 3;
+  Common.Money Commission = 4;
+  Common.Money ExchangerDeductedMoney = 5;
+  string OperatorName = 6;
+  string PhoneNumber = 7;
+  string ManagerId = 8;
+  string CorrelationId = 9;
+  string Id = 10;
+}
+
+message AddAccountingBuyTurkcellChargeDocumentsIntegratedCommand {
+  Common.BuyChargeAccountingInfo BuyChargeInfo = 1;
+  string CustomerId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message BuyTurkcellChargeByAfghanCellIntegratedCommand {
+  double AmountPackage = 1;
+  string TransactionId = 2;
+  string ChargeNumber = 3;
+  string PackageCode = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message CommitOrRollbackAddedBuyTurkcellChargeAccountingDocumentIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackBuyTurkcellChargeCreditReductionIntegratedCommand {
+  bool IsCommitted = 1;
+  Common.CreditReductionMetaContext Context = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+

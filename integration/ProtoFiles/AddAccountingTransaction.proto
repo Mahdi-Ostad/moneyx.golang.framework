@@ -1,0 +1,27 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddAccountingTransaction";
+option go_package = "moneyx.golang.framework/integration/AddAccountingTransaction";
+import "Common.proto";
+
+package AddAccountingTransaction;
+
+// Messages
+
+message AddAccountingTransactionFilesIntegratedCommand {
+    repeated Common.FileItem Files = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message AddAccountingTransactionFilesResponseIntegratedCommand {
+    bool Status = 1;
+    repeated string NewFileIds = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message RollbackAddedAccountingTransactionFilesIntegratedCommand {
+    string CorrelationId = 1;
+    string Id = 2;
+}

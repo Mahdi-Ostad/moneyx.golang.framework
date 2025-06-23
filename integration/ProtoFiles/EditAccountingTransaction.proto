@@ -1,0 +1,49 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.EditAccountingTransaction";
+option go_package = "moneyx.golang.framework/integration/EditAccountingTransaction";
+package EditAccountingTransaction;
+
+import "Common.proto";
+
+message RollbackEditedAccountingTransactionFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message EditPayOrderReceiptResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EditPayOrderReceiptIntegratedCommand {
+  string ReceiptId = 1;
+  Common.Money ReceiptMoney = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message EditAccountingTransactionFilesResponseIntegratedCommand {
+  bool IsDone = 1;
+  repeated string NewFileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EditAccountingTransactionFilesIntegratedCommand {
+  repeated string DeletedFiles = 1;
+  repeated Common.FileItem CreatedFiles = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message CommitOrRollbackEditedPayOrderIntegratedCommand {
+  bool IsCommited = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+

@@ -1,0 +1,30 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.EditSystemSettings";
+option go_package = "moneyx.golang.framework/integration/EditSystemSettings";
+package EditSystemSettings;
+
+import "Common.proto";
+
+message RollbackEditedSettingsHeaderFileIntegratedCommand {
+  string NewlyStoredLogoFileId = 1;
+  string RemovedLogFileId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message EditSettingsHeaderFileResponseIntegratedCommand {
+  bool IsDone = 1;
+  string NewlyStoredLogoId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EditSettingsHeaderFileIntegratedCommand {
+  Common.FileItem Logo = 1;
+  string RemovedLogId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+

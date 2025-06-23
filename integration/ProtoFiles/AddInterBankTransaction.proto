@@ -1,0 +1,26 @@
+syntax = "proto3";
+import "Common.proto";
+option csharp_namespace = "Ariyana.Framework.Schema.AddInterBankTransaction";
+option go_package = "moneyx.golang.framework/integration/AddInterBankTransaction";
+package AddInterBankTransaction;
+
+message RollbackStoredBankInterTransactionFiles {
+    repeated string Ids = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message StoreInterBankTransactionFilesIntegratedCommand {
+    repeated Common.FileItem Files = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message StoreInterBankTransactionFilesResponseIntegratedCommand {
+    bool IsDone = 1;
+    repeated string Files = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}

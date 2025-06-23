@@ -1,0 +1,25 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ManageSupportManagerWaGroup";
+option go_package = "moneyx.golang.framework/integration/ManageSupportManagerWaGroup";
+package ManageSupportManagerWaGroup;
+
+message WhatsappRemoveGroupIntegratedCommand {
+  string ManagerId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message WhatsappUpdateGroupDescriptionIntegratedCommand {
+  string ManagerId = 1;
+  string Description = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message WhatsappConfirmGroupIntegratedCommand {
+  string UserName = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+

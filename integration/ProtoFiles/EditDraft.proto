@@ -1,0 +1,135 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.EditDraft";
+option go_package = "moneyx.golang.framework/integration/EditDraft";
+package EditDraft;
+
+import "Common.proto";
+
+message RollbackEditedDraftFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message EditDraftFilesResponseIntegratedCommand {
+  bool Status = 1;
+  repeated string FileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EditDraftFilesIntegratedCommand {
+  repeated Common.FileItem AddedFiles = 1;
+  repeated string RemovedFileIds = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message EditDraftDocumentsToBankResponseIntegratedCommand {
+  bool Status = 1;
+  string ReceiptNumber = 2;
+  Common.NullableInt64 UnknownTransactionDate = 3;
+  Common.Failure Failure = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message EditBankDraftDocumentsIntegratedCommand {
+  Common.NullableString OldBankId = 1;
+  Common.NullableString NewBankId = 2;
+  string DraftOrderId = 3;
+  int32 DraftOrderNumber = 4;
+  EditBankDraftDocumentState EditBankDraftDocumentState = 5;
+  Common.MoneyDocument DraftOrderMoneyDocument = 6;
+  string ReceiptDocumentTransaction = 7;
+  string ReceiptNumber = 8;
+  int64 Date = 9;
+  string SenderId = 10;
+  string SenderName = 11;
+  string ReceiverId = 12;
+  string ReceiverName = 13;
+  string Description = 14;
+  string BranchId = 15;
+  bool IsPrivate = 16;
+  string ManagerId = 17;
+  string CorrelationId = 18;
+  string Id = 19;
+}
+
+enum EditBankDraftDocumentState {
+  RemoveDocument = 0;
+  RemoveDocument_AddDocument = 1;
+  EditDocument = 2;
+  AddDocument = 3;
+}
+
+message EditDraftDocumentsToAccountResponseIntegratedCommand {
+  bool Status = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message EditAccountingDraftDocumentsIntegratedCommmand {
+  string PaymentPlace = 1;
+  string PaymentPlaceId = 2;
+  string OldAccountId = 3;
+  Common.NullableString NewAccountId = 4;
+  Common.MoneyDocument DraftMoney = 5;
+  Common.MoneyDocument DraftCommission = 6;
+  string DraftOrderId = 7;
+  bool IsOutgoingDraftOrder = 8;
+  int64 Date = 9;
+  EditAccountingDraftDocumentState EditState = 10;
+  bool IsPrivate = 11;
+  string DraftOrderNumber = 12;
+  string BranchName = 13;
+  string SenderName = 14;
+  string SenderId = 15;
+  string ReceiverName = 16;
+  string ReceiverId = 17;
+  string Description = 18;
+  bool UpdateCreditLimit = 19;
+  Common.NullableString RemovedUnkownBankTransactionId = 20;
+  Common.Money DescriptionDraftMoney = 21;
+  string Rate = 22;
+  string ManagerId = 23;
+  string CorrelationId = 24;
+  string Id = 25;
+}
+
+enum EditAccountingDraftDocumentState {
+  RemoveUnexecuted = 0;
+  AddUnexecuted = 1;
+  EditUnexecuted = 2;
+  RemoveExecuted = 3;
+  AddExecuted = 4;
+  EditExecuted = 5;
+  RemoveExecuted_AddUnExecuted = 6;
+  RemoveUnexecuted_AddExecuted = 7;
+  JustRemovedUnknownDocuments = 8;
+  Default = 9;
+}
+
+message CommitOrRollbackEditedBankDraftDocumnetsDocumentsIntegratedCommand {
+  bool IsCommited = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackEditedAccountingDraftDocumentsIntegratedCommand {
+  bool IsCommited = 1;
+  DraftOrderWhatsappInfo RemovedWhatsappInfo = 2;
+  DraftOrderWhatsappInfo AddedWhatsappInfo = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message DraftOrderWhatsappInfo {
+  string AccountId = 1;
+  string Tempcode = 2;
+  repeated Common.DescriptionMetadata DescriptionMetadata = 3;
+  string SenderId = 4;
+  string RecieverId = 5;
+}
+

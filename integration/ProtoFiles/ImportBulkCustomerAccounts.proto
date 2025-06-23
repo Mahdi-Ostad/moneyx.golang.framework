@@ -1,0 +1,37 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ImportBulkCustomerAccounts";
+option go_package = "moneyx.golang.framework/integration/ImportBulkCustomerAccounts";
+package ImportBulkCustomerAccounts;
+
+import "Common.proto";
+
+message ImportBulkCustomerAccountsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ImportBulkCustomerAccountsIntegratedCommand {
+  repeated CustomerAccountItem IdentityExcelRecords = 1;
+  string UserSubId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message CustomerAccountItem {
+  string AccountNumber = 1;
+  string AccountTitle = 2;
+  string CustomerId = 3;
+  string CustomerFullName = 4;
+  repeated Common.AccountOpeningBalance OpeningBalances = 5;
+  Common.WhatsappConnector Connector = 6;
+}
+
+message CommitOrRollbackImportedBulkCustomerAccountsIntegratedCommand {
+  bool IsCompleted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+

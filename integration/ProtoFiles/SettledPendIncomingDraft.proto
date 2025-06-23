@@ -1,0 +1,98 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.SettledPendIncomingDraft";
+option go_package = "moneyx.golang.framework/integration/SettledPendIncomingDraft";
+package SettledPendIncomingDraft;
+
+import "Common.proto";
+
+message RollbackAddedSettledPendIncomingDraftFilesIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message CommitOrRollbackAddedSettledPendIncomingDraftBankBookDocumentIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackAddedSettledPendIncomingDraftAccountingDocumentsIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message AddSettledPendIncomingDraftFilesResponseIntegratedCommand {
+  bool Status = 1;
+  repeated string FileIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddSettledPendIncomingDraftFilesIntegratedCommand {
+  repeated Common.FileItem Files = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddSettledPendIncomingDraftBankBookDocumentResponseIntegratedCommand {
+  bool Status = 1;
+  string ReceiptNumber = 2;
+  Common.NullableInt64 UnknownTransactionDate = 3;
+  Common.Failure Failure = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message AddSettledPendIncomingDraftBankBookDocumentIntegratedCommand {
+  string BankId = 1;
+  string DraftOrderId = 2;
+  int32 DraftOrderNumber = 3;
+  Common.MoneyDocument DraftOrderMoneyDocument = 4;
+  Common.NullableString ReceiptDocumentTransaction = 5;
+  string ReceiptNumber = 6;
+  int64 Date = 7;
+  string SenderId = 8;
+  string SenderName = 9;
+  string ReceiverId = 10;
+  string ReceiverName = 11;
+  string BranchId = 12;
+  string Description = 13;
+  bool IsPrivate = 14;
+  string ManagerId = 15;
+  string CorrelationId = 16;
+  string Id = 17;
+}
+
+message AddSettledPendIncomingDraftAccountingDocumentsResponseIntegratedCommand {
+  bool Status = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddSettledPendIncomingDraftAccountingDocumentsIntegratedCommand {
+  string PaymentPlace = 1;
+  string PaymentPlaceId = 2;
+  string AccountId = 3;
+  bool IsUnexecuted = 4;
+  Common.MoneyDocument DraftMoney = 5;
+  Common.MoneyDocument DraftCommission = 6;
+  string DraftOrderId = 7;
+  string Description = 8;
+  bool IsPrivate = 9;
+  string DraftOrderNumber = 10;
+  string BranchName = 11;
+  string SenderName = 12;
+  string SenderId = 13;
+  string ReceiverName = 14;
+  string ReceiverId = 15;
+  int64 Date = 16;
+  bool UpdateCreditLimit = 17;
+  Common.NullableString RemovedUnknownBankTransactionId = 18;
+  string ManagerId = 19;
+  string CorrelationId = 20;
+  string Id = 21;
+}
+

@@ -1,0 +1,26 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.BlockCustomerBySupport";
+option go_package = "moneyx.golang.framework/integration/BlockCustomerBySupport";
+import "Common.proto";
+
+package BlockCustomerBySupport;
+
+message BlockCustomerIntegratedCommand {
+    string UserName = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
+
+message BlockCustomerResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackBlockCustomerIntegratedCommand {
+    bool IsDone = 1;
+    string UserName = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}

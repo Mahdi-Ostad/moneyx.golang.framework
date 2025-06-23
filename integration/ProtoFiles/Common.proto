@@ -1,0 +1,391 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema";
+option go_package = "moneyx.golang.framework/integration/common";
+package Common;
+
+message AccountDocumentDto {
+    int32 DocType = 1;
+    repeated DescriptionMetadata PrivateDescription = 2;
+    string PrivateTemplateCode = 3;
+    bool IsPrivate = 4;
+    string TranId = 5;
+    int64 Date = 6;
+    int64 RegisterDate = 7;
+    NullableInt32 CheckoutId = 8;
+    double Amount = 9;
+    string CurrencyCode = 10;
+    bool IsDebit = 11;
+    repeated DescriptionMetadata PublicDescription = 12;
+    string PublicTemplateCode = 13;
+}
+
+message BankDocumentDto {
+    int32 DocType = 1;
+    bool IsKnown = 2;
+    string ReceiptNumber = 3;
+    string Branch = 4;
+    repeated DescriptionMetadata PrivateDescription = 5;
+    string PrivateTemplateCode = 6;
+    bool IsPrivate = 7;
+    string TranId = 8;
+    int64 Date = 9;
+    int64 RegisterDate = 10;
+    NullableInt32 CheckoutId = 11;
+    double Amount = 12;
+    string CurrencyCode = 13;
+    bool IsDebit = 14;
+    repeated DescriptionMetadata PublicDescription = 15;
+    string PublicTemplateCode = 16;
+}
+
+message BranchDocumentDto {
+    double Amount = 1;
+    string CurrencyCode = 2;
+    bool IsDebit = 3;
+    double CommissionAmount = 4;
+    string CommissionCurrencyCode = 5;
+    bool CommissionDebition = 6;
+    string TranId = 7;
+    int64 Date = 8;
+    int64 RegisterDate = 9;
+    NullableInt32 CheckoutId = 10;
+    repeated DescriptionMetadata PublicDescription = 11;
+    string PublicTemplateCode = 12;
+    double Rate = 13;
+    int32 DraftOrderNumber = 14;
+    string OtherNumber = 15;
+    string SenderFullName = 16;
+    string ReceiverFullName = 17;
+    string PaymentPlace = 18;
+    bool IsExchanger = 19;
+}
+
+message DescriptionMetadata {
+    string Value = 1;
+    string Hook = 2;
+    int32 MetadataType = 3;
+}
+
+message Money {
+    double Amount = 1;
+    string CurrencyCode = 2;
+}
+
+message MoneyDocument {
+    Money Money = 1;
+    bool IsDebt = 2;
+}
+
+message NullableBool {
+    bool Value = 1;
+}
+
+message Failure {
+    string FailureTempId = 1;
+    repeated DescriptionMetadata FailureMetadata = 2;
+}
+
+message NullableInt32 {
+    int32 Value = 1;
+}
+
+message FileItem {
+    bytes File = 1;
+    string FileName = 2;
+}
+
+message NullableString {
+    string Value = 1;
+}
+
+message NullableInt64 {
+    int64 Value = 1;
+}
+
+message WhatsappInfo {
+    string WhatsappTemplateCode = 1;
+    repeated DescriptionMetadata WhatsappMetadata = 2;
+}
+
+message WhatsappConnector {
+    string Language = 1;
+    repeated string WhatsappNumbers = 2;
+    repeated string WhatsappGroups = 3;
+}
+
+message ResponseOldBankReceiptInfo {
+    string OldBankReceiptInfo = 1;
+    int64 ReceiptDate = 2;
+}
+
+message AccountOpeningBalance {
+    bool IsDebtor = 1;
+    double Amount = 2;
+    string CurrencyCode = 3;
+}
+
+message BuyChargeAccountingInfo {
+    string PackageTitle = 1;
+    string CustomerAccountId = 2;
+    string PackageName = 3;
+    string BuyChargeTransactionId = 4;
+    Money ChargeMoney = 5;
+    Money ExchangerDeductedMoney = 6;
+    string OperatorName = 7;
+    string PhoneNumber = 8;
+}
+
+message CreditReductionMetaContext {
+    string CountryCode = 1;
+    int32 OperatorId = 2;
+    int32 FeatureId = 3;
+    int64 RegisterDate = 4;
+}
+
+message NullableDouble {
+    double Value = 1;
+}
+
+message AccountCreditLimit {
+    bool IsUnLimit = 1;
+    double Amount = 2;
+    string CurrencyCode = 3;
+}
+
+message BankReceiptInfo {
+    string BankId = 1;
+    string TransactionId = 2;
+    MoneyDocument MoneyDoc = 3;
+    int64 Date = 4;
+    string ReceiptNumber = 5;
+    string Description = 6;
+    string Branch = 7;
+}
+
+message DecorateIdentityWhatsappInformationIntegratedCommand {
+    repeated DescriptionMetadata Metadata = 1;
+    string AccountCustomerId = 2;
+    string SenderId = 3;
+    string ReceiverId = 4;
+    WhatsappConnector BranchOwnerWhatsappConnector = 5;
+    string ManagerId = 6;
+    string TempCode = 7;
+    string CorrelationId = 8;
+    string Id = 9;
+}
+
+message DecorateStaticDataWhatsappInformationIntegratedCommand {
+    repeated DescriptionMetadata Metadata = 1;
+    string TempCode = 2;
+    string TargetManagerId = 3;
+    string ManagerId = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message DecorateExchangerNameWhatsappInformationIntegratedCommand {
+    WhatsappConnector Connector = 1;
+    string TemplateId = 2;
+    repeated DescriptionMetadata DescriptionMetadata = 3;
+    string ManagerId = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message HavingAccountInfoIntegratedCommand {
+    bool HasAccount = 1;
+    string CustomerId = 2;
+    string ManagerId = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message NotifyAccountCreationIntegratedCommand {
+    string AccountId = 1;
+    string AccountName = 2;
+    string ManagerId = 3;
+    AccountCreationType AccountType = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message NotifyAccountEditionIntegratedCommand {
+    string AccountId = 1;
+    string AccountName = 2;
+    string ManagerId = 3;
+    AccountCreationType AccountType = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message NotifyAccountRemovalIntegratedCommand {
+    string AccountId = 1;
+    AccountCreationType AccountType = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+enum AccountCreationType {
+    Account = 0;
+    Branch = 1;
+    Bank = 2;
+    PaymentPlace = 3;
+    Customer = 4;
+}
+
+message RemoveDocumentsDescriptionIntegratedCommand {
+    string TransactionId = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message SendDocumentsDescriptionIntegratedCommand {
+    string TransactionId = 1;
+    DescriptionAccountType AccountType = 2;
+    repeated AccountsDetails Accounts = 3;
+    string ManagerId = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message AccountsDetails {
+    string AccountId = 1;
+    repeated AccountsDocuments Documents = 2;
+}
+
+message AccountsDocuments {
+    string TempId = 1;
+    repeated DescriptionMetadata Metadata = 2;
+}
+
+enum DescriptionAccountType {
+    AccountDesc = 0;
+    BranchDesc = 1;
+    BankDesc = 2;
+}
+
+message SendWhatsAppIntegratedCommand {
+    string Language = 1;
+    string PhoneNumber = 2;
+    string TemplateId = 3;
+    repeated DescriptionMetadata DescriptionMetadata = 4;
+    string ManagerId = 5;
+    string CorrelationId = 6;
+    string Id = 7;
+}
+
+enum BusinessActionType {
+    Invalid = 0;
+    Create = 1;
+    Update = 2;
+    Delete = 3;
+    Exchange = 4;
+}
+
+message BusinessIntelligenceDocumentReport {
+    string AccountId = 1;
+    ReportType AccountType = 2;
+    int64 Date = 3;
+    MoneyDocument MoneyDocument = 4;
+    bool IsCommission = 5;
+}
+
+enum ReportType {
+    Branches = 0;
+    CustomerAccounts = 1;
+    Banks = 2;
+    UnexecutedDraft = 3;
+    UnknownBank = 4;
+    Costs = 5;
+    CreditAccount = 6;
+    Tpm = 7;
+    CashAccount = 8;
+}
+
+message InboxBusinessIntelligenceIntegratedCommand {
+    string UserId = 1;
+    string ManagerId = 2;
+    repeated BusinessIntelligenceDocumentReport Reports = 3;
+    TransactionType TransactionType = 4;
+    BusinessActionType ActionType = 5;
+    string TrackingId = 6;
+    int64 ReportDate = 7;
+    repeated int32 TransactionCategories = 8;
+    string CorrelationId = 9;
+    string Id = 10;
+}
+
+enum TransactionType {
+    Cheque = 0;
+    CashTransaction = 1;
+    TransferTransaction = 2;
+    TradeCurrency = 3;
+    BankTransaction = 4;
+    DraftOrder = 5;
+    DetermineTransferTransaction = 6;
+    AfghanBisimTransaction = 7;
+    SalamTransaction = 8;
+    EtisalatTransaction = 9;
+    RoshanTransaction = 10;
+    AfghanMtnTransaction = 11;
+    AfghanBisimInternetTransaction = 12;
+    SalamInternetTransaction = 13;
+    EtisalatInternetTransaction = 14;
+    RoshanInternetTransaction = 15;
+    AfghanMtnInternetTransaction = 16;
+    HamrahAvalTransaction = 17;
+    IrancellTransaction = 18;
+    RightelTransaction = 19;
+    EasypayTransaction = 20;
+    SnapTransaction = 21;
+    TpmTransaction = 22;
+    BarghararTransaction = 23;
+    ImoTransaction = 24;
+    PubgTransaction = 25;
+    Miscellaneous = 26;
+    InterBankTransaction = 27;
+    Checkout = 28;
+    TurkcellTransaction = 29;
+    VodafoneTransaction = 30;
+    AveaTransaction = 31;
+    LikeeTransaction = 32;
+    PakistanCreditTransaction = 33;
+    CustomFeature = 34;
+    Fmcg = 35;
+}
+
+message TransactionChangeIntegratedCommand {
+    repeated TransactionMoney Moneys = 1;
+    repeated TransactionCommission Commissions = 2;
+    int64 Date = 3;
+    string TransactionId = 4;
+    TransactionType TransactionType = 5;
+    string ManagerId = 6;
+    string CorrelationId = 7;
+    string Id = 8;
+}
+
+message TransactionMoney {
+    MoneyDocument Money = 1;
+    string TemplateCode = 2;
+    repeated DescriptionMetadata TemplateMetadata = 3;
+}
+
+message TransactionCommission {
+    MoneyDocument Commission = 1;
+    string TemplateCode = 2;
+    repeated DescriptionMetadata TemplateMetadata = 3;
+}
+
+message AccountingWhatsappInfo {
+    string AccountId = 1;
+    string Tempcode = 2;
+    repeated Common.DescriptionMetadata DescriptionMetadata = 3;
+}
+
+message AccountingInfo {
+    string AccountId = 1;
+    Common.Money TransactionMoney = 2;
+    Common.Money Commission = 3;
+}

@@ -1,0 +1,27 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.EditSettings";
+option go_package = "moneyx.golang.framework/integration/EditSettings";
+package EditSettings;
+
+import "Common.proto";
+
+message ConfigureExchangerNameCreditAccountResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ConfigureExchangerNameCreditAccountIntegratedCommand {
+  string ManagerId = 1;
+  string ExchangeName = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackConfiguredExchangerNameCreditAccountIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+

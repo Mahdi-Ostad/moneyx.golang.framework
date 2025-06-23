@@ -1,0 +1,67 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RemoveUserBySupport";
+option go_package = "moneyx.golang.framework/integration/RemoveUserBySupport";
+package RemoveUserBySupport;
+
+import "Common.proto";
+
+message RemoveCustomerResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveCustomerManagerForAdminResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveCustomerManagerForAdminIntegratedCommand {
+  string PersonId = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveCustomerIntegratedCommand {
+  string UserName = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RemoveAccountingResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RemoveAccountingIntegratedCommand {
+  string AccountId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackRemoveCustomerManagerForAdminIntegratedCommand {
+  bool IsDone = 1;
+  string PersonId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackRemoveCustomerIntegratedCommand {
+  bool IsDone = 1;
+  string UserName = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackRemoveAccountingIntegratedCommand {
+  bool IsDone = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+

@@ -1,0 +1,27 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ArchiveAccount";
+option go_package = "moneyx.golang.framework/integration/ArchiveAccount";
+import "Common.proto";
+
+package ArchiveAccount;
+
+message EditArchivedAccountCustomerIntegratedCommand {
+    string AccountId = 1;
+    string CustomerId = 2;
+    string ManagerId = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message EditArchivedAccountCustomerResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackEditArchivedAccountCustomerResponseIntegratedCommand {
+    bool IsCommited = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}

@@ -1,0 +1,142 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RegisterUserByIdentity";
+option go_package = "moneyx.golang.framework/integration/RegisterUserByIdentity";
+package RegisterUserByIdentity;
+
+import "Common.proto";
+
+message WhatsappRoutingIntegratedCommand {
+  string Content = 1;
+  string ManagerId = 2;
+  Common.FileItem FileContent = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message WhatsappOpenBugTicketIntegratedCommand {
+  string Content = 1;
+  string SenderId = 2;
+  string Url = 3;
+  string ManagerId = 4;
+  string Title = 5;
+  Common.FileItem File = 6;
+  string CorrelationId = 7;
+  string Id = 8;
+}
+
+enum NationType {
+  Iran = 0;
+  Afghanistan = 1;
+}
+
+enum ApplicationType {
+  Moneyx = 0;
+  Ariyana = 1;
+}
+
+message WhatsappCreateGroupIntegratedCommand {
+  ApplicationType AppType = 1;
+  string FullName = 2;
+  string UserName = 3;
+  string City = 4;
+  string State = 5;
+  string PhoneNumber = 6;
+  NationType Nation = 7;
+  string WhatsappGroupLink = 8;
+  string ManagerId = 9;
+  string CorrelationId = 10;
+  string Id = 11;
+}
+
+message WhatsappCreateGroupResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string GroupId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message RegisterUserForIdentityProviderResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message RegisterUserForIdentityProviderIntegratedCommand {
+  string FirstName = 1;
+  string LastName = 2;
+  string Prefix = 3;
+  string PhoneNumber = 4;
+  string UserName = 5;
+  string Password = 6;
+  int64 ExpireDate = 7;
+  bool IgnoreValidation = 8;
+  string CorrelationId = 9;
+  string Id = 10;
+}
+
+message RegisterManagerCustomerForAdminResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RegisterManagerCustomerForAdminIntegratedCommand {
+  string PersonId = 1;
+  string AccountId = 2;
+  string FirstName = 3;
+  string LastName = 4;
+  string FatherName = 5;
+  string Language = 6;
+  string Address = 7;
+  uint32 Gender = 8;
+  string Description = 9;
+  repeated int32 GroupCodes = 10;
+  string PhoneCountryCode = 11;
+  string PhoneNumber = 12;
+  bool IsWhatsappNumber = 13;
+  repeated string WhatsappGroupLinks = 14;
+  string ManagerId = 15;
+  string UserId = 16;
+  string CorrelationId = 17;
+  string Id = 18;
+}
+
+message CommitOrRollbackRegisterUserForIdentityProviderIntegratedCommand {
+  bool IsCommit = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackRegisterManagerCustomerForAdminIntegratedCommand {
+  bool IsCommit = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackAddSupportCustomerAccountIntegratedCommmand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message AddSupportCustomerAccountResponseIntegratedCommand {
+  bool IsDone = 1;
+  string AccountId = 2;
+  Common.Failure Failure = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message AddSupportCustomerAccountIntegratedCommand {
+  string CustomerId = 1;
+  string CustomerFullName = 2;
+  string ManagerId = 3;
+  string PhoneNumber = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+

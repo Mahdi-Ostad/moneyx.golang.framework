@@ -1,0 +1,138 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.BuyRightelCharge";
+option go_package = "moneyx.golang.framework/integration/BuyRightelCharge";
+package BuyRightelCharge;
+
+import "Common.proto";
+
+message BuyRightelChargeByMobtakeranIntegratedCommand {
+  double AmountPackage = 1;
+  string TransactionId = 2;
+  string ChargeNumber = 3;
+  string PackageCode = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message BuyRightelChargeByMobtakeranResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string ServiceProviderRefNumber = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message BuyRightelChargeByGhasedakIntegratedCommand {
+  double AmountPackage = 1;
+  string TransactionId = 2;
+  string ChargeNumber = 3;
+  string PackageCode = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message BuyRightelChargeByGhasedakResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message BuyRightelChargeCreditReductionIntegratedCommand {
+  string AccountId = 1;
+  string PackageTitle = 2;
+  string ChargeTransactionId = 3;
+  Common.Money Commission = 4;
+  Common.Money ExchangerDeductedMoney = 5;
+  string OperatorName = 6;
+  string PhoneNumber = 7;
+  string ManagerId = 8;
+  string CorrelationId = 9;
+  string Id = 10;
+}
+
+message BuyRightelChargeCreditReductionResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackBuyRightelChargeCreditReductionIntegratedCommand {
+  bool IsCommitted = 1;
+  Common.CreditReductionMetaContext Context = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message AddAccountingBuyRightelChargeDocumentsIntegratedCommand {
+  Common.BuyChargeAccountingInfo BuyChargeInfo = 1;
+  string CustomerId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message AddAccountingBuyRightelChargeDocumentsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackAddedBuyRightelChargeAccountingDocumentIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RollbackBuyRightelChargeDocumentsIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+
+message RightelCheckManagerChargeActivationIntegratedCommand {
+  string ManagerId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RightelCheckManagerChargeActivationResponseIntegratedCommand {
+  bool IsEnable = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RightelCheckCustomerActivationIntegratedCommand {
+  string UserName = 1;
+  string AccountId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message RightelCheckCustomerActivationResponseIntegratedCommand {
+  bool IsEnable = 1;
+  string CustomerId = 2;
+  Common.Failure Failure = 3;
+  string ManagerId = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message BuyRightelChargeByEbtekarIntegratedCommand {
+    double AmountPackage = 1;
+    string TransactionId = 2;
+    string ChargeNumber = 3;
+    string PackageCode = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message BuyRightelChargeByEbtekarResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}

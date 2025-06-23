@@ -1,0 +1,119 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ConfigureSettings";
+option go_package = "moneyx.golang.framework/integration/ConfigureSettings";
+package ConfigureSettings;
+
+import "Common.proto";
+
+message ConfigureOverallReportsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ConfigureOverallReportsIntegratedCommand {
+  string ManagerId = 1;
+  repeated CurrencyInfo CurrencyInfos = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CurrencyInfo {
+  string CurrencyCode = 1;
+  double DollarRate = 2;
+  bool IsMultiple = 3;
+}
+
+message ConfigureInitialCreditAccountResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ConfigureInitialCreditAccountIntegratedCommand {
+  string ManagerId = 1;
+  string ExchangerName = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ConfigureSettingsHeaderFileIntegratedCommand {
+  Common.FileItem Logo = 1;
+  string RemovedLogId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message ConfigureDefaultAccountsResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ConfigureSettingsHeaderFileResponseIntegratedCommand {
+  bool IsDone = 1;
+  string NewlyStoredLogoId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message ConfigureDefaultAccountsIntegratedCommand {
+  string ManagerId = 1;
+  string CustomerName = 2;
+  string CashAccountName = 3;
+  string CostsAccountName = 4;
+  string CustomerId = 5;
+  string CorrelationId = 6;
+  string Id = 7;
+}
+
+message CommitOrRollbackCreatedAdminCustomerIntegratedCommand {
+  bool IsCommited = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackConfiguredInitialCreditAccountIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CommitOrRollbackConfiguredDefaultAccountsIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CreateAdminCustomerIntegratedCommand {
+  string ManagerId = 1;
+  string CustomerName = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CreateAdminCustomerResponseIntegratedCommand {
+  bool IsDone = 1;
+  string CustomerId = 2;
+  Common.Failure Failure = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message RollbackConfiguredSettingsHeaderFileIntegratedCommand {
+  string NewlyStoredLogoFileId = 1;
+  string RemovedLogFileId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message RollbackConfiguredOverallReportsIntegratedCommand {
+  string CorrelationId = 1;
+  string Id = 2;
+}
+

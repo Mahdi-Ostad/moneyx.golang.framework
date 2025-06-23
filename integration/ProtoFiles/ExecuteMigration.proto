@@ -1,0 +1,153 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ExecuteMigration";
+option go_package = "moneyx.golang.framework/integration/ExecuteMigration";
+package ExecuteMigration;
+
+import "Common.proto";
+
+message SubmitTradeCurrenciesInExecuteMigrationIntegratedCommand {
+  repeated TradeCurrencySubmissionIntegratedItem TradeCurrencies = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message TradeCurrencySubmissionIntegratedItem {
+  string BuyyerAccountNumber = 1;
+  string TradeCurrencyId = 2;
+  string Rate = 3;
+  bool IsBuy = 4;
+  string SellerAccountNumber = 5;
+  Common.Money BuyyerMoney = 6;
+  Common.Money SellerMoney = 7;
+  int64 Date = 8;
+  string Description = 9;
+}
+
+message SubmitAccountingTransferTransactionsInExecuteMigrationIntegratedCommand {
+  TransferBetweenTwoAccountIntegratedItem TransferTransaction = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message TransferBetweenTwoAccountIntegratedItem {
+  string TransactionId = 1;
+  string FromAccountNumber = 2;
+  string ToAccountNumber = 3;
+  Common.Money Money = 4;
+  int64 Date = 5;
+  string Description = 6;
+  bool FromAccountIsDebt = 7;
+  bool ToAccountIsDebt = 8;
+}
+
+message SubmitAccountingDocmumentsInExecuteMigrationIntegratedCommand {
+  AccountIntegratedItem CustomerAccount = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+enum DocTypeIntegratedItem {
+  Cash = 0;
+  Transfer = 1;
+  Trade = 2;
+  Unknown = 3;
+}
+
+message AccountIntegratedItem {
+  string AccountId = 1;
+  string AcccountName = 2;
+  string CustomerId = 3;
+  string CustomerName = 4;
+  repeated DocumentIntegratedItem Documents = 5;
+}
+
+message DocumentIntegratedItem {
+  string TranId = 1;
+  int64 Date = 2;
+  string Description = 3;
+  Common.MoneyDocument Money = 4;
+  DocTypeIntegratedItem DocumentType = 5;
+  TransferDocumentMetadata TransferMetadata = 6;
+  TradeDocumentMetadata TradeMetadata = 7;
+}
+
+message TransferDocumentMetadata {
+  string AccountId = 1;
+}
+
+message TradeDocumentMetadata {
+  string AccountId = 1;
+  Common.Money Money = 2;
+  string Rate = 3;
+}
+
+message SubmitAccountingCashTransactionInExecuteMigrationIntegratedCommand {
+  CashIntegratedItem CachTransaction = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CashIntegratedItem {
+  string TransactionId = 1;
+  string AccountNumber = 2;
+  string CashAccountId = 3;
+  bool IsPayment = 4;
+  Common.Money Money = 5;
+  int64 Date = 6;
+  string Description = 7;
+}
+
+message CreateCustomersInExecuteMigrationIntegratedCommand {
+  repeated CustomerInfoIntegratedItem Customers = 1;
+  string ManagerId = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CustomerInfoIntegratedItem {
+  string CustomerId = 1;
+  string FirstName = 2;
+  string LastName = 3;
+  Common.NullableInt32 GroupCode = 4;
+  string CountryCode = 5;
+  string MobileNumber = 6;
+}
+
+message CreateCustomerSettingsInExecuteMigrationIntegratedCommand {
+  repeated ExecuteMigrationIntegratedGroupItem ExecuteMigrationIntegratedGroupItems = 1;
+  repeated ExecuteMigrationIntegratedCurrencyItem ExecuteMigrationIntegratedCurrencyItems = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message ExecuteMigrationIntegratedGroupItem {
+  int32 Code = 1;
+  string Title = 2;
+}
+
+message ExecuteMigrationIntegratedCurrencyItem {
+  string Code = 1;
+  uint32 DecimalCount = 2;
+  double Rate = 3;
+  bool IsMultiple = 4;
+}
+
+message CreateCustomerAccountsInExecuteMigrationIntegratedCommand {
+  repeated CustomerIntegratedItem Customers = 1;
+  string DefaultAccountName = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message CustomerIntegratedItem {
+  string Id = 1;
+  string Name = 2;
+  string AccountId = 3;
+}
+

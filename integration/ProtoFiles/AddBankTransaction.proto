@@ -1,0 +1,62 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddBankTransaction";
+option go_package = "moneyx.golang.framework/integration/AddBankTransaction";
+import "Common.proto";
+
+package AddBankTransaction;
+
+// Messages
+
+message AddAccountingBankTransactionDocumentIntegratedCommand {
+    bool IsDebtor = 1;
+    bool IsKnown = 2;
+    int64 Datetime = 3;
+    string BankId = 4;
+    string ReceiptNumber = 5;
+    string BranchName = 6;
+    repeated Common.AccountingInfo AccountingInfos = 7;
+    string TransactionId = 8;
+    string TransactionNumber = 9;
+    bool IsPrivate = 10;
+    string Description = 11;
+    bool UpdateCreditLimit = 12;
+    string ManagerId = 13;
+    string CorrelationId = 14;
+    string Id = 15;
+}
+
+message AddAccountingBankTransactionDocumentResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure failure = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message CommitOrRollbackAddedAccountingDocumentsIntegratedCommand {
+    bool IsCompleted = 1;
+    string Message = 2;
+    repeated Common.AccountingWhatsappInfo WhatsappInfos = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message RollbackStoredBankTransactionFiles {
+    repeated string Ids = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message StoreBankTransactionFilesIntegratedCommand {
+    repeated Common.FileItem Files = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message StoreBankTransactionFilesResponseIntegratedCommand {
+    bool IsDone = 1;
+    repeated string Files = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
