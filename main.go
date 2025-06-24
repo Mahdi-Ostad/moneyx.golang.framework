@@ -14,6 +14,7 @@ import (
 	"moneyx.golang.framework/injection"
 	"moneyx.golang.framework/logger"
 	"moneyx.golang.framework/logger/logrepo"
+	"moneyx.golang.framework/rabbitmq"
 
 	moneyxproto "moneyx.golang.framework/proto"
 )
@@ -60,6 +61,10 @@ func main() {
 	injection.NewInjection().AddSingleton(app.Metrics())
 	app.AddGorm(db)
 	app.Metrics()
+	app.AddPubSub(rabbitmq.NewRabbitMQPubSub("amqp://full_access:110@localhost:5672", "test"))
+	app.Subscribe("addbanktransaction", func(ctx *gofr.Context) error {
+		return nil
+	})
 	moneyxproto.RegisterWhatsappServiceServerWithGofr(app, moneyxproto.NewWhatsappServiceGoFrServer(), moneyxproto.NewWhatsappServiceGoFrValidation())
 
 	i.AddTransient(&Customer{}, customerMaker)
