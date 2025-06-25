@@ -2,23 +2,22 @@ package main
 
 import (
 	"context"
-	"fmt"
+	"log"
 	"os"
 	"os/signal"
 	"path/filepath"
 	"syscall"
 	"time"
 
-	"github.com/google/uuid"
 	"github.com/joho/godotenv"
 	"gofr.dev/pkg/gofr"
 	"gofr.dev/pkg/gofr/logging"
 	"gorm.io/driver/sqlserver"
 	"gorm.io/gorm"
 	"moneyx.golang.framework/injection"
-	"moneyx.golang.framework/integration/ActionLog"
 	"moneyx.golang.framework/logger"
 	"moneyx.golang.framework/logger/logrepo"
+	MoneyxMetrics "moneyx.golang.framework/moneyxmetrics"
 	"moneyx.golang.framework/outbox"
 	"moneyx.golang.framework/rabbitmq"
 
@@ -70,12 +69,10 @@ func (m *MoneyxApp) AddBackgroundService(fn func(context.Context, *logger.Moneyx
 }
 
 func main() {
-	y, _ := uuid.NewUUID()
-	fmt.Printf("Correlation: %v", y)
 	err := godotenv.Load(filepath.Join(".", ".env"))
 	if err != nil {
+		log.Fatalf(err.Error())
 	}
-	i := injection.GetInjection()
 	// initialize gofr object
 	app := &MoneyxApp{}
 	app.App = gofr.New(logger.NewGoFrLogger(logging.DEBUG, logrepo.NewMoneyxLogRepo()))
@@ -85,57 +82,56 @@ func main() {
 	})
 	//injection.NewInjection().AddSingleton(app.Metrics())
 	app.AddGorm(db)
-	app.Metrics()
+	MoneyxMetrics.SetGlobalMetrics(app.Metrics())
 	app.AddPubSub(rabbitmq.NewRabbitMQPubSub("amqp://full_access:110@localhost:5672", "test"))
 	app.Subscribe("addbanktransaction", func(ctx *gofr.Context) error {
 		return nil
 	})
+	app.AddBackgroundService(outbox.OutboxBackgroundService)
 	moneyxproto.RegisterWhatsappServiceServerWithGofr(app.App, moneyxproto.NewWhatsappServiceGoFrServer(), moneyxproto.NewWhatsappServiceGoFrValidation())
-
-	i.AddTransient(&Customer{}, customerMaker)
 
 	//ctx = context.WithValue(ctx, db.txnCtxKey, tx)
 	//txn, ok := ctx.Value(db.txnCtxKey).(Transaction)
 	//app.UseMiddlewareWithContainer()
-	app.POST("/customer/{name}", func(ctx *gofr.Context) (any, error) {
-		name := ctx.PathParam("name")
-		outbox.Publish(ctx, &ActionLog.AccountActionLogIntegratedCommand{})
+	// app.POST("/customer/{name}", func(ctx *gofr.Context) (any, error) {
+	// 	name := ctx.PathParam("name")
+	// 	outbox.Publish(ctx, &ActionLog.AccountActionLogIntegratedCommand{})
 
-		// Inserting a customer row in database using SQL
-		_, err := ctx.SQL.ExecContext(ctx, "INSERT INTO customers (name) VALUES (?)", name)
+	// 	// Inserting a customer row in database using SQL
+	// 	_, err := ctx.SQL.ExecContext(ctx, "INSERT INTO customers (name) VALUES (?)", name)
 
-		return nil, err
-	})
+	// 	return nil, err
+	// })
 
-	app.GET("/customer", func(ctx *gofr.Context) (any, error) {
-		var customers []Customer
+	// app.GET("/customer", func(ctx *gofr.Context) (any, error) {
+	// 	var customers []Customer
 
-		// Getting the customer from the database using SQL
-		//err := ctx.Gorm.WithContext(ctx).AutoMigrate(&Product{})
-		customer, _, err := i.GetInstance(ctx, &Customer{})
-		if err != nil {
-			return nil, err
-		}
-		okCustomer, ok := customer.(*Customer)
-		if !ok {
-			return nil, &injection.InjectionError{
-				Message: "Customer instance not found",
-			}
-		}
-		customers = append(customers, *okCustomer)
-		customer, _, err = i.GetInstance(ctx, &Customer{})
-		if err != nil {
-			return nil, err
-		}
-		okCustomer, ok = customer.(*Customer)
-		if !ok {
-			return nil, &injection.InjectionError{
-				Message: "Customer instance not found",
-			}
-		}
-		customers = append(customers, *okCustomer)
-		return customers, nil
-	})
+	// 	// Getting the customer from the database using SQL
+	// 	//err := ctx.Gorm.WithContext(ctx).AutoMigrate(&Product{})
+	// 	customer, _, err := i.GetInstance(ctx, &Customer{})
+	// 	if err != nil {
+	// 		return nil, err
+	// 	}
+	// 	okCustomer, ok := customer.(*Customer)
+	// 	if !ok {
+	// 		return nil, &injection.InjectionError{
+	// 			Message: "Customer instance not found",
+	// 		}
+	// 	}
+	// 	customers = append(customers, *okCustomer)
+	// 	customer, _, err = i.GetInstance(ctx, &Customer{})
+	// 	if err != nil {
+	// 		return nil, err
+	// 	}
+	// 	okCustomer, ok = customer.(*Customer)
+	// 	if !ok {
+	// 		return nil, &injection.InjectionError{
+	// 			Message: "Customer instance not found",
+	// 		}
+	// 	}
+	// 	customers = append(customers, *okCustomer)
+	// 	return customers, nil
+	// })
 
 	app.Run()
 }
