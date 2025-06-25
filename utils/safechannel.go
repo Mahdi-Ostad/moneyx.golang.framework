@@ -15,6 +15,7 @@ func NewSafeChannel[T any](bufferSize int, onSucceedToAdd func(T), onFailToAdd f
 	}
 }
 
+// adds to channel. If it's full, onFail will run, otherwise onSuccess will run
 func (s *SafeChannel[T]) Add(data T) bool {
 	select {
 	case s.channel <- data:
@@ -30,14 +31,17 @@ func (s *SafeChannel[T]) Add(data T) bool {
 	}
 }
 
+// blocks until data is added to the channel
 func (s *SafeChannel[T]) AddForce(data T) {
 	s.channel <- data
 }
 
+// blocks until it can read from channel
 func (s *SafeChannel[T]) GetForce() T {
 	return <-s.channel
 }
 
+// reads from channel, returns default value if channel is empty
 func (s *SafeChannel[T]) GetOrDefault(defaultValue T) T {
 	var value T
 	select {
