@@ -14,7 +14,6 @@ type WhatsappServiceGoFrValidation struct {
 }
 
 func (s *WhatsappServiceGoFrValidation) CheckUserState(validator *Validator.EntryValidator[*EmptyWrapper]) {
-
 }
 func (s *WhatsappServiceGoFrValidation) Initialize(validator *Validator.EntryValidator[*EmptyWrapper]) {
 

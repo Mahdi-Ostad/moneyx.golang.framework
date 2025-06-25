@@ -3,6 +3,7 @@ package injection
 import (
 	"context"
 	"reflect"
+	"sync"
 
 	"gofr.dev/pkg/gofr"
 )
@@ -20,7 +21,9 @@ type Injection struct {
 type BaseModel interface {
 }
 
-func NewInjection() *Injection {
+var GetInjection = sync.OnceValue(newInjection)
+
+func newInjection() *Injection {
 	return &Injection{
 		instances:          make(map[reflect.Type]BaseModel),
 		scopedInstances:    make(map[reflect.Type]func() (BaseModel, error)),
