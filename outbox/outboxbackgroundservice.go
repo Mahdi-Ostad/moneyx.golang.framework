@@ -22,7 +22,7 @@ const (
 )
 
 func OutboxBackgroundService(ctx context.Context, logger *logger.MoneyxLog, contextMaker func(context.Context) *gofr.Context) {
-	microserviceName := config.GetConfig("MICROSERVICE_NAME")
+	microserviceName := config.GetConfig("APP_NAME")
 	logger.Infof("Outbox Background Service is starting on client '%s' ...", microserviceName)
 	retryPolicy := utils.NewRetryPolicy(time.Second*2, func(retryCount int, err error) {
 		logger.Errorf("Retrying in 2 seconds (Reason: %v) (Retry count: %d)", err, retryCount)

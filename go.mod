@@ -8,8 +8,34 @@ require (
 	github.com/joho/godotenv v1.5.1
 	github.com/shivajichalise/validator v1.0.2
 	gofr.dev v1.41.0
+	gofr.dev/pkg/gofr/datasource/mongo v0.0.0-00010101000000-000000000000
 	gorm.io/driver/sqlserver v1.6.0
 	gorm.io/gorm v1.30.0
+)
+
+require (
+	github.com/ClickHouse/ch-go v0.61.5 // indirect
+	github.com/ClickHouse/clickhouse-go/v2 v2.30.0 // indirect
+	github.com/andybalholm/brotli v1.1.1 // indirect
+	github.com/go-faster/city v1.0.1 // indirect
+	github.com/go-faster/errors v0.7.1 // indirect
+	github.com/golang/snappy v0.0.4 // indirect
+	github.com/hashicorp/go-version v1.6.0 // indirect
+	github.com/jackc/pgpassfile v1.0.0 // indirect
+	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
+	github.com/jackc/pgx/v5 v5.6.0 // indirect
+	github.com/jackc/puddle/v2 v2.2.2 // indirect
+	github.com/json-iterator/go v1.1.12 // indirect
+	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
+	github.com/modern-go/reflect2 v1.0.2 // indirect
+	github.com/montanaflynn/stats v0.7.1 // indirect
+	github.com/opentracing/opentracing-go v1.2.0 // indirect
+	github.com/paulmach/orb v0.11.1 // indirect
+	github.com/segmentio/asm v1.2.0 // indirect
+	github.com/shopspring/decimal v1.4.0 // indirect
+	github.com/youmark/pkcs8 v0.0.0-20240726163527-a2c0da244d78 // indirect
+	gorm.io/driver/clickhouse v0.7.0 // indirect
+	gorm.io/driver/mysql v1.5.7 // indirect
 )
 
 require (
@@ -106,6 +132,11 @@ require (
 	google.golang.org/grpc v1.73.0
 	google.golang.org/protobuf v1.36.6
 	gopkg.in/yaml.v3 v3.0.1 // indirect
+	gorm.io/driver/postgres v1.6.0
+	gorm.io/plugin/dbresolver v1.6.0
+	gorm.io/plugin/opentelemetry v0.1.15
+	gorm.io/plugin/opentracing v0.0.0-20211220013347-7d2b2af23560
+	gorm.io/plugin/prometheus v0.1.0
 	modernc.org/libc v1.65.10 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect
@@ -113,3 +144,5 @@ require (
 )
 
 replace gofr.dev => ./gofr
+
+replace gofr.dev/pkg/gofr/datasource/mongo => ./gofr/pkg/gofr/datasource/mongo

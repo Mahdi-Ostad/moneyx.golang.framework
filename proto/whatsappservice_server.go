@@ -15,9 +15,11 @@ import "gofr.dev/pkg/gofr"
 // Customize the struct with required dependencies and fields as needed.
 
 type WhatsappServiceGoFrServer struct {
- health *healthServer
+	health *healthServer
 }
+
 func (s *WhatsappServiceGoFrServer) CheckUserState(ctx *gofr.Context) (any, error) {
+
 	return &StatusQueryProto{}, nil
 }
 func (s *WhatsappServiceGoFrServer) Initialize(ctx *gofr.Context) (any, error) {
