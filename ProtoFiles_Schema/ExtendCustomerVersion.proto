@@ -14,6 +14,7 @@ message ExtendUserVersionIntegratedCommand {
   int64 ExpireDate = 2;
   string CorrelationId = 3;
   string Id = 4;
+  string ApplicationType = 5;
 }
 
 message CommitOrRollbackExtendUserVersionIntegratedCommand {

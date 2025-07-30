@@ -75,6 +75,7 @@ message RegisterUserForIdentityProviderIntegratedCommand {
   bool IgnoreValidation = 8;
   string CorrelationId = 9;
   string Id = 10;
+  string ApplicationType = 11;
 }
 
 message RegisterManagerCustomerForAdminResponseIntegratedCommand {

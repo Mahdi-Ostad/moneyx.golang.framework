@@ -578,6 +578,7 @@ type RegisterUserForIdentityProviderIntegratedCommand struct {
 	IgnoreValidation bool                   `protobuf:"varint,8,opt,name=IgnoreValidation,proto3" json:"IgnoreValidation,omitempty"`
 	CorrelationId    string                 `protobuf:"bytes,9,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
 	Id               string                 `protobuf:"bytes,10,opt,name=Id,proto3" json:"Id,omitempty"`
+	ApplicationType  string                 `protobuf:"bytes,11,opt,name=ApplicationType,proto3" json:"ApplicationType,omitempty"`
 	unknownFields    protoimpl.UnknownFields
 	sizeCache        protoimpl.SizeCache
 }
@@ -678,6 +679,13 @@ func (x *RegisterUserForIdentityProviderIntegratedCommand) GetCorrelationId() st
 func (x *RegisterUserForIdentityProviderIntegratedCommand) GetId() string {
 	if x != nil {
 		return x.Id
+	}
+	return ""
+}
+
+func (x *RegisterUserForIdentityProviderIntegratedCommand) GetApplicationType() string {
+	if x != nil {
+		return x.ApplicationType
 	}
 	return ""
 }
@@ -1314,7 +1322,7 @@ const file_RegisterUserByIdentity_proto_rawDesc = "" +
 	"\aFailure\x18\x02 \x01(\v2\x0f.Common.FailureR\aFailure\x12\x1c\n" +
 	"\tManagerId\x18\x03 \x01(\tR\tManagerId\x12$\n" +
 	"\rCorrelationId\x18\x04 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x05 \x01(\tR\x02Id\"\xe0\x02\n" +
+	"\x02Id\x18\x05 \x01(\tR\x02Id\"\x8a\x03\n" +
 	"0RegisterUserForIdentityProviderIntegratedCommand\x12\x1c\n" +
 	"\tFirstName\x18\x01 \x01(\tR\tFirstName\x12\x1a\n" +
 	"\bLastName\x18\x02 \x01(\tR\bLastName\x12\x16\n" +
@@ -1328,7 +1336,8 @@ const file_RegisterUserByIdentity_proto_rawDesc = "" +
 	"\x10IgnoreValidation\x18\b \x01(\bR\x10IgnoreValidation\x12$\n" +
 	"\rCorrelationId\x18\t \x01(\tR\rCorrelationId\x12\x0e\n" +
 	"\x02Id\x18\n" +
-	" \x01(\tR\x02Id\"\xb3\x01\n" +
+	" \x01(\tR\x02Id\x12(\n" +
+	"\x0fApplicationType\x18\v \x01(\tR\x0fApplicationType\"\xb3\x01\n" +
 	"8RegisterManagerCustomerForAdminResponseIntegratedCommand\x12\x16\n" +
 	"\x06IsDone\x18\x01 \x01(\bR\x06IsDone\x12)\n" +
 	"\aFailure\x18\x02 \x01(\v2\x0f.Common.FailureR\aFailure\x12$\n" +

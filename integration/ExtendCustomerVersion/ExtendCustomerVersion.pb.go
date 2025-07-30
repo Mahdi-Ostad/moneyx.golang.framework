@@ -82,13 +82,14 @@ func (x *ExtendUserVersionResponseIntegratedCommand) GetId() string {
 }
 
 type ExtendUserVersionIntegratedCommand struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	UserName      string                 `protobuf:"bytes,1,opt,name=UserName,proto3" json:"UserName,omitempty"`
-	ExpireDate    int64                  `protobuf:"varint,2,opt,name=ExpireDate,proto3" json:"ExpireDate,omitempty"`
-	CorrelationId string                 `protobuf:"bytes,3,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
-	Id            string                 `protobuf:"bytes,4,opt,name=Id,proto3" json:"Id,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
+	state           protoimpl.MessageState `protogen:"open.v1"`
+	UserName        string                 `protobuf:"bytes,1,opt,name=UserName,proto3" json:"UserName,omitempty"`
+	ExpireDate      int64                  `protobuf:"varint,2,opt,name=ExpireDate,proto3" json:"ExpireDate,omitempty"`
+	CorrelationId   string                 `protobuf:"bytes,3,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
+	Id              string                 `protobuf:"bytes,4,opt,name=Id,proto3" json:"Id,omitempty"`
+	ApplicationType string                 `protobuf:"bytes,5,opt,name=ApplicationType,proto3" json:"ApplicationType,omitempty"`
+	unknownFields   protoimpl.UnknownFields
+	sizeCache       protoimpl.SizeCache
 }
 
 func (x *ExtendUserVersionIntegratedCommand) Reset() {
@@ -145,6 +146,13 @@ func (x *ExtendUserVersionIntegratedCommand) GetCorrelationId() string {
 func (x *ExtendUserVersionIntegratedCommand) GetId() string {
 	if x != nil {
 		return x.Id
+	}
+	return ""
+}
+
+func (x *ExtendUserVersionIntegratedCommand) GetApplicationType() string {
+	if x != nil {
+		return x.ApplicationType
 	}
 	return ""
 }
@@ -225,14 +233,15 @@ const file_ExtendCustomerVersion_proto_rawDesc = "" +
 	"*ExtendUserVersionResponseIntegratedCommand\x12\x16\n" +
 	"\x06IsDone\x18\x01 \x01(\bR\x06IsDone\x12$\n" +
 	"\rCorrelationId\x18\x02 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x03 \x01(\tR\x02Id\"\x96\x01\n" +
+	"\x02Id\x18\x03 \x01(\tR\x02Id\"\xc0\x01\n" +
 	"\"ExtendUserVersionIntegratedCommand\x12\x1a\n" +
 	"\bUserName\x18\x01 \x01(\tR\bUserName\x12\x1e\n" +
 	"\n" +
 	"ExpireDate\x18\x02 \x01(\x03R\n" +
 	"ExpireDate\x12$\n" +
 	"\rCorrelationId\x18\x03 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x04 \x01(\tR\x02Id\"\x9e\x01\n" +
+	"\x02Id\x18\x04 \x01(\tR\x02Id\x12(\n" +
+	"\x0fApplicationType\x18\x05 \x01(\tR\x0fApplicationType\"\x9e\x01\n" +
 	"2CommitOrRollbackExtendUserVersionIntegratedCommand\x12\x16\n" +
 	"\x06IsDone\x18\x01 \x01(\bR\x06IsDone\x12\x1a\n" +
 	"\bUserName\x18\x02 \x01(\tR\bUserName\x12$\n" +
