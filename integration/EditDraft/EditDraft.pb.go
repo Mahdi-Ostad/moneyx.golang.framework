@@ -425,26 +425,27 @@ func (x *EditDraftDocumentsToBankResponseIntegratedCommand) GetId() string {
 }
 
 type EditBankDraftDocumentsIntegratedCommand struct {
-	state                      protoimpl.MessageState     `protogen:"open.v1"`
-	OldBankId                  *common.NullableString     `protobuf:"bytes,1,opt,name=OldBankId,proto3" json:"OldBankId,omitempty"`
-	NewBankId                  *common.NullableString     `protobuf:"bytes,2,opt,name=NewBankId,proto3" json:"NewBankId,omitempty"`
-	DraftOrderId               string                     `protobuf:"bytes,3,opt,name=DraftOrderId,proto3" json:"DraftOrderId,omitempty"`
-	DraftOrderNumber           int32                      `protobuf:"varint,4,opt,name=DraftOrderNumber,proto3" json:"DraftOrderNumber,omitempty"`
-	EditBankDraftDocumentState EditBankDraftDocumentState `protobuf:"varint,5,opt,name=EditBankDraftDocumentState,proto3,enum=EditDraft.EditBankDraftDocumentState" json:"EditBankDraftDocumentState,omitempty"`
-	DraftOrderMoneyDocument    *common.MoneyDocument      `protobuf:"bytes,6,opt,name=DraftOrderMoneyDocument,proto3" json:"DraftOrderMoneyDocument,omitempty"`
-	ReceiptDocumentTransaction string                     `protobuf:"bytes,7,opt,name=ReceiptDocumentTransaction,proto3" json:"ReceiptDocumentTransaction,omitempty"`
-	ReceiptNumber              string                     `protobuf:"bytes,8,opt,name=ReceiptNumber,proto3" json:"ReceiptNumber,omitempty"`
-	Date                       int64                      `protobuf:"varint,9,opt,name=Date,proto3" json:"Date,omitempty"`
-	SenderId                   string                     `protobuf:"bytes,10,opt,name=SenderId,proto3" json:"SenderId,omitempty"`
-	SenderName                 string                     `protobuf:"bytes,11,opt,name=SenderName,proto3" json:"SenderName,omitempty"`
-	ReceiverId                 string                     `protobuf:"bytes,12,opt,name=ReceiverId,proto3" json:"ReceiverId,omitempty"`
-	ReceiverName               string                     `protobuf:"bytes,13,opt,name=ReceiverName,proto3" json:"ReceiverName,omitempty"`
-	Description                string                     `protobuf:"bytes,14,opt,name=Description,proto3" json:"Description,omitempty"`
-	BranchId                   string                     `protobuf:"bytes,15,opt,name=BranchId,proto3" json:"BranchId,omitempty"`
-	IsPrivate                  bool                       `protobuf:"varint,16,opt,name=IsPrivate,proto3" json:"IsPrivate,omitempty"`
-	ManagerId                  string                     `protobuf:"bytes,17,opt,name=ManagerId,proto3" json:"ManagerId,omitempty"`
-	CorrelationId              string                     `protobuf:"bytes,18,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
-	Id                         string                     `protobuf:"bytes,19,opt,name=Id,proto3" json:"Id,omitempty"`
+	state                      protoimpl.MessageState              `protogen:"open.v1"`
+	OldBankId                  *common.NullableString              `protobuf:"bytes,1,opt,name=OldBankId,proto3" json:"OldBankId,omitempty"`
+	NewBankId                  *common.NullableString              `protobuf:"bytes,2,opt,name=NewBankId,proto3" json:"NewBankId,omitempty"`
+	DraftOrderId               string                              `protobuf:"bytes,3,opt,name=DraftOrderId,proto3" json:"DraftOrderId,omitempty"`
+	DraftOrderNumber           int32                               `protobuf:"varint,4,opt,name=DraftOrderNumber,proto3" json:"DraftOrderNumber,omitempty"`
+	EditBankDraftDocumentState EditBankDraftDocumentState          `protobuf:"varint,5,opt,name=EditBankDraftDocumentState,proto3,enum=EditDraft.EditBankDraftDocumentState" json:"EditBankDraftDocumentState,omitempty"`
+	DraftOrderMoneyDocument    *common.MoneyDocument               `protobuf:"bytes,6,opt,name=DraftOrderMoneyDocument,proto3" json:"DraftOrderMoneyDocument,omitempty"`
+	ReceiptDocumentTransaction string                              `protobuf:"bytes,7,opt,name=ReceiptDocumentTransaction,proto3" json:"ReceiptDocumentTransaction,omitempty"`
+	ReceiptNumber              string                              `protobuf:"bytes,8,opt,name=ReceiptNumber,proto3" json:"ReceiptNumber,omitempty"`
+	Date                       int64                               `protobuf:"varint,9,opt,name=Date,proto3" json:"Date,omitempty"`
+	SenderId                   string                              `protobuf:"bytes,10,opt,name=SenderId,proto3" json:"SenderId,omitempty"`
+	SenderName                 string                              `protobuf:"bytes,11,opt,name=SenderName,proto3" json:"SenderName,omitempty"`
+	ReceiverId                 string                              `protobuf:"bytes,12,opt,name=ReceiverId,proto3" json:"ReceiverId,omitempty"`
+	ReceiverName               string                              `protobuf:"bytes,13,opt,name=ReceiverName,proto3" json:"ReceiverName,omitempty"`
+	Description                string                              `protobuf:"bytes,14,opt,name=Description,proto3" json:"Description,omitempty"`
+	BranchId                   string                              `protobuf:"bytes,15,opt,name=BranchId,proto3" json:"BranchId,omitempty"`
+	IsPrivate                  bool                                `protobuf:"varint,16,opt,name=IsPrivate,proto3" json:"IsPrivate,omitempty"`
+	ManagerId                  string                              `protobuf:"bytes,17,opt,name=ManagerId,proto3" json:"ManagerId,omitempty"`
+	CorrelationId              string                              `protobuf:"bytes,18,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
+	Id                         string                              `protobuf:"bytes,19,opt,name=Id,proto3" json:"Id,omitempty"`
+	OldBankTranData            *common.RetrieveBankTransactionData `protobuf:"bytes,20,opt,name=OldBankTranData,proto3" json:"OldBankTranData,omitempty"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -610,6 +611,13 @@ func (x *EditBankDraftDocumentsIntegratedCommand) GetId() string {
 		return x.Id
 	}
 	return ""
+}
+
+func (x *EditBankDraftDocumentsIntegratedCommand) GetOldBankTranData() *common.RetrieveBankTransactionData {
+	if x != nil {
+		return x.OldBankTranData
+	}
+	return nil
 }
 
 type EditDraftDocumentsToAccountResponseIntegratedCommand struct {
@@ -1155,7 +1163,7 @@ const file_EditDraft_proto_rawDesc = "" +
 	"\x16UnknownTransactionDate\x18\x03 \x01(\v2\x15.Common.NullableInt64R\x16UnknownTransactionDate\x12)\n" +
 	"\aFailure\x18\x04 \x01(\v2\x0f.Common.FailureR\aFailure\x12$\n" +
 	"\rCorrelationId\x18\x05 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x06 \x01(\tR\x02Id\"\xc7\x06\n" +
+	"\x02Id\x18\x06 \x01(\tR\x02Id\"\x96\a\n" +
 	"'EditBankDraftDocumentsIntegratedCommand\x124\n" +
 	"\tOldBankId\x18\x01 \x01(\v2\x16.Common.NullableStringR\tOldBankId\x124\n" +
 	"\tNewBankId\x18\x02 \x01(\v2\x16.Common.NullableStringR\tNewBankId\x12\"\n" +
@@ -1180,7 +1188,8 @@ const file_EditDraft_proto_rawDesc = "" +
 	"\tIsPrivate\x18\x10 \x01(\bR\tIsPrivate\x12\x1c\n" +
 	"\tManagerId\x18\x11 \x01(\tR\tManagerId\x12$\n" +
 	"\rCorrelationId\x18\x12 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x13 \x01(\tR\x02Id\"\xaf\x01\n" +
+	"\x02Id\x18\x13 \x01(\tR\x02Id\x12M\n" +
+	"\x0fOldBankTranData\x18\x14 \x01(\v2#.Common.RetrieveBankTransactionDataR\x0fOldBankTranData\"\xaf\x01\n" +
 	"4EditDraftDocumentsToAccountResponseIntegratedCommand\x12\x16\n" +
 	"\x06Status\x18\x01 \x01(\bR\x06Status\x12)\n" +
 	"\aFailure\x18\x02 \x01(\v2\x0f.Common.FailureR\aFailure\x12$\n" +
@@ -1292,8 +1301,9 @@ var file_EditDraft_proto_goTypes = []any{
 	(*common.Failure)(nil),                                                     // 14: Common.Failure
 	(*common.NullableString)(nil),                                              // 15: Common.NullableString
 	(*common.MoneyDocument)(nil),                                               // 16: Common.MoneyDocument
-	(*common.Money)(nil),                                                       // 17: Common.Money
-	(*common.DescriptionMetadata)(nil),                                         // 18: Common.DescriptionMetadata
+	(*common.RetrieveBankTransactionData)(nil),                                 // 17: Common.RetrieveBankTransactionData
+	(*common.Money)(nil),                                                       // 18: Common.Money
+	(*common.DescriptionMetadata)(nil),                                         // 19: Common.DescriptionMetadata
 }
 var file_EditDraft_proto_depIdxs = []int32{
 	12, // 0: EditDraft.EditDraftFilesIntegratedCommand.AddedFiles:type_name -> Common.FileItem
@@ -1303,21 +1313,22 @@ var file_EditDraft_proto_depIdxs = []int32{
 	15, // 4: EditDraft.EditBankDraftDocumentsIntegratedCommand.NewBankId:type_name -> Common.NullableString
 	0,  // 5: EditDraft.EditBankDraftDocumentsIntegratedCommand.EditBankDraftDocumentState:type_name -> EditDraft.EditBankDraftDocumentState
 	16, // 6: EditDraft.EditBankDraftDocumentsIntegratedCommand.DraftOrderMoneyDocument:type_name -> Common.MoneyDocument
-	14, // 7: EditDraft.EditDraftDocumentsToAccountResponseIntegratedCommand.Failure:type_name -> Common.Failure
-	15, // 8: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.NewAccountId:type_name -> Common.NullableString
-	16, // 9: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.DraftMoney:type_name -> Common.MoneyDocument
-	16, // 10: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.DraftCommission:type_name -> Common.MoneyDocument
-	1,  // 11: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.EditState:type_name -> EditDraft.EditAccountingDraftDocumentState
-	15, // 12: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.RemovedUnkownBankTransactionId:type_name -> Common.NullableString
-	17, // 13: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.DescriptionDraftMoney:type_name -> Common.Money
-	11, // 14: EditDraft.CommitOrRollbackEditedAccountingDraftDocumentsIntegratedCommand.RemovedWhatsappInfo:type_name -> EditDraft.DraftOrderWhatsappInfo
-	11, // 15: EditDraft.CommitOrRollbackEditedAccountingDraftDocumentsIntegratedCommand.AddedWhatsappInfo:type_name -> EditDraft.DraftOrderWhatsappInfo
-	18, // 16: EditDraft.DraftOrderWhatsappInfo.DescriptionMetadata:type_name -> Common.DescriptionMetadata
-	17, // [17:17] is the sub-list for method output_type
-	17, // [17:17] is the sub-list for method input_type
-	17, // [17:17] is the sub-list for extension type_name
-	17, // [17:17] is the sub-list for extension extendee
-	0,  // [0:17] is the sub-list for field type_name
+	17, // 7: EditDraft.EditBankDraftDocumentsIntegratedCommand.OldBankTranData:type_name -> Common.RetrieveBankTransactionData
+	14, // 8: EditDraft.EditDraftDocumentsToAccountResponseIntegratedCommand.Failure:type_name -> Common.Failure
+	15, // 9: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.NewAccountId:type_name -> Common.NullableString
+	16, // 10: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.DraftMoney:type_name -> Common.MoneyDocument
+	16, // 11: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.DraftCommission:type_name -> Common.MoneyDocument
+	1,  // 12: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.EditState:type_name -> EditDraft.EditAccountingDraftDocumentState
+	15, // 13: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.RemovedUnkownBankTransactionId:type_name -> Common.NullableString
+	18, // 14: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.DescriptionDraftMoney:type_name -> Common.Money
+	11, // 15: EditDraft.CommitOrRollbackEditedAccountingDraftDocumentsIntegratedCommand.RemovedWhatsappInfo:type_name -> EditDraft.DraftOrderWhatsappInfo
+	11, // 16: EditDraft.CommitOrRollbackEditedAccountingDraftDocumentsIntegratedCommand.AddedWhatsappInfo:type_name -> EditDraft.DraftOrderWhatsappInfo
+	19, // 17: EditDraft.DraftOrderWhatsappInfo.DescriptionMetadata:type_name -> Common.DescriptionMetadata
+	18, // [18:18] is the sub-list for method output_type
+	18, // [18:18] is the sub-list for method input_type
+	18, // [18:18] is the sub-list for extension type_name
+	18, // [18:18] is the sub-list for extension extendee
+	0,  // [0:18] is the sub-list for field type_name
 }
 
 func init() { file_EditDraft_proto_init() }

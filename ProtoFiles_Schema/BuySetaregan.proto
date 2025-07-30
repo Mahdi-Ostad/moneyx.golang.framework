@@ -1,0 +1,98 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.BuySetaregan";
+option go_package = "moneyx.golang.framework/integration/BuySetaregan";
+package BuySetaregan;
+
+import "Common.proto";
+
+message BuyAwccPackagesBySetareganIntegratedCommand {
+    double AmountPackage = 1;
+    string TransactionId = 2;
+    string ChargeNumber = 3;
+    string PackageCode = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message BuyAwccPackagesBySetareganResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string ServiceProviderRefNumber = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message BuyRoshanPackagesBySetareganIntegratedCommand {
+    double AmountPackage = 1;
+    string TransactionId = 2;
+    string ChargeNumber = 3;
+    string PackageCode = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message BuyRoshanPackagesBySetareganResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string ServiceProviderRefNumber = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message BuyEtisalatPackagesBySetareganIntegratedCommand {
+    double AmountPackage = 1;
+    string TransactionId = 2;
+    string ChargeNumber = 3;
+    string PackageCode = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message BuyEtisalatPackagesBySetareganResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string ServiceProviderRefNumber = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message BuySalaamPackagesBySetareganIntegratedCommand {
+    double AmountPackage = 1;
+    string TransactionId = 2;
+    string ChargeNumber = 3;
+    string PackageCode = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message BuySalaamPackagesBySetareganResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string ServiceProviderRefNumber = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message BuyMtnPackagesBySetareganIntegratedCommand {
+    double AmountPackage = 1;
+    string TransactionId = 2;
+    string ChargeNumber = 3;
+    string PackageCode = 4;
+    string CorrelationId = 5;
+    string Id = 6;
+}
+
+message BuyMtnPackagesBySetareganResponseIntegratedCommand {
+    bool IsDone = 1;
+    Common.Failure Failure = 2;
+    string ServiceProviderRefNumber = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message CheckStatusSetareganIntegratedCommand {
+    string TransactionId = 1;
+    string StateId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}

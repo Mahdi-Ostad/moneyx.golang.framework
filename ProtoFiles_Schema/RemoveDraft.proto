@@ -39,6 +39,7 @@ message RemoveDraftOrderBankDocumentsIntegratedCommand {
   string ManagerId = 3;
   string CorrelationId = 4;
   string Id = 5;
+  Common.RetrieveBankTransactionData OldBankData = 6;
 }
 
 message RemoveDraftOrderAccountDocumentsResponseIntegratedCommand {

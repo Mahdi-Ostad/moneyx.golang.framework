@@ -54,7 +54,10 @@ message EditBankDraftDocumentsIntegratedCommand {
   string ManagerId = 17;
   string CorrelationId = 18;
   string Id = 19;
+  Common.RetrieveBankTransactionData OldBankTranData = 20;
 }
+
+
 
 enum EditBankDraftDocumentState {
   RemoveDocument = 0;

@@ -389,3 +389,11 @@ message AccountingInfo {
     Common.Money TransactionMoney = 2;
     Common.Money Commission = 3;
 }
+
+message RetrieveBankTransactionData {
+    string TransactionId = 1;
+    int64 Date = 2;
+    Common.Money DraftOrderMoney = 3;
+    bool IsOutgoingDraftOrder = 4;
+    string BankId = 5;
+}

@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v5.28.2
-// source: Common.proto
+// source: common.proto
 
 package common
 
@@ -60,11 +60,11 @@ func (x AccountCreationType) String() string {
 }
 
 func (AccountCreationType) Descriptor() protoreflect.EnumDescriptor {
-	return file_Common_proto_enumTypes[0].Descriptor()
+	return file_common_proto_enumTypes[0].Descriptor()
 }
 
 func (AccountCreationType) Type() protoreflect.EnumType {
-	return &file_Common_proto_enumTypes[0]
+	return &file_common_proto_enumTypes[0]
 }
 
 func (x AccountCreationType) Number() protoreflect.EnumNumber {
@@ -73,7 +73,7 @@ func (x AccountCreationType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use AccountCreationType.Descriptor instead.
 func (AccountCreationType) EnumDescriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{0}
+	return file_common_proto_rawDescGZIP(), []int{0}
 }
 
 type DescriptionAccountType int32
@@ -109,11 +109,11 @@ func (x DescriptionAccountType) String() string {
 }
 
 func (DescriptionAccountType) Descriptor() protoreflect.EnumDescriptor {
-	return file_Common_proto_enumTypes[1].Descriptor()
+	return file_common_proto_enumTypes[1].Descriptor()
 }
 
 func (DescriptionAccountType) Type() protoreflect.EnumType {
-	return &file_Common_proto_enumTypes[1]
+	return &file_common_proto_enumTypes[1]
 }
 
 func (x DescriptionAccountType) Number() protoreflect.EnumNumber {
@@ -122,7 +122,7 @@ func (x DescriptionAccountType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use DescriptionAccountType.Descriptor instead.
 func (DescriptionAccountType) EnumDescriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{1}
+	return file_common_proto_rawDescGZIP(), []int{1}
 }
 
 type BusinessActionType int32
@@ -164,11 +164,11 @@ func (x BusinessActionType) String() string {
 }
 
 func (BusinessActionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_Common_proto_enumTypes[2].Descriptor()
+	return file_common_proto_enumTypes[2].Descriptor()
 }
 
 func (BusinessActionType) Type() protoreflect.EnumType {
-	return &file_Common_proto_enumTypes[2]
+	return &file_common_proto_enumTypes[2]
 }
 
 func (x BusinessActionType) Number() protoreflect.EnumNumber {
@@ -177,7 +177,7 @@ func (x BusinessActionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use BusinessActionType.Descriptor instead.
 func (BusinessActionType) EnumDescriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{2}
+	return file_common_proto_rawDescGZIP(), []int{2}
 }
 
 type ReportType int32
@@ -231,11 +231,11 @@ func (x ReportType) String() string {
 }
 
 func (ReportType) Descriptor() protoreflect.EnumDescriptor {
-	return file_Common_proto_enumTypes[3].Descriptor()
+	return file_common_proto_enumTypes[3].Descriptor()
 }
 
 func (ReportType) Type() protoreflect.EnumType {
-	return &file_Common_proto_enumTypes[3]
+	return &file_common_proto_enumTypes[3]
 }
 
 func (x ReportType) Number() protoreflect.EnumNumber {
@@ -244,7 +244,7 @@ func (x ReportType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use ReportType.Descriptor instead.
 func (ReportType) EnumDescriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{3}
+	return file_common_proto_rawDescGZIP(), []int{3}
 }
 
 type TransactionType int32
@@ -379,11 +379,11 @@ func (x TransactionType) String() string {
 }
 
 func (TransactionType) Descriptor() protoreflect.EnumDescriptor {
-	return file_Common_proto_enumTypes[4].Descriptor()
+	return file_common_proto_enumTypes[4].Descriptor()
 }
 
 func (TransactionType) Type() protoreflect.EnumType {
-	return &file_Common_proto_enumTypes[4]
+	return &file_common_proto_enumTypes[4]
 }
 
 func (x TransactionType) Number() protoreflect.EnumNumber {
@@ -392,7 +392,7 @@ func (x TransactionType) Number() protoreflect.EnumNumber {
 
 // Deprecated: Use TransactionType.Descriptor instead.
 func (TransactionType) EnumDescriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{4}
+	return file_common_proto_rawDescGZIP(), []int{4}
 }
 
 type AccountDocumentDto struct {
@@ -416,7 +416,7 @@ type AccountDocumentDto struct {
 
 func (x *AccountDocumentDto) Reset() {
 	*x = AccountDocumentDto{}
-	mi := &file_Common_proto_msgTypes[0]
+	mi := &file_common_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -428,7 +428,7 @@ func (x *AccountDocumentDto) String() string {
 func (*AccountDocumentDto) ProtoMessage() {}
 
 func (x *AccountDocumentDto) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[0]
+	mi := &file_common_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -441,7 +441,7 @@ func (x *AccountDocumentDto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccountDocumentDto.ProtoReflect.Descriptor instead.
 func (*AccountDocumentDto) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{0}
+	return file_common_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *AccountDocumentDto) GetDocType() int32 {
@@ -559,7 +559,7 @@ type BankDocumentDto struct {
 
 func (x *BankDocumentDto) Reset() {
 	*x = BankDocumentDto{}
-	mi := &file_Common_proto_msgTypes[1]
+	mi := &file_common_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -571,7 +571,7 @@ func (x *BankDocumentDto) String() string {
 func (*BankDocumentDto) ProtoMessage() {}
 
 func (x *BankDocumentDto) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[1]
+	mi := &file_common_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -584,7 +584,7 @@ func (x *BankDocumentDto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BankDocumentDto.ProtoReflect.Descriptor instead.
 func (*BankDocumentDto) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{1}
+	return file_common_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *BankDocumentDto) GetDocType() int32 {
@@ -726,7 +726,7 @@ type BranchDocumentDto struct {
 
 func (x *BranchDocumentDto) Reset() {
 	*x = BranchDocumentDto{}
-	mi := &file_Common_proto_msgTypes[2]
+	mi := &file_common_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -738,7 +738,7 @@ func (x *BranchDocumentDto) String() string {
 func (*BranchDocumentDto) ProtoMessage() {}
 
 func (x *BranchDocumentDto) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[2]
+	mi := &file_common_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -751,7 +751,7 @@ func (x *BranchDocumentDto) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BranchDocumentDto.ProtoReflect.Descriptor instead.
 func (*BranchDocumentDto) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{2}
+	return file_common_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *BranchDocumentDto) GetAmount() float64 {
@@ -898,7 +898,7 @@ type DescriptionMetadata struct {
 
 func (x *DescriptionMetadata) Reset() {
 	*x = DescriptionMetadata{}
-	mi := &file_Common_proto_msgTypes[3]
+	mi := &file_common_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -910,7 +910,7 @@ func (x *DescriptionMetadata) String() string {
 func (*DescriptionMetadata) ProtoMessage() {}
 
 func (x *DescriptionMetadata) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[3]
+	mi := &file_common_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -923,7 +923,7 @@ func (x *DescriptionMetadata) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use DescriptionMetadata.ProtoReflect.Descriptor instead.
 func (*DescriptionMetadata) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{3}
+	return file_common_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *DescriptionMetadata) GetValue() string {
@@ -957,7 +957,7 @@ type Money struct {
 
 func (x *Money) Reset() {
 	*x = Money{}
-	mi := &file_Common_proto_msgTypes[4]
+	mi := &file_common_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -969,7 +969,7 @@ func (x *Money) String() string {
 func (*Money) ProtoMessage() {}
 
 func (x *Money) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[4]
+	mi := &file_common_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -982,7 +982,7 @@ func (x *Money) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Money.ProtoReflect.Descriptor instead.
 func (*Money) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{4}
+	return file_common_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Money) GetAmount() float64 {
@@ -1009,7 +1009,7 @@ type MoneyDocument struct {
 
 func (x *MoneyDocument) Reset() {
 	*x = MoneyDocument{}
-	mi := &file_Common_proto_msgTypes[5]
+	mi := &file_common_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1021,7 +1021,7 @@ func (x *MoneyDocument) String() string {
 func (*MoneyDocument) ProtoMessage() {}
 
 func (x *MoneyDocument) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[5]
+	mi := &file_common_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1034,7 +1034,7 @@ func (x *MoneyDocument) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use MoneyDocument.ProtoReflect.Descriptor instead.
 func (*MoneyDocument) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{5}
+	return file_common_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *MoneyDocument) GetMoney() *Money {
@@ -1060,7 +1060,7 @@ type NullableBool struct {
 
 func (x *NullableBool) Reset() {
 	*x = NullableBool{}
-	mi := &file_Common_proto_msgTypes[6]
+	mi := &file_common_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1072,7 +1072,7 @@ func (x *NullableBool) String() string {
 func (*NullableBool) ProtoMessage() {}
 
 func (x *NullableBool) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[6]
+	mi := &file_common_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1085,7 +1085,7 @@ func (x *NullableBool) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NullableBool.ProtoReflect.Descriptor instead.
 func (*NullableBool) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{6}
+	return file_common_proto_rawDescGZIP(), []int{6}
 }
 
 func (x *NullableBool) GetValue() bool {
@@ -1105,7 +1105,7 @@ type Failure struct {
 
 func (x *Failure) Reset() {
 	*x = Failure{}
-	mi := &file_Common_proto_msgTypes[7]
+	mi := &file_common_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1117,7 +1117,7 @@ func (x *Failure) String() string {
 func (*Failure) ProtoMessage() {}
 
 func (x *Failure) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[7]
+	mi := &file_common_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1130,7 +1130,7 @@ func (x *Failure) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Failure.ProtoReflect.Descriptor instead.
 func (*Failure) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{7}
+	return file_common_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *Failure) GetFailureTempId() string {
@@ -1156,7 +1156,7 @@ type NullableInt32 struct {
 
 func (x *NullableInt32) Reset() {
 	*x = NullableInt32{}
-	mi := &file_Common_proto_msgTypes[8]
+	mi := &file_common_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1168,7 +1168,7 @@ func (x *NullableInt32) String() string {
 func (*NullableInt32) ProtoMessage() {}
 
 func (x *NullableInt32) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[8]
+	mi := &file_common_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1181,7 +1181,7 @@ func (x *NullableInt32) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NullableInt32.ProtoReflect.Descriptor instead.
 func (*NullableInt32) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{8}
+	return file_common_proto_rawDescGZIP(), []int{8}
 }
 
 func (x *NullableInt32) GetValue() int32 {
@@ -1201,7 +1201,7 @@ type FileItem struct {
 
 func (x *FileItem) Reset() {
 	*x = FileItem{}
-	mi := &file_Common_proto_msgTypes[9]
+	mi := &file_common_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1213,7 +1213,7 @@ func (x *FileItem) String() string {
 func (*FileItem) ProtoMessage() {}
 
 func (x *FileItem) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[9]
+	mi := &file_common_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1226,7 +1226,7 @@ func (x *FileItem) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use FileItem.ProtoReflect.Descriptor instead.
 func (*FileItem) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{9}
+	return file_common_proto_rawDescGZIP(), []int{9}
 }
 
 func (x *FileItem) GetFile() []byte {
@@ -1252,7 +1252,7 @@ type NullableString struct {
 
 func (x *NullableString) Reset() {
 	*x = NullableString{}
-	mi := &file_Common_proto_msgTypes[10]
+	mi := &file_common_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1264,7 +1264,7 @@ func (x *NullableString) String() string {
 func (*NullableString) ProtoMessage() {}
 
 func (x *NullableString) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[10]
+	mi := &file_common_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1277,7 +1277,7 @@ func (x *NullableString) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NullableString.ProtoReflect.Descriptor instead.
 func (*NullableString) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{10}
+	return file_common_proto_rawDescGZIP(), []int{10}
 }
 
 func (x *NullableString) GetValue() string {
@@ -1296,7 +1296,7 @@ type NullableInt64 struct {
 
 func (x *NullableInt64) Reset() {
 	*x = NullableInt64{}
-	mi := &file_Common_proto_msgTypes[11]
+	mi := &file_common_proto_msgTypes[11]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1308,7 +1308,7 @@ func (x *NullableInt64) String() string {
 func (*NullableInt64) ProtoMessage() {}
 
 func (x *NullableInt64) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[11]
+	mi := &file_common_proto_msgTypes[11]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1321,7 +1321,7 @@ func (x *NullableInt64) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NullableInt64.ProtoReflect.Descriptor instead.
 func (*NullableInt64) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{11}
+	return file_common_proto_rawDescGZIP(), []int{11}
 }
 
 func (x *NullableInt64) GetValue() int64 {
@@ -1341,7 +1341,7 @@ type WhatsappInfo struct {
 
 func (x *WhatsappInfo) Reset() {
 	*x = WhatsappInfo{}
-	mi := &file_Common_proto_msgTypes[12]
+	mi := &file_common_proto_msgTypes[12]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1353,7 +1353,7 @@ func (x *WhatsappInfo) String() string {
 func (*WhatsappInfo) ProtoMessage() {}
 
 func (x *WhatsappInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[12]
+	mi := &file_common_proto_msgTypes[12]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1366,7 +1366,7 @@ func (x *WhatsappInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WhatsappInfo.ProtoReflect.Descriptor instead.
 func (*WhatsappInfo) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{12}
+	return file_common_proto_rawDescGZIP(), []int{12}
 }
 
 func (x *WhatsappInfo) GetWhatsappTemplateCode() string {
@@ -1394,7 +1394,7 @@ type WhatsappConnector struct {
 
 func (x *WhatsappConnector) Reset() {
 	*x = WhatsappConnector{}
-	mi := &file_Common_proto_msgTypes[13]
+	mi := &file_common_proto_msgTypes[13]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1406,7 +1406,7 @@ func (x *WhatsappConnector) String() string {
 func (*WhatsappConnector) ProtoMessage() {}
 
 func (x *WhatsappConnector) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[13]
+	mi := &file_common_proto_msgTypes[13]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1419,7 +1419,7 @@ func (x *WhatsappConnector) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use WhatsappConnector.ProtoReflect.Descriptor instead.
 func (*WhatsappConnector) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{13}
+	return file_common_proto_rawDescGZIP(), []int{13}
 }
 
 func (x *WhatsappConnector) GetLanguage() string {
@@ -1453,7 +1453,7 @@ type ResponseOldBankReceiptInfo struct {
 
 func (x *ResponseOldBankReceiptInfo) Reset() {
 	*x = ResponseOldBankReceiptInfo{}
-	mi := &file_Common_proto_msgTypes[14]
+	mi := &file_common_proto_msgTypes[14]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1465,7 +1465,7 @@ func (x *ResponseOldBankReceiptInfo) String() string {
 func (*ResponseOldBankReceiptInfo) ProtoMessage() {}
 
 func (x *ResponseOldBankReceiptInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[14]
+	mi := &file_common_proto_msgTypes[14]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1478,7 +1478,7 @@ func (x *ResponseOldBankReceiptInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ResponseOldBankReceiptInfo.ProtoReflect.Descriptor instead.
 func (*ResponseOldBankReceiptInfo) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{14}
+	return file_common_proto_rawDescGZIP(), []int{14}
 }
 
 func (x *ResponseOldBankReceiptInfo) GetOldBankReceiptInfo() string {
@@ -1506,7 +1506,7 @@ type AccountOpeningBalance struct {
 
 func (x *AccountOpeningBalance) Reset() {
 	*x = AccountOpeningBalance{}
-	mi := &file_Common_proto_msgTypes[15]
+	mi := &file_common_proto_msgTypes[15]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1518,7 +1518,7 @@ func (x *AccountOpeningBalance) String() string {
 func (*AccountOpeningBalance) ProtoMessage() {}
 
 func (x *AccountOpeningBalance) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[15]
+	mi := &file_common_proto_msgTypes[15]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1531,7 +1531,7 @@ func (x *AccountOpeningBalance) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccountOpeningBalance.ProtoReflect.Descriptor instead.
 func (*AccountOpeningBalance) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{15}
+	return file_common_proto_rawDescGZIP(), []int{15}
 }
 
 func (x *AccountOpeningBalance) GetIsDebtor() bool {
@@ -1571,7 +1571,7 @@ type BuyChargeAccountingInfo struct {
 
 func (x *BuyChargeAccountingInfo) Reset() {
 	*x = BuyChargeAccountingInfo{}
-	mi := &file_Common_proto_msgTypes[16]
+	mi := &file_common_proto_msgTypes[16]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1583,7 +1583,7 @@ func (x *BuyChargeAccountingInfo) String() string {
 func (*BuyChargeAccountingInfo) ProtoMessage() {}
 
 func (x *BuyChargeAccountingInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[16]
+	mi := &file_common_proto_msgTypes[16]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1596,7 +1596,7 @@ func (x *BuyChargeAccountingInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BuyChargeAccountingInfo.ProtoReflect.Descriptor instead.
 func (*BuyChargeAccountingInfo) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{16}
+	return file_common_proto_rawDescGZIP(), []int{16}
 }
 
 func (x *BuyChargeAccountingInfo) GetPackageTitle() string {
@@ -1667,7 +1667,7 @@ type CreditReductionMetaContext struct {
 
 func (x *CreditReductionMetaContext) Reset() {
 	*x = CreditReductionMetaContext{}
-	mi := &file_Common_proto_msgTypes[17]
+	mi := &file_common_proto_msgTypes[17]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1679,7 +1679,7 @@ func (x *CreditReductionMetaContext) String() string {
 func (*CreditReductionMetaContext) ProtoMessage() {}
 
 func (x *CreditReductionMetaContext) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[17]
+	mi := &file_common_proto_msgTypes[17]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1692,7 +1692,7 @@ func (x *CreditReductionMetaContext) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use CreditReductionMetaContext.ProtoReflect.Descriptor instead.
 func (*CreditReductionMetaContext) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{17}
+	return file_common_proto_rawDescGZIP(), []int{17}
 }
 
 func (x *CreditReductionMetaContext) GetCountryCode() string {
@@ -1732,7 +1732,7 @@ type NullableDouble struct {
 
 func (x *NullableDouble) Reset() {
 	*x = NullableDouble{}
-	mi := &file_Common_proto_msgTypes[18]
+	mi := &file_common_proto_msgTypes[18]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1744,7 +1744,7 @@ func (x *NullableDouble) String() string {
 func (*NullableDouble) ProtoMessage() {}
 
 func (x *NullableDouble) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[18]
+	mi := &file_common_proto_msgTypes[18]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1757,7 +1757,7 @@ func (x *NullableDouble) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use NullableDouble.ProtoReflect.Descriptor instead.
 func (*NullableDouble) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{18}
+	return file_common_proto_rawDescGZIP(), []int{18}
 }
 
 func (x *NullableDouble) GetValue() float64 {
@@ -1778,7 +1778,7 @@ type AccountCreditLimit struct {
 
 func (x *AccountCreditLimit) Reset() {
 	*x = AccountCreditLimit{}
-	mi := &file_Common_proto_msgTypes[19]
+	mi := &file_common_proto_msgTypes[19]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1790,7 +1790,7 @@ func (x *AccountCreditLimit) String() string {
 func (*AccountCreditLimit) ProtoMessage() {}
 
 func (x *AccountCreditLimit) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[19]
+	mi := &file_common_proto_msgTypes[19]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1803,7 +1803,7 @@ func (x *AccountCreditLimit) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccountCreditLimit.ProtoReflect.Descriptor instead.
 func (*AccountCreditLimit) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{19}
+	return file_common_proto_rawDescGZIP(), []int{19}
 }
 
 func (x *AccountCreditLimit) GetIsUnLimit() bool {
@@ -1842,7 +1842,7 @@ type BankReceiptInfo struct {
 
 func (x *BankReceiptInfo) Reset() {
 	*x = BankReceiptInfo{}
-	mi := &file_Common_proto_msgTypes[20]
+	mi := &file_common_proto_msgTypes[20]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1854,7 +1854,7 @@ func (x *BankReceiptInfo) String() string {
 func (*BankReceiptInfo) ProtoMessage() {}
 
 func (x *BankReceiptInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[20]
+	mi := &file_common_proto_msgTypes[20]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1867,7 +1867,7 @@ func (x *BankReceiptInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use BankReceiptInfo.ProtoReflect.Descriptor instead.
 func (*BankReceiptInfo) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{20}
+	return file_common_proto_rawDescGZIP(), []int{20}
 }
 
 func (x *BankReceiptInfo) GetBankId() string {
@@ -1936,7 +1936,7 @@ type DecorateIdentityWhatsappInformationIntegratedCommand struct {
 
 func (x *DecorateIdentityWhatsappInformationIntegratedCommand) Reset() {
 	*x = DecorateIdentityWhatsappInformationIntegratedCommand{}
-	mi := &file_Common_proto_msgTypes[21]
+	mi := &file_common_proto_msgTypes[21]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -1948,7 +1948,7 @@ func (x *DecorateIdentityWhatsappInformationIntegratedCommand) String() string {
 func (*DecorateIdentityWhatsappInformationIntegratedCommand) ProtoMessage() {}
 
 func (x *DecorateIdentityWhatsappInformationIntegratedCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[21]
+	mi := &file_common_proto_msgTypes[21]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -1961,7 +1961,7 @@ func (x *DecorateIdentityWhatsappInformationIntegratedCommand) ProtoReflect() pr
 
 // Deprecated: Use DecorateIdentityWhatsappInformationIntegratedCommand.ProtoReflect.Descriptor instead.
 func (*DecorateIdentityWhatsappInformationIntegratedCommand) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{21}
+	return file_common_proto_rawDescGZIP(), []int{21}
 }
 
 func (x *DecorateIdentityWhatsappInformationIntegratedCommand) GetMetadata() []*DescriptionMetadata {
@@ -2041,7 +2041,7 @@ type DecorateStaticDataWhatsappInformationIntegratedCommand struct {
 
 func (x *DecorateStaticDataWhatsappInformationIntegratedCommand) Reset() {
 	*x = DecorateStaticDataWhatsappInformationIntegratedCommand{}
-	mi := &file_Common_proto_msgTypes[22]
+	mi := &file_common_proto_msgTypes[22]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2053,7 +2053,7 @@ func (x *DecorateStaticDataWhatsappInformationIntegratedCommand) String() string
 func (*DecorateStaticDataWhatsappInformationIntegratedCommand) ProtoMessage() {}
 
 func (x *DecorateStaticDataWhatsappInformationIntegratedCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[22]
+	mi := &file_common_proto_msgTypes[22]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2066,7 +2066,7 @@ func (x *DecorateStaticDataWhatsappInformationIntegratedCommand) ProtoReflect() 
 
 // Deprecated: Use DecorateStaticDataWhatsappInformationIntegratedCommand.ProtoReflect.Descriptor instead.
 func (*DecorateStaticDataWhatsappInformationIntegratedCommand) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{22}
+	return file_common_proto_rawDescGZIP(), []int{22}
 }
 
 func (x *DecorateStaticDataWhatsappInformationIntegratedCommand) GetMetadata() []*DescriptionMetadata {
@@ -2125,7 +2125,7 @@ type DecorateExchangerNameWhatsappInformationIntegratedCommand struct {
 
 func (x *DecorateExchangerNameWhatsappInformationIntegratedCommand) Reset() {
 	*x = DecorateExchangerNameWhatsappInformationIntegratedCommand{}
-	mi := &file_Common_proto_msgTypes[23]
+	mi := &file_common_proto_msgTypes[23]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2137,7 +2137,7 @@ func (x *DecorateExchangerNameWhatsappInformationIntegratedCommand) String() str
 func (*DecorateExchangerNameWhatsappInformationIntegratedCommand) ProtoMessage() {}
 
 func (x *DecorateExchangerNameWhatsappInformationIntegratedCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[23]
+	mi := &file_common_proto_msgTypes[23]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2150,7 +2150,7 @@ func (x *DecorateExchangerNameWhatsappInformationIntegratedCommand) ProtoReflect
 
 // Deprecated: Use DecorateExchangerNameWhatsappInformationIntegratedCommand.ProtoReflect.Descriptor instead.
 func (*DecorateExchangerNameWhatsappInformationIntegratedCommand) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{23}
+	return file_common_proto_rawDescGZIP(), []int{23}
 }
 
 func (x *DecorateExchangerNameWhatsappInformationIntegratedCommand) GetConnector() *WhatsappConnector {
@@ -2208,7 +2208,7 @@ type HavingAccountInfoIntegratedCommand struct {
 
 func (x *HavingAccountInfoIntegratedCommand) Reset() {
 	*x = HavingAccountInfoIntegratedCommand{}
-	mi := &file_Common_proto_msgTypes[24]
+	mi := &file_common_proto_msgTypes[24]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2220,7 +2220,7 @@ func (x *HavingAccountInfoIntegratedCommand) String() string {
 func (*HavingAccountInfoIntegratedCommand) ProtoMessage() {}
 
 func (x *HavingAccountInfoIntegratedCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[24]
+	mi := &file_common_proto_msgTypes[24]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2233,7 +2233,7 @@ func (x *HavingAccountInfoIntegratedCommand) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use HavingAccountInfoIntegratedCommand.ProtoReflect.Descriptor instead.
 func (*HavingAccountInfoIntegratedCommand) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{24}
+	return file_common_proto_rawDescGZIP(), []int{24}
 }
 
 func (x *HavingAccountInfoIntegratedCommand) GetHasAccount() bool {
@@ -2285,7 +2285,7 @@ type NotifyAccountCreationIntegratedCommand struct {
 
 func (x *NotifyAccountCreationIntegratedCommand) Reset() {
 	*x = NotifyAccountCreationIntegratedCommand{}
-	mi := &file_Common_proto_msgTypes[25]
+	mi := &file_common_proto_msgTypes[25]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2297,7 +2297,7 @@ func (x *NotifyAccountCreationIntegratedCommand) String() string {
 func (*NotifyAccountCreationIntegratedCommand) ProtoMessage() {}
 
 func (x *NotifyAccountCreationIntegratedCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[25]
+	mi := &file_common_proto_msgTypes[25]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2310,7 +2310,7 @@ func (x *NotifyAccountCreationIntegratedCommand) ProtoReflect() protoreflect.Mes
 
 // Deprecated: Use NotifyAccountCreationIntegratedCommand.ProtoReflect.Descriptor instead.
 func (*NotifyAccountCreationIntegratedCommand) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{25}
+	return file_common_proto_rawDescGZIP(), []int{25}
 }
 
 func (x *NotifyAccountCreationIntegratedCommand) GetAccountId() string {
@@ -2369,7 +2369,7 @@ type NotifyAccountEditionIntegratedCommand struct {
 
 func (x *NotifyAccountEditionIntegratedCommand) Reset() {
 	*x = NotifyAccountEditionIntegratedCommand{}
-	mi := &file_Common_proto_msgTypes[26]
+	mi := &file_common_proto_msgTypes[26]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2381,7 +2381,7 @@ func (x *NotifyAccountEditionIntegratedCommand) String() string {
 func (*NotifyAccountEditionIntegratedCommand) ProtoMessage() {}
 
 func (x *NotifyAccountEditionIntegratedCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[26]
+	mi := &file_common_proto_msgTypes[26]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2394,7 +2394,7 @@ func (x *NotifyAccountEditionIntegratedCommand) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use NotifyAccountEditionIntegratedCommand.ProtoReflect.Descriptor instead.
 func (*NotifyAccountEditionIntegratedCommand) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{26}
+	return file_common_proto_rawDescGZIP(), []int{26}
 }
 
 func (x *NotifyAccountEditionIntegratedCommand) GetAccountId() string {
@@ -2451,7 +2451,7 @@ type NotifyAccountRemovalIntegratedCommand struct {
 
 func (x *NotifyAccountRemovalIntegratedCommand) Reset() {
 	*x = NotifyAccountRemovalIntegratedCommand{}
-	mi := &file_Common_proto_msgTypes[27]
+	mi := &file_common_proto_msgTypes[27]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2463,7 +2463,7 @@ func (x *NotifyAccountRemovalIntegratedCommand) String() string {
 func (*NotifyAccountRemovalIntegratedCommand) ProtoMessage() {}
 
 func (x *NotifyAccountRemovalIntegratedCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[27]
+	mi := &file_common_proto_msgTypes[27]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2476,7 +2476,7 @@ func (x *NotifyAccountRemovalIntegratedCommand) ProtoReflect() protoreflect.Mess
 
 // Deprecated: Use NotifyAccountRemovalIntegratedCommand.ProtoReflect.Descriptor instead.
 func (*NotifyAccountRemovalIntegratedCommand) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{27}
+	return file_common_proto_rawDescGZIP(), []int{27}
 }
 
 func (x *NotifyAccountRemovalIntegratedCommand) GetAccountId() string {
@@ -2519,7 +2519,7 @@ type RemoveDocumentsDescriptionIntegratedCommand struct {
 
 func (x *RemoveDocumentsDescriptionIntegratedCommand) Reset() {
 	*x = RemoveDocumentsDescriptionIntegratedCommand{}
-	mi := &file_Common_proto_msgTypes[28]
+	mi := &file_common_proto_msgTypes[28]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2531,7 +2531,7 @@ func (x *RemoveDocumentsDescriptionIntegratedCommand) String() string {
 func (*RemoveDocumentsDescriptionIntegratedCommand) ProtoMessage() {}
 
 func (x *RemoveDocumentsDescriptionIntegratedCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[28]
+	mi := &file_common_proto_msgTypes[28]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2544,7 +2544,7 @@ func (x *RemoveDocumentsDescriptionIntegratedCommand) ProtoReflect() protoreflec
 
 // Deprecated: Use RemoveDocumentsDescriptionIntegratedCommand.ProtoReflect.Descriptor instead.
 func (*RemoveDocumentsDescriptionIntegratedCommand) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{28}
+	return file_common_proto_rawDescGZIP(), []int{28}
 }
 
 func (x *RemoveDocumentsDescriptionIntegratedCommand) GetTransactionId() string {
@@ -2589,7 +2589,7 @@ type SendDocumentsDescriptionIntegratedCommand struct {
 
 func (x *SendDocumentsDescriptionIntegratedCommand) Reset() {
 	*x = SendDocumentsDescriptionIntegratedCommand{}
-	mi := &file_Common_proto_msgTypes[29]
+	mi := &file_common_proto_msgTypes[29]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2601,7 +2601,7 @@ func (x *SendDocumentsDescriptionIntegratedCommand) String() string {
 func (*SendDocumentsDescriptionIntegratedCommand) ProtoMessage() {}
 
 func (x *SendDocumentsDescriptionIntegratedCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[29]
+	mi := &file_common_proto_msgTypes[29]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2614,7 +2614,7 @@ func (x *SendDocumentsDescriptionIntegratedCommand) ProtoReflect() protoreflect.
 
 // Deprecated: Use SendDocumentsDescriptionIntegratedCommand.ProtoReflect.Descriptor instead.
 func (*SendDocumentsDescriptionIntegratedCommand) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{29}
+	return file_common_proto_rawDescGZIP(), []int{29}
 }
 
 func (x *SendDocumentsDescriptionIntegratedCommand) GetTransactionId() string {
@@ -2669,7 +2669,7 @@ type AccountsDetails struct {
 
 func (x *AccountsDetails) Reset() {
 	*x = AccountsDetails{}
-	mi := &file_Common_proto_msgTypes[30]
+	mi := &file_common_proto_msgTypes[30]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2681,7 +2681,7 @@ func (x *AccountsDetails) String() string {
 func (*AccountsDetails) ProtoMessage() {}
 
 func (x *AccountsDetails) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[30]
+	mi := &file_common_proto_msgTypes[30]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2694,7 +2694,7 @@ func (x *AccountsDetails) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccountsDetails.ProtoReflect.Descriptor instead.
 func (*AccountsDetails) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{30}
+	return file_common_proto_rawDescGZIP(), []int{30}
 }
 
 func (x *AccountsDetails) GetAccountId() string {
@@ -2721,7 +2721,7 @@ type AccountsDocuments struct {
 
 func (x *AccountsDocuments) Reset() {
 	*x = AccountsDocuments{}
-	mi := &file_Common_proto_msgTypes[31]
+	mi := &file_common_proto_msgTypes[31]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2733,7 +2733,7 @@ func (x *AccountsDocuments) String() string {
 func (*AccountsDocuments) ProtoMessage() {}
 
 func (x *AccountsDocuments) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[31]
+	mi := &file_common_proto_msgTypes[31]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2746,7 +2746,7 @@ func (x *AccountsDocuments) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccountsDocuments.ProtoReflect.Descriptor instead.
 func (*AccountsDocuments) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{31}
+	return file_common_proto_rawDescGZIP(), []int{31}
 }
 
 func (x *AccountsDocuments) GetTempId() string {
@@ -2778,7 +2778,7 @@ type SendWhatsAppIntegratedCommand struct {
 
 func (x *SendWhatsAppIntegratedCommand) Reset() {
 	*x = SendWhatsAppIntegratedCommand{}
-	mi := &file_Common_proto_msgTypes[32]
+	mi := &file_common_proto_msgTypes[32]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2790,7 +2790,7 @@ func (x *SendWhatsAppIntegratedCommand) String() string {
 func (*SendWhatsAppIntegratedCommand) ProtoMessage() {}
 
 func (x *SendWhatsAppIntegratedCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[32]
+	mi := &file_common_proto_msgTypes[32]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2803,7 +2803,7 @@ func (x *SendWhatsAppIntegratedCommand) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use SendWhatsAppIntegratedCommand.ProtoReflect.Descriptor instead.
 func (*SendWhatsAppIntegratedCommand) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{32}
+	return file_common_proto_rawDescGZIP(), []int{32}
 }
 
 func (x *SendWhatsAppIntegratedCommand) GetLanguage() string {
@@ -2868,7 +2868,7 @@ type BusinessIntelligenceDocumentReport struct {
 
 func (x *BusinessIntelligenceDocumentReport) Reset() {
 	*x = BusinessIntelligenceDocumentReport{}
-	mi := &file_Common_proto_msgTypes[33]
+	mi := &file_common_proto_msgTypes[33]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2880,7 +2880,7 @@ func (x *BusinessIntelligenceDocumentReport) String() string {
 func (*BusinessIntelligenceDocumentReport) ProtoMessage() {}
 
 func (x *BusinessIntelligenceDocumentReport) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[33]
+	mi := &file_common_proto_msgTypes[33]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2893,7 +2893,7 @@ func (x *BusinessIntelligenceDocumentReport) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use BusinessIntelligenceDocumentReport.ProtoReflect.Descriptor instead.
 func (*BusinessIntelligenceDocumentReport) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{33}
+	return file_common_proto_rawDescGZIP(), []int{33}
 }
 
 func (x *BusinessIntelligenceDocumentReport) GetAccountId() string {
@@ -2949,7 +2949,7 @@ type InboxBusinessIntelligenceIntegratedCommand struct {
 
 func (x *InboxBusinessIntelligenceIntegratedCommand) Reset() {
 	*x = InboxBusinessIntelligenceIntegratedCommand{}
-	mi := &file_Common_proto_msgTypes[34]
+	mi := &file_common_proto_msgTypes[34]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -2961,7 +2961,7 @@ func (x *InboxBusinessIntelligenceIntegratedCommand) String() string {
 func (*InboxBusinessIntelligenceIntegratedCommand) ProtoMessage() {}
 
 func (x *InboxBusinessIntelligenceIntegratedCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[34]
+	mi := &file_common_proto_msgTypes[34]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -2974,7 +2974,7 @@ func (x *InboxBusinessIntelligenceIntegratedCommand) ProtoReflect() protoreflect
 
 // Deprecated: Use InboxBusinessIntelligenceIntegratedCommand.ProtoReflect.Descriptor instead.
 func (*InboxBusinessIntelligenceIntegratedCommand) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{34}
+	return file_common_proto_rawDescGZIP(), []int{34}
 }
 
 func (x *InboxBusinessIntelligenceIntegratedCommand) GetUserId() string {
@@ -3063,7 +3063,7 @@ type TransactionChangeIntegratedCommand struct {
 
 func (x *TransactionChangeIntegratedCommand) Reset() {
 	*x = TransactionChangeIntegratedCommand{}
-	mi := &file_Common_proto_msgTypes[35]
+	mi := &file_common_proto_msgTypes[35]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3075,7 +3075,7 @@ func (x *TransactionChangeIntegratedCommand) String() string {
 func (*TransactionChangeIntegratedCommand) ProtoMessage() {}
 
 func (x *TransactionChangeIntegratedCommand) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[35]
+	mi := &file_common_proto_msgTypes[35]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3088,7 +3088,7 @@ func (x *TransactionChangeIntegratedCommand) ProtoReflect() protoreflect.Message
 
 // Deprecated: Use TransactionChangeIntegratedCommand.ProtoReflect.Descriptor instead.
 func (*TransactionChangeIntegratedCommand) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{35}
+	return file_common_proto_rawDescGZIP(), []int{35}
 }
 
 func (x *TransactionChangeIntegratedCommand) GetMoneys() []*TransactionMoney {
@@ -3158,7 +3158,7 @@ type TransactionMoney struct {
 
 func (x *TransactionMoney) Reset() {
 	*x = TransactionMoney{}
-	mi := &file_Common_proto_msgTypes[36]
+	mi := &file_common_proto_msgTypes[36]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3170,7 +3170,7 @@ func (x *TransactionMoney) String() string {
 func (*TransactionMoney) ProtoMessage() {}
 
 func (x *TransactionMoney) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[36]
+	mi := &file_common_proto_msgTypes[36]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3183,7 +3183,7 @@ func (x *TransactionMoney) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TransactionMoney.ProtoReflect.Descriptor instead.
 func (*TransactionMoney) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{36}
+	return file_common_proto_rawDescGZIP(), []int{36}
 }
 
 func (x *TransactionMoney) GetMoney() *MoneyDocument {
@@ -3218,7 +3218,7 @@ type TransactionCommission struct {
 
 func (x *TransactionCommission) Reset() {
 	*x = TransactionCommission{}
-	mi := &file_Common_proto_msgTypes[37]
+	mi := &file_common_proto_msgTypes[37]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3230,7 +3230,7 @@ func (x *TransactionCommission) String() string {
 func (*TransactionCommission) ProtoMessage() {}
 
 func (x *TransactionCommission) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[37]
+	mi := &file_common_proto_msgTypes[37]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3243,7 +3243,7 @@ func (x *TransactionCommission) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use TransactionCommission.ProtoReflect.Descriptor instead.
 func (*TransactionCommission) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{37}
+	return file_common_proto_rawDescGZIP(), []int{37}
 }
 
 func (x *TransactionCommission) GetCommission() *MoneyDocument {
@@ -3278,7 +3278,7 @@ type AccountingWhatsappInfo struct {
 
 func (x *AccountingWhatsappInfo) Reset() {
 	*x = AccountingWhatsappInfo{}
-	mi := &file_Common_proto_msgTypes[38]
+	mi := &file_common_proto_msgTypes[38]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3290,7 +3290,7 @@ func (x *AccountingWhatsappInfo) String() string {
 func (*AccountingWhatsappInfo) ProtoMessage() {}
 
 func (x *AccountingWhatsappInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[38]
+	mi := &file_common_proto_msgTypes[38]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3303,7 +3303,7 @@ func (x *AccountingWhatsappInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccountingWhatsappInfo.ProtoReflect.Descriptor instead.
 func (*AccountingWhatsappInfo) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{38}
+	return file_common_proto_rawDescGZIP(), []int{38}
 }
 
 func (x *AccountingWhatsappInfo) GetAccountId() string {
@@ -3338,7 +3338,7 @@ type AccountingInfo struct {
 
 func (x *AccountingInfo) Reset() {
 	*x = AccountingInfo{}
-	mi := &file_Common_proto_msgTypes[39]
+	mi := &file_common_proto_msgTypes[39]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -3350,7 +3350,7 @@ func (x *AccountingInfo) String() string {
 func (*AccountingInfo) ProtoMessage() {}
 
 func (x *AccountingInfo) ProtoReflect() protoreflect.Message {
-	mi := &file_Common_proto_msgTypes[39]
+	mi := &file_common_proto_msgTypes[39]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -3363,7 +3363,7 @@ func (x *AccountingInfo) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use AccountingInfo.ProtoReflect.Descriptor instead.
 func (*AccountingInfo) Descriptor() ([]byte, []int) {
-	return file_Common_proto_rawDescGZIP(), []int{39}
+	return file_common_proto_rawDescGZIP(), []int{39}
 }
 
 func (x *AccountingInfo) GetAccountId() string {
@@ -3387,11 +3387,87 @@ func (x *AccountingInfo) GetCommission() *Money {
 	return nil
 }
 
-var File_Common_proto protoreflect.FileDescriptor
+type RetrieveBankTransactionData struct {
+	state                protoimpl.MessageState `protogen:"open.v1"`
+	TransactionId        string                 `protobuf:"bytes,1,opt,name=TransactionId,proto3" json:"TransactionId,omitempty"`
+	Date                 int64                  `protobuf:"varint,2,opt,name=Date,proto3" json:"Date,omitempty"`
+	DraftOrderMoney      *Money                 `protobuf:"bytes,3,opt,name=DraftOrderMoney,proto3" json:"DraftOrderMoney,omitempty"`
+	IsOutgoingDraftOrder bool                   `protobuf:"varint,4,opt,name=IsOutgoingDraftOrder,proto3" json:"IsOutgoingDraftOrder,omitempty"`
+	BankId               string                 `protobuf:"bytes,5,opt,name=BankId,proto3" json:"BankId,omitempty"`
+	unknownFields        protoimpl.UnknownFields
+	sizeCache            protoimpl.SizeCache
+}
 
-const file_Common_proto_rawDesc = "" +
+func (x *RetrieveBankTransactionData) Reset() {
+	*x = RetrieveBankTransactionData{}
+	mi := &file_common_proto_msgTypes[40]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *RetrieveBankTransactionData) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RetrieveBankTransactionData) ProtoMessage() {}
+
+func (x *RetrieveBankTransactionData) ProtoReflect() protoreflect.Message {
+	mi := &file_common_proto_msgTypes[40]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RetrieveBankTransactionData.ProtoReflect.Descriptor instead.
+func (*RetrieveBankTransactionData) Descriptor() ([]byte, []int) {
+	return file_common_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *RetrieveBankTransactionData) GetTransactionId() string {
+	if x != nil {
+		return x.TransactionId
+	}
+	return ""
+}
+
+func (x *RetrieveBankTransactionData) GetDate() int64 {
+	if x != nil {
+		return x.Date
+	}
+	return 0
+}
+
+func (x *RetrieveBankTransactionData) GetDraftOrderMoney() *Money {
+	if x != nil {
+		return x.DraftOrderMoney
+	}
+	return nil
+}
+
+func (x *RetrieveBankTransactionData) GetIsOutgoingDraftOrder() bool {
+	if x != nil {
+		return x.IsOutgoingDraftOrder
+	}
+	return false
+}
+
+func (x *RetrieveBankTransactionData) GetBankId() string {
+	if x != nil {
+		return x.BankId
+	}
+	return ""
+}
+
+var File_common_proto protoreflect.FileDescriptor
+
+const file_common_proto_rawDesc = "" +
 	"\n" +
-	"\fCommon.proto\x12\x06Common\"\xa3\x04\n" +
+	"\fcommon.proto\x12\x06Common\"\xa3\x04\n" +
 	"\x12AccountDocumentDto\x12\x18\n" +
 	"\aDocType\x18\x01 \x01(\x05R\aDocType\x12K\n" +
 	"\x12PrivateDescription\x18\x02 \x03(\v2\x1b.Common.DescriptionMetadataR\x12PrivateDescription\x120\n" +
@@ -3657,7 +3733,13 @@ const file_Common_proto_rawDesc = "" +
 	"\x10TransactionMoney\x18\x02 \x01(\v2\r.Common.MoneyR\x10TransactionMoney\x12-\n" +
 	"\n" +
 	"Commission\x18\x03 \x01(\v2\r.Common.MoneyR\n" +
-	"Commission*X\n" +
+	"Commission\"\xdc\x01\n" +
+	"\x1bRetrieveBankTransactionData\x12$\n" +
+	"\rTransactionId\x18\x01 \x01(\tR\rTransactionId\x12\x12\n" +
+	"\x04Date\x18\x02 \x01(\x03R\x04Date\x127\n" +
+	"\x0fDraftOrderMoney\x18\x03 \x01(\v2\r.Common.MoneyR\x0fDraftOrderMoney\x122\n" +
+	"\x14IsOutgoingDraftOrder\x18\x04 \x01(\bR\x14IsOutgoingDraftOrder\x12\x16\n" +
+	"\x06BankId\x18\x05 \x01(\tR\x06BankId*X\n" +
 	"\x13AccountCreationType\x12\v\n" +
 	"\aAccount\x10\x00\x12\n" +
 	"\n" +
@@ -3732,20 +3814,20 @@ const file_Common_proto_rawDesc = "" +
 	"\x04Fmcg\x10#BGZ*moneyx.golang.framework/integration/common\xaa\x02\x18Ariyana.Framework.Schemab\x06proto3"
 
 var (
-	file_Common_proto_rawDescOnce sync.Once
-	file_Common_proto_rawDescData []byte
+	file_common_proto_rawDescOnce sync.Once
+	file_common_proto_rawDescData []byte
 )
 
-func file_Common_proto_rawDescGZIP() []byte {
-	file_Common_proto_rawDescOnce.Do(func() {
-		file_Common_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_Common_proto_rawDesc), len(file_Common_proto_rawDesc)))
+func file_common_proto_rawDescGZIP() []byte {
+	file_common_proto_rawDescOnce.Do(func() {
+		file_common_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_common_proto_rawDesc), len(file_common_proto_rawDesc)))
 	})
-	return file_Common_proto_rawDescData
+	return file_common_proto_rawDescData
 }
 
-var file_Common_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
-var file_Common_proto_msgTypes = make([]protoimpl.MessageInfo, 40)
-var file_Common_proto_goTypes = []any{
+var file_common_proto_enumTypes = make([]protoimpl.EnumInfo, 5)
+var file_common_proto_msgTypes = make([]protoimpl.MessageInfo, 41)
+var file_common_proto_goTypes = []any{
 	(AccountCreationType)(0),           // 0: Common.AccountCreationType
 	(DescriptionAccountType)(0),        // 1: Common.DescriptionAccountType
 	(BusinessActionType)(0),            // 2: Common.BusinessActionType
@@ -3791,8 +3873,9 @@ var file_Common_proto_goTypes = []any{
 	(*TransactionCommission)(nil),                                     // 42: Common.TransactionCommission
 	(*AccountingWhatsappInfo)(nil),                                    // 43: Common.AccountingWhatsappInfo
 	(*AccountingInfo)(nil),                                            // 44: Common.AccountingInfo
+	(*RetrieveBankTransactionData)(nil),                               // 45: Common.RetrieveBankTransactionData
 }
-var file_Common_proto_depIdxs = []int32{
+var file_common_proto_depIdxs = []int32{
 	8,  // 0: Common.AccountDocumentDto.PrivateDescription:type_name -> Common.DescriptionMetadata
 	13, // 1: Common.AccountDocumentDto.CheckoutId:type_name -> Common.NullableInt32
 	8,  // 2: Common.AccountDocumentDto.PublicDescription:type_name -> Common.DescriptionMetadata
@@ -3835,34 +3918,35 @@ var file_Common_proto_depIdxs = []int32{
 	8,  // 39: Common.AccountingWhatsappInfo.DescriptionMetadata:type_name -> Common.DescriptionMetadata
 	9,  // 40: Common.AccountingInfo.TransactionMoney:type_name -> Common.Money
 	9,  // 41: Common.AccountingInfo.Commission:type_name -> Common.Money
-	42, // [42:42] is the sub-list for method output_type
-	42, // [42:42] is the sub-list for method input_type
-	42, // [42:42] is the sub-list for extension type_name
-	42, // [42:42] is the sub-list for extension extendee
-	0,  // [0:42] is the sub-list for field type_name
+	9,  // 42: Common.RetrieveBankTransactionData.DraftOrderMoney:type_name -> Common.Money
+	43, // [43:43] is the sub-list for method output_type
+	43, // [43:43] is the sub-list for method input_type
+	43, // [43:43] is the sub-list for extension type_name
+	43, // [43:43] is the sub-list for extension extendee
+	0,  // [0:43] is the sub-list for field type_name
 }
 
-func init() { file_Common_proto_init() }
-func file_Common_proto_init() {
-	if File_Common_proto != nil {
+func init() { file_common_proto_init() }
+func file_common_proto_init() {
+	if File_common_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_Common_proto_rawDesc), len(file_Common_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_common_proto_rawDesc), len(file_common_proto_rawDesc)),
 			NumEnums:      5,
-			NumMessages:   40,
+			NumMessages:   41,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_Common_proto_goTypes,
-		DependencyIndexes: file_Common_proto_depIdxs,
-		EnumInfos:         file_Common_proto_enumTypes,
-		MessageInfos:      file_Common_proto_msgTypes,
+		GoTypes:           file_common_proto_goTypes,
+		DependencyIndexes: file_common_proto_depIdxs,
+		EnumInfos:         file_common_proto_enumTypes,
+		MessageInfos:      file_common_proto_msgTypes,
 	}.Build()
-	File_Common_proto = out.File
-	file_Common_proto_goTypes = nil
-	file_Common_proto_depIdxs = nil
+	File_common_proto = out.File
+	file_common_proto_goTypes = nil
+	file_common_proto_depIdxs = nil
 }
