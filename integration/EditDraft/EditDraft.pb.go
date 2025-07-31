@@ -689,32 +689,33 @@ func (x *EditDraftDocumentsToAccountResponseIntegratedCommand) GetId() string {
 }
 
 type EditAccountingDraftDocumentsIntegratedCommmand struct {
-	state                          protoimpl.MessageState           `protogen:"open.v1"`
-	PaymentPlace                   string                           `protobuf:"bytes,1,opt,name=PaymentPlace,proto3" json:"PaymentPlace,omitempty"`
-	PaymentPlaceId                 string                           `protobuf:"bytes,2,opt,name=PaymentPlaceId,proto3" json:"PaymentPlaceId,omitempty"`
-	OldAccountId                   string                           `protobuf:"bytes,3,opt,name=OldAccountId,proto3" json:"OldAccountId,omitempty"`
-	NewAccountId                   *common.NullableString           `protobuf:"bytes,4,opt,name=NewAccountId,proto3" json:"NewAccountId,omitempty"`
-	DraftMoney                     *common.MoneyDocument            `protobuf:"bytes,5,opt,name=DraftMoney,proto3" json:"DraftMoney,omitempty"`
-	DraftCommission                *common.MoneyDocument            `protobuf:"bytes,6,opt,name=DraftCommission,proto3" json:"DraftCommission,omitempty"`
-	DraftOrderId                   string                           `protobuf:"bytes,7,opt,name=DraftOrderId,proto3" json:"DraftOrderId,omitempty"`
-	IsOutgoingDraftOrder           bool                             `protobuf:"varint,8,opt,name=IsOutgoingDraftOrder,proto3" json:"IsOutgoingDraftOrder,omitempty"`
-	Date                           int64                            `protobuf:"varint,9,opt,name=Date,proto3" json:"Date,omitempty"`
-	EditState                      EditAccountingDraftDocumentState `protobuf:"varint,10,opt,name=EditState,proto3,enum=EditDraft.EditAccountingDraftDocumentState" json:"EditState,omitempty"`
-	IsPrivate                      bool                             `protobuf:"varint,11,opt,name=IsPrivate,proto3" json:"IsPrivate,omitempty"`
-	DraftOrderNumber               string                           `protobuf:"bytes,12,opt,name=DraftOrderNumber,proto3" json:"DraftOrderNumber,omitempty"`
-	BranchName                     string                           `protobuf:"bytes,13,opt,name=BranchName,proto3" json:"BranchName,omitempty"`
-	SenderName                     string                           `protobuf:"bytes,14,opt,name=SenderName,proto3" json:"SenderName,omitempty"`
-	SenderId                       string                           `protobuf:"bytes,15,opt,name=SenderId,proto3" json:"SenderId,omitempty"`
-	ReceiverName                   string                           `protobuf:"bytes,16,opt,name=ReceiverName,proto3" json:"ReceiverName,omitempty"`
-	ReceiverId                     string                           `protobuf:"bytes,17,opt,name=ReceiverId,proto3" json:"ReceiverId,omitempty"`
-	Description                    string                           `protobuf:"bytes,18,opt,name=Description,proto3" json:"Description,omitempty"`
-	UpdateCreditLimit              bool                             `protobuf:"varint,19,opt,name=UpdateCreditLimit,proto3" json:"UpdateCreditLimit,omitempty"`
-	RemovedUnkownBankTransactionId *common.NullableString           `protobuf:"bytes,20,opt,name=RemovedUnkownBankTransactionId,proto3" json:"RemovedUnkownBankTransactionId,omitempty"`
-	DescriptionDraftMoney          *common.Money                    `protobuf:"bytes,21,opt,name=DescriptionDraftMoney,proto3" json:"DescriptionDraftMoney,omitempty"`
-	Rate                           string                           `protobuf:"bytes,22,opt,name=Rate,proto3" json:"Rate,omitempty"`
-	ManagerId                      string                           `protobuf:"bytes,23,opt,name=ManagerId,proto3" json:"ManagerId,omitempty"`
-	CorrelationId                  string                           `protobuf:"bytes,24,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
-	Id                             string                           `protobuf:"bytes,25,opt,name=Id,proto3" json:"Id,omitempty"`
+	state                          protoimpl.MessageState              `protogen:"open.v1"`
+	PaymentPlace                   string                              `protobuf:"bytes,1,opt,name=PaymentPlace,proto3" json:"PaymentPlace,omitempty"`
+	PaymentPlaceId                 string                              `protobuf:"bytes,2,opt,name=PaymentPlaceId,proto3" json:"PaymentPlaceId,omitempty"`
+	OldAccountId                   string                              `protobuf:"bytes,3,opt,name=OldAccountId,proto3" json:"OldAccountId,omitempty"`
+	NewAccountId                   *common.NullableString              `protobuf:"bytes,4,opt,name=NewAccountId,proto3" json:"NewAccountId,omitempty"`
+	DraftMoney                     *common.MoneyDocument               `protobuf:"bytes,5,opt,name=DraftMoney,proto3" json:"DraftMoney,omitempty"`
+	DraftCommission                *common.MoneyDocument               `protobuf:"bytes,6,opt,name=DraftCommission,proto3" json:"DraftCommission,omitempty"`
+	DraftOrderId                   string                              `protobuf:"bytes,7,opt,name=DraftOrderId,proto3" json:"DraftOrderId,omitempty"`
+	IsOutgoingDraftOrder           bool                                `protobuf:"varint,8,opt,name=IsOutgoingDraftOrder,proto3" json:"IsOutgoingDraftOrder,omitempty"`
+	Date                           int64                               `protobuf:"varint,9,opt,name=Date,proto3" json:"Date,omitempty"`
+	EditState                      EditAccountingDraftDocumentState    `protobuf:"varint,10,opt,name=EditState,proto3,enum=EditDraft.EditAccountingDraftDocumentState" json:"EditState,omitempty"`
+	IsPrivate                      bool                                `protobuf:"varint,11,opt,name=IsPrivate,proto3" json:"IsPrivate,omitempty"`
+	DraftOrderNumber               string                              `protobuf:"bytes,12,opt,name=DraftOrderNumber,proto3" json:"DraftOrderNumber,omitempty"`
+	BranchName                     string                              `protobuf:"bytes,13,opt,name=BranchName,proto3" json:"BranchName,omitempty"`
+	SenderName                     string                              `protobuf:"bytes,14,opt,name=SenderName,proto3" json:"SenderName,omitempty"`
+	SenderId                       string                              `protobuf:"bytes,15,opt,name=SenderId,proto3" json:"SenderId,omitempty"`
+	ReceiverName                   string                              `protobuf:"bytes,16,opt,name=ReceiverName,proto3" json:"ReceiverName,omitempty"`
+	ReceiverId                     string                              `protobuf:"bytes,17,opt,name=ReceiverId,proto3" json:"ReceiverId,omitempty"`
+	Description                    string                              `protobuf:"bytes,18,opt,name=Description,proto3" json:"Description,omitempty"`
+	UpdateCreditLimit              bool                                `protobuf:"varint,19,opt,name=UpdateCreditLimit,proto3" json:"UpdateCreditLimit,omitempty"`
+	RemovedUnkownBankTransactionId *common.NullableString              `protobuf:"bytes,20,opt,name=RemovedUnkownBankTransactionId,proto3" json:"RemovedUnkownBankTransactionId,omitempty"`
+	DescriptionDraftMoney          *common.Money                       `protobuf:"bytes,21,opt,name=DescriptionDraftMoney,proto3" json:"DescriptionDraftMoney,omitempty"`
+	Rate                           string                              `protobuf:"bytes,22,opt,name=Rate,proto3" json:"Rate,omitempty"`
+	ManagerId                      string                              `protobuf:"bytes,23,opt,name=ManagerId,proto3" json:"ManagerId,omitempty"`
+	CorrelationId                  string                              `protobuf:"bytes,24,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
+	Id                             string                              `protobuf:"bytes,25,opt,name=Id,proto3" json:"Id,omitempty"`
+	OldBankData                    *common.RetrieveBankTransactionData `protobuf:"bytes,26,opt,name=OldBankData,proto3" json:"OldBankData,omitempty"`
 	unknownFields                  protoimpl.UnknownFields
 	sizeCache                      protoimpl.SizeCache
 }
@@ -922,6 +923,13 @@ func (x *EditAccountingDraftDocumentsIntegratedCommmand) GetId() string {
 		return x.Id
 	}
 	return ""
+}
+
+func (x *EditAccountingDraftDocumentsIntegratedCommmand) GetOldBankData() *common.RetrieveBankTransactionData {
+	if x != nil {
+		return x.OldBankData
+	}
+	return nil
 }
 
 type CommitOrRollbackEditedBankDraftDocumnetsDocumentsIntegratedCommand struct {
@@ -1194,7 +1202,7 @@ const file_EditDraft_proto_rawDesc = "" +
 	"\x06Status\x18\x01 \x01(\bR\x06Status\x12)\n" +
 	"\aFailure\x18\x02 \x01(\v2\x0f.Common.FailureR\aFailure\x12$\n" +
 	"\rCorrelationId\x18\x03 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x04 \x01(\tR\x02Id\"\xd2\b\n" +
+	"\x02Id\x18\x04 \x01(\tR\x02Id\"\x99\t\n" +
 	".EditAccountingDraftDocumentsIntegratedCommmand\x12\"\n" +
 	"\fPaymentPlace\x18\x01 \x01(\tR\fPaymentPlace\x12&\n" +
 	"\x0ePaymentPlaceId\x18\x02 \x01(\tR\x0ePaymentPlaceId\x12\"\n" +
@@ -1229,7 +1237,8 @@ const file_EditDraft_proto_rawDesc = "" +
 	"\x04Rate\x18\x16 \x01(\tR\x04Rate\x12\x1c\n" +
 	"\tManagerId\x18\x17 \x01(\tR\tManagerId\x12$\n" +
 	"\rCorrelationId\x18\x18 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x19 \x01(\tR\x02Id\"\x9a\x01\n" +
+	"\x02Id\x18\x19 \x01(\tR\x02Id\x12E\n" +
+	"\vOldBankData\x18\x1a \x01(\v2#.Common.RetrieveBankTransactionDataR\vOldBankData\"\x9a\x01\n" +
 	"BCommitOrRollbackEditedBankDraftDocumnetsDocumentsIntegratedCommand\x12\x1e\n" +
 	"\n" +
 	"IsCommited\x18\x01 \x01(\bR\n" +
@@ -1321,14 +1330,15 @@ var file_EditDraft_proto_depIdxs = []int32{
 	1,  // 12: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.EditState:type_name -> EditDraft.EditAccountingDraftDocumentState
 	15, // 13: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.RemovedUnkownBankTransactionId:type_name -> Common.NullableString
 	18, // 14: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.DescriptionDraftMoney:type_name -> Common.Money
-	11, // 15: EditDraft.CommitOrRollbackEditedAccountingDraftDocumentsIntegratedCommand.RemovedWhatsappInfo:type_name -> EditDraft.DraftOrderWhatsappInfo
-	11, // 16: EditDraft.CommitOrRollbackEditedAccountingDraftDocumentsIntegratedCommand.AddedWhatsappInfo:type_name -> EditDraft.DraftOrderWhatsappInfo
-	19, // 17: EditDraft.DraftOrderWhatsappInfo.DescriptionMetadata:type_name -> Common.DescriptionMetadata
-	18, // [18:18] is the sub-list for method output_type
-	18, // [18:18] is the sub-list for method input_type
-	18, // [18:18] is the sub-list for extension type_name
-	18, // [18:18] is the sub-list for extension extendee
-	0,  // [0:18] is the sub-list for field type_name
+	17, // 15: EditDraft.EditAccountingDraftDocumentsIntegratedCommmand.OldBankData:type_name -> Common.RetrieveBankTransactionData
+	11, // 16: EditDraft.CommitOrRollbackEditedAccountingDraftDocumentsIntegratedCommand.RemovedWhatsappInfo:type_name -> EditDraft.DraftOrderWhatsappInfo
+	11, // 17: EditDraft.CommitOrRollbackEditedAccountingDraftDocumentsIntegratedCommand.AddedWhatsappInfo:type_name -> EditDraft.DraftOrderWhatsappInfo
+	19, // 18: EditDraft.DraftOrderWhatsappInfo.DescriptionMetadata:type_name -> Common.DescriptionMetadata
+	19, // [19:19] is the sub-list for method output_type
+	19, // [19:19] is the sub-list for method input_type
+	19, // [19:19] is the sub-list for extension type_name
+	19, // [19:19] is the sub-list for extension extendee
+	0,  // [0:19] is the sub-list for field type_name
 }
 
 func init() { file_EditDraft_proto_init() }

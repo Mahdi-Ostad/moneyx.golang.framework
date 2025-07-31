@@ -99,6 +99,7 @@ message EditAccountingDraftDocumentsIntegratedCommmand {
   string ManagerId = 23;
   string CorrelationId = 24;
   string Id = 25;
+  Common.RetrieveBankTransactionData OldBankData = 26;
 }
 
 enum EditAccountingDraftDocumentState {

@@ -447,14 +447,15 @@ func (x *RemoveDraftOrderAccountDocumentsResponseIntegratedCommand) GetId() stri
 }
 
 type RemoveDraftOrderAccountDocumentsIntegratedCommand struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	AccountId     string                 `protobuf:"bytes,1,opt,name=AccountId,proto3" json:"AccountId,omitempty"`
-	DraftOrderId  string                 `protobuf:"bytes,2,opt,name=DraftOrderId,proto3" json:"DraftOrderId,omitempty"`
-	SenderId      string                 `protobuf:"bytes,3,opt,name=SenderId,proto3" json:"SenderId,omitempty"`
-	ReceiverId    string                 `protobuf:"bytes,4,opt,name=ReceiverId,proto3" json:"ReceiverId,omitempty"`
-	ManagerId     string                 `protobuf:"bytes,5,opt,name=ManagerId,proto3" json:"ManagerId,omitempty"`
-	CorrelationId string                 `protobuf:"bytes,6,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
-	Id            string                 `protobuf:"bytes,7,opt,name=Id,proto3" json:"Id,omitempty"`
+	state         protoimpl.MessageState              `protogen:"open.v1"`
+	AccountId     string                              `protobuf:"bytes,1,opt,name=AccountId,proto3" json:"AccountId,omitempty"`
+	DraftOrderId  string                              `protobuf:"bytes,2,opt,name=DraftOrderId,proto3" json:"DraftOrderId,omitempty"`
+	SenderId      string                              `protobuf:"bytes,3,opt,name=SenderId,proto3" json:"SenderId,omitempty"`
+	ReceiverId    string                              `protobuf:"bytes,4,opt,name=ReceiverId,proto3" json:"ReceiverId,omitempty"`
+	ManagerId     string                              `protobuf:"bytes,5,opt,name=ManagerId,proto3" json:"ManagerId,omitempty"`
+	CorrelationId string                              `protobuf:"bytes,6,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
+	Id            string                              `protobuf:"bytes,7,opt,name=Id,proto3" json:"Id,omitempty"`
+	OldBankData   *common.RetrieveBankTransactionData `protobuf:"bytes,8,opt,name=OldBankData,proto3" json:"OldBankData,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -536,6 +537,13 @@ func (x *RemoveDraftOrderAccountDocumentsIntegratedCommand) GetId() string {
 		return x.Id
 	}
 	return ""
+}
+
+func (x *RemoveDraftOrderAccountDocumentsIntegratedCommand) GetOldBankData() *common.RetrieveBankTransactionData {
+	if x != nil {
+		return x.OldBankData
+	}
+	return nil
 }
 
 type RemoveDraftFilesResponseIntegratedCommand struct {
@@ -830,7 +838,7 @@ const file_RemoveDraft_proto_rawDesc = "" +
 	"\x06Status\x18\x01 \x01(\bR\x06Status\x12)\n" +
 	"\aFailure\x18\x02 \x01(\v2\x0f.Common.FailureR\aFailure\x12$\n" +
 	"\rCorrelationId\x18\x03 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x04 \x01(\tR\x02Id\"\x85\x02\n" +
+	"\x02Id\x18\x04 \x01(\tR\x02Id\"\xcc\x02\n" +
 	"1RemoveDraftOrderAccountDocumentsIntegratedCommand\x12\x1c\n" +
 	"\tAccountId\x18\x01 \x01(\tR\tAccountId\x12\"\n" +
 	"\fDraftOrderId\x18\x02 \x01(\tR\fDraftOrderId\x12\x1a\n" +
@@ -840,7 +848,8 @@ const file_RemoveDraft_proto_rawDesc = "" +
 	"ReceiverId\x12\x1c\n" +
 	"\tManagerId\x18\x05 \x01(\tR\tManagerId\x12$\n" +
 	"\rCorrelationId\x18\x06 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\a \x01(\tR\x02Id\"y\n" +
+	"\x02Id\x18\a \x01(\tR\x02Id\x12E\n" +
+	"\vOldBankData\x18\b \x01(\v2#.Common.RetrieveBankTransactionDataR\vOldBankData\"y\n" +
 	")RemoveDraftFilesResponseIntegratedCommand\x12\x16\n" +
 	"\x06Status\x18\x01 \x01(\bR\x06Status\x12$\n" +
 	"\rCorrelationId\x18\x02 \x01(\tR\rCorrelationId\x12\x0e\n" +
@@ -897,12 +906,13 @@ var file_RemoveDraft_proto_depIdxs = []int32{
 	11, // 0: RemoveDraft.RemoveDraftOrderBankDocumentsResponseIntegratedCommand.Failure:type_name -> Common.Failure
 	12, // 1: RemoveDraft.RemoveDraftOrderBankDocumentsIntegratedCommand.OldBankData:type_name -> Common.RetrieveBankTransactionData
 	11, // 2: RemoveDraft.RemoveDraftOrderAccountDocumentsResponseIntegratedCommand.Failure:type_name -> Common.Failure
-	13, // 3: RemoveDraft.CommitOrRollbackRemovedDraftAccountingDocumentsIntegratedCommand.WhatsappInfo:type_name -> Common.WhatsappInfo
-	4,  // [4:4] is the sub-list for method output_type
-	4,  // [4:4] is the sub-list for method input_type
-	4,  // [4:4] is the sub-list for extension type_name
-	4,  // [4:4] is the sub-list for extension extendee
-	0,  // [0:4] is the sub-list for field type_name
+	12, // 3: RemoveDraft.RemoveDraftOrderAccountDocumentsIntegratedCommand.OldBankData:type_name -> Common.RetrieveBankTransactionData
+	13, // 4: RemoveDraft.CommitOrRollbackRemovedDraftAccountingDocumentsIntegratedCommand.WhatsappInfo:type_name -> Common.WhatsappInfo
+	5,  // [5:5] is the sub-list for method output_type
+	5,  // [5:5] is the sub-list for method input_type
+	5,  // [5:5] is the sub-list for extension type_name
+	5,  // [5:5] is the sub-list for extension extendee
+	0,  // [0:5] is the sub-list for field type_name
 }
 
 func init() { file_RemoveDraft_proto_init() }
