@@ -1,0 +1,69 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.RevertUnpendingCredit";
+option go_package = "moneyx.golang.framework/integration/RevertUnpendingCredit";
+package RevertUnpendingCredit;
+
+import "Common.proto";
+
+message RevertAccountingTransactionCreditsAccountDocumentResponseIntegratedCommand {
+  bool IsCompleted = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message RevertAccountingTransactionCreditsAccountDocumentIntegratedCommand {
+  string TransactionId = 1;
+  string AccountId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message CommitOrRollbackRevertedAccountingTransactionCreditsAccountDocumentIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RevertAllocatedCreditWithDraftOrderIntegratedCommand {
+  string AccountId = 1;
+  string TransactionId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message RevertAllocatedCreditWithDraftOrderResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackRevertAllocatedCreditWithDraftOrderIntegratedCommand {
+  bool IsCommit = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message RevertAllocatedCreditWithBankTransactionIntegratedCommand {
+  string BankId = 1;
+  string TransactionId = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message RevertAllocatedCreditWithBankTransactionResponseIntegratedCommand {
+  bool IsDone = 1;
+  Common.Failure FailureMessage = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollbackRevertedAllocatedCreditWithBankTransactionIntegratedCommand {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
