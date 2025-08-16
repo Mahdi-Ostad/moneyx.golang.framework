@@ -41,6 +41,7 @@ message BuyAfghanMTNChargeByKarimyarResponseIntegratedCommand {
     Common.Failure Failure = 2;
     string CorrelationId = 3;
     string Id = 4;
+    string ResponseId = 5;
 }
 
 message BuyAfghanMTNChargeByNaqdinehIntegratedCommand {

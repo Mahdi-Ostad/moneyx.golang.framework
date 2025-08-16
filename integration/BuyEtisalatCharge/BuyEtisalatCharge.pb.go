@@ -272,6 +272,7 @@ type BuyEtisalatChargeByKarimyarResponseIntegratedCommand struct {
 	Failure       *common.Failure        `protobuf:"bytes,2,opt,name=Failure,proto3" json:"Failure,omitempty"`
 	CorrelationId string                 `protobuf:"bytes,3,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
 	Id            string                 `protobuf:"bytes,4,opt,name=Id,proto3" json:"Id,omitempty"`
+	ResponseId    string                 `protobuf:"bytes,5,opt,name=ResponseId,proto3" json:"ResponseId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -330,6 +331,13 @@ func (x *BuyEtisalatChargeByKarimyarResponseIntegratedCommand) GetCorrelationId(
 func (x *BuyEtisalatChargeByKarimyarResponseIntegratedCommand) GetId() string {
 	if x != nil {
 		return x.Id
+	}
+	return ""
+}
+
+func (x *BuyEtisalatChargeByKarimyarResponseIntegratedCommand) GetResponseId() string {
+	if x != nil {
+		return x.ResponseId
 	}
 	return ""
 }
@@ -1154,12 +1162,15 @@ const file_BuyEtisalatCharge_proto_rawDesc = "" +
 	"\fChargeNumber\x18\x03 \x01(\tR\fChargeNumber\x12 \n" +
 	"\vPackageCode\x18\x04 \x01(\tR\vPackageCode\x12$\n" +
 	"\rCorrelationId\x18\x05 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x06 \x01(\tR\x02Id\"\xaf\x01\n" +
+	"\x02Id\x18\x06 \x01(\tR\x02Id\"\xcf\x01\n" +
 	"4BuyEtisalatChargeByKarimyarResponseIntegratedCommand\x12\x16\n" +
 	"\x06IsDone\x18\x01 \x01(\bR\x06IsDone\x12)\n" +
 	"\aFailure\x18\x02 \x01(\v2\x0f.Common.FailureR\aFailure\x12$\n" +
 	"\rCorrelationId\x18\x03 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x04 \x01(\tR\x02Id\"\xb7\x03\n" +
+	"\x02Id\x18\x04 \x01(\tR\x02Id\x12\x1e\n" +
+	"\n" +
+	"ResponseId\x18\x05 \x01(\tR\n" +
+	"ResponseId\"\xb7\x03\n" +
 	"1BuyEtisalatChargeCreditReductionIntegratedCommand\x12\x1c\n" +
 	"\tAccountId\x18\x01 \x01(\tR\tAccountId\x12\"\n" +
 	"\fPackageTitle\x18\x02 \x01(\tR\fPackageTitle\x120\n" +

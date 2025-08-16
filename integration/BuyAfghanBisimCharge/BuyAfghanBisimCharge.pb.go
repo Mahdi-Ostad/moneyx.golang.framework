@@ -544,6 +544,7 @@ type BuyAfghanBisimChargeByKarimyarResponseIntegratedCommand struct {
 	Failure       *common.Failure        `protobuf:"bytes,2,opt,name=Failure,proto3" json:"Failure,omitempty"`
 	CorrelationId string                 `protobuf:"bytes,3,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
 	Id            string                 `protobuf:"bytes,4,opt,name=Id,proto3" json:"Id,omitempty"`
+	ResponseId    string                 `protobuf:"bytes,5,opt,name=ResponseId,proto3" json:"ResponseId,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -602,6 +603,13 @@ func (x *BuyAfghanBisimChargeByKarimyarResponseIntegratedCommand) GetCorrelation
 func (x *BuyAfghanBisimChargeByKarimyarResponseIntegratedCommand) GetId() string {
 	if x != nil {
 		return x.Id
+	}
+	return ""
+}
+
+func (x *BuyAfghanBisimChargeByKarimyarResponseIntegratedCommand) GetResponseId() string {
+	if x != nil {
+		return x.ResponseId
 	}
 	return ""
 }
@@ -1178,12 +1186,15 @@ const file_BuyAfghanBisimCharge_proto_rawDesc = "" +
 	"\fChargeNumber\x18\x03 \x01(\tR\fChargeNumber\x12 \n" +
 	"\vPackageCode\x18\x04 \x01(\tR\vPackageCode\x12$\n" +
 	"\rCorrelationId\x18\x05 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x06 \x01(\tR\x02Id\"\xb2\x01\n" +
+	"\x02Id\x18\x06 \x01(\tR\x02Id\"\xd2\x01\n" +
 	"7BuyAfghanBisimChargeByKarimyarResponseIntegratedCommand\x12\x16\n" +
 	"\x06IsDone\x18\x01 \x01(\bR\x06IsDone\x12)\n" +
 	"\aFailure\x18\x02 \x01(\v2\x0f.Common.FailureR\aFailure\x12$\n" +
 	"\rCorrelationId\x18\x03 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x04 \x01(\tR\x02Id\"\xf9\x01\n" +
+	"\x02Id\x18\x04 \x01(\tR\x02Id\x12\x1e\n" +
+	"\n" +
+	"ResponseId\x18\x05 \x01(\tR\n" +
+	"ResponseId\"\xf9\x01\n" +
 	"/BuyAfghanBisimChargeByNaqdinehIntegratedCommand\x12$\n" +
 	"\rAmountPackage\x18\x01 \x01(\x01R\rAmountPackage\x12$\n" +
 	"\rTransactionId\x18\x02 \x01(\tR\rTransactionId\x12\"\n" +
