@@ -1,0 +1,12 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.KarimyarCheckStatus";
+option go_package = "moneyx.golang.framework/integration/KarimyarCheckStatus";
+package KarimyarCheckStatus;
+
+message CheckStatusKarimyarIntegratedCommand {
+  string TransactionId = 1;
+  string Operator = 2;
+  string StateId = 3;
+  string CorrelationId = 4; 
+  string Id = 5;            
+}
