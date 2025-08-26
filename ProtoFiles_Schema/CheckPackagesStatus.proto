@@ -1,0 +1,40 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.CheckPackagesStatus";
+option go_package = "moneyx.golang.framework/integration/CheckPackagesStatus";
+package CheckPackagesStatus;
+
+message CheckPubgPackageStatusIntegratedCommand {
+  string TransactionId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CheckImoPackageStatusIntegratedCommand {
+  string TransactionId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CheckTurkCellPackageStatusIntegratedCommand {
+  string TransactionId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CheckLikeePackageStatusIntegratedCommand {
+  string TransactionId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CheckAveaPackageStatusIntegratedCommand {
+  string TransactionId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message CheckVodafonePackageStatusIntegratedCommand {
+  string TransactionId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
