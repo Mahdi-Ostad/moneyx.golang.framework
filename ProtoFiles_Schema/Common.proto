@@ -397,3 +397,10 @@ message RetrieveBankTransactionData {
     bool IsOutgoingDraftOrder = 4;
     string BankId = 5;
 }
+
+message SendSystemLanguageIntegratedCommand {
+    string ManagerId = 1;
+    string Language = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
