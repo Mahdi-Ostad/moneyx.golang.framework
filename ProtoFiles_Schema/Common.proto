@@ -257,6 +257,7 @@ message AccountsDetails {
 message AccountsDocuments {
     string TempId = 1;
     repeated DescriptionMetadata Metadata = 2;
+    repeated DescriptionMetadata ExtraMetaData = 3;
 }
 
 enum DescriptionAccountType {
@@ -403,4 +404,6 @@ message SendSystemLanguageIntegratedCommand {
     string Language = 2;
     string CorrelationId = 3;
     string Id = 4;
+    bool IsGregorian = 5;
+    string TimeZone = 6;
 }

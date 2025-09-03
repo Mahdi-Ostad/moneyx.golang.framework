@@ -2715,6 +2715,7 @@ type AccountsDocuments struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	TempId        string                 `protobuf:"bytes,1,opt,name=TempId,proto3" json:"TempId,omitempty"`
 	Metadata      []*DescriptionMetadata `protobuf:"bytes,2,rep,name=Metadata,proto3" json:"Metadata,omitempty"`
+	ExtraMetaData []*DescriptionMetadata `protobuf:"bytes,3,rep,name=ExtraMetaData,proto3" json:"ExtraMetaData,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -2759,6 +2760,13 @@ func (x *AccountsDocuments) GetTempId() string {
 func (x *AccountsDocuments) GetMetadata() []*DescriptionMetadata {
 	if x != nil {
 		return x.Metadata
+	}
+	return nil
+}
+
+func (x *AccountsDocuments) GetExtraMetaData() []*DescriptionMetadata {
+	if x != nil {
+		return x.ExtraMetaData
 	}
 	return nil
 }
@@ -3469,6 +3477,8 @@ type SendSystemLanguageIntegratedCommand struct {
 	Language      string                 `protobuf:"bytes,2,opt,name=Language,proto3" json:"Language,omitempty"`
 	CorrelationId string                 `protobuf:"bytes,3,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
 	Id            string                 `protobuf:"bytes,4,opt,name=Id,proto3" json:"Id,omitempty"`
+	IsGregorian   bool                   `protobuf:"varint,5,opt,name=IsGregorian,proto3" json:"IsGregorian,omitempty"`
+	TimeZone      string                 `protobuf:"bytes,6,opt,name=TimeZone,proto3" json:"TimeZone,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -3527,6 +3537,20 @@ func (x *SendSystemLanguageIntegratedCommand) GetCorrelationId() string {
 func (x *SendSystemLanguageIntegratedCommand) GetId() string {
 	if x != nil {
 		return x.Id
+	}
+	return ""
+}
+
+func (x *SendSystemLanguageIntegratedCommand) GetIsGregorian() bool {
+	if x != nil {
+		return x.IsGregorian
+	}
+	return false
+}
+
+func (x *SendSystemLanguageIntegratedCommand) GetTimeZone() string {
+	if x != nil {
+		return x.TimeZone
 	}
 	return ""
 }
@@ -3735,10 +3759,11 @@ const file_Common_proto_rawDesc = "" +
 	"\x02Id\x18\x06 \x01(\tR\x02Id\"h\n" +
 	"\x0fAccountsDetails\x12\x1c\n" +
 	"\tAccountId\x18\x01 \x01(\tR\tAccountId\x127\n" +
-	"\tDocuments\x18\x02 \x03(\v2\x19.Common.AccountsDocumentsR\tDocuments\"d\n" +
+	"\tDocuments\x18\x02 \x03(\v2\x19.Common.AccountsDocumentsR\tDocuments\"\xa7\x01\n" +
 	"\x11AccountsDocuments\x12\x16\n" +
 	"\x06TempId\x18\x01 \x01(\tR\x06TempId\x127\n" +
-	"\bMetadata\x18\x02 \x03(\v2\x1b.Common.DescriptionMetadataR\bMetadata\"\xa0\x02\n" +
+	"\bMetadata\x18\x02 \x03(\v2\x1b.Common.DescriptionMetadataR\bMetadata\x12A\n" +
+	"\rExtraMetaData\x18\x03 \x03(\v2\x1b.Common.DescriptionMetadataR\rExtraMetaData\"\xa0\x02\n" +
 	"\x1dSendWhatsAppIntegratedCommand\x12\x1a\n" +
 	"\bLanguage\x18\x01 \x01(\tR\bLanguage\x12 \n" +
 	"\vPhoneNumber\x18\x02 \x01(\tR\vPhoneNumber\x12\x1e\n" +
@@ -3807,12 +3832,14 @@ const file_Common_proto_rawDesc = "" +
 	"\x04Date\x18\x02 \x01(\x03R\x04Date\x127\n" +
 	"\x0fDraftOrderMoney\x18\x03 \x01(\v2\r.Common.MoneyR\x0fDraftOrderMoney\x122\n" +
 	"\x14IsOutgoingDraftOrder\x18\x04 \x01(\bR\x14IsOutgoingDraftOrder\x12\x16\n" +
-	"\x06BankId\x18\x05 \x01(\tR\x06BankId\"\x95\x01\n" +
+	"\x06BankId\x18\x05 \x01(\tR\x06BankId\"\xd3\x01\n" +
 	"#SendSystemLanguageIntegratedCommand\x12\x1c\n" +
 	"\tManagerId\x18\x01 \x01(\tR\tManagerId\x12\x1a\n" +
 	"\bLanguage\x18\x02 \x01(\tR\bLanguage\x12$\n" +
 	"\rCorrelationId\x18\x03 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x04 \x01(\tR\x02Id*X\n" +
+	"\x02Id\x18\x04 \x01(\tR\x02Id\x12 \n" +
+	"\vIsGregorian\x18\x05 \x01(\bR\vIsGregorian\x12\x1a\n" +
+	"\bTimeZone\x18\x06 \x01(\tR\bTimeZone*X\n" +
 	"\x13AccountCreationType\x12\v\n" +
 	"\aAccount\x10\x00\x12\n" +
 	"\n" +
@@ -3976,28 +4003,29 @@ var file_Common_proto_depIdxs = []int32{
 	35, // 23: Common.SendDocumentsDescriptionIntegratedCommand.Accounts:type_name -> Common.AccountsDetails
 	36, // 24: Common.AccountsDetails.Documents:type_name -> Common.AccountsDocuments
 	8,  // 25: Common.AccountsDocuments.Metadata:type_name -> Common.DescriptionMetadata
-	8,  // 26: Common.SendWhatsAppIntegratedCommand.DescriptionMetadata:type_name -> Common.DescriptionMetadata
-	3,  // 27: Common.BusinessIntelligenceDocumentReport.AccountType:type_name -> Common.ReportType
-	10, // 28: Common.BusinessIntelligenceDocumentReport.MoneyDocument:type_name -> Common.MoneyDocument
-	38, // 29: Common.InboxBusinessIntelligenceIntegratedCommand.Reports:type_name -> Common.BusinessIntelligenceDocumentReport
-	4,  // 30: Common.InboxBusinessIntelligenceIntegratedCommand.TransactionType:type_name -> Common.TransactionType
-	2,  // 31: Common.InboxBusinessIntelligenceIntegratedCommand.ActionType:type_name -> Common.BusinessActionType
-	41, // 32: Common.TransactionChangeIntegratedCommand.Moneys:type_name -> Common.TransactionMoney
-	42, // 33: Common.TransactionChangeIntegratedCommand.Commissions:type_name -> Common.TransactionCommission
-	4,  // 34: Common.TransactionChangeIntegratedCommand.TransactionType:type_name -> Common.TransactionType
-	10, // 35: Common.TransactionMoney.Money:type_name -> Common.MoneyDocument
-	8,  // 36: Common.TransactionMoney.TemplateMetadata:type_name -> Common.DescriptionMetadata
-	10, // 37: Common.TransactionCommission.Commission:type_name -> Common.MoneyDocument
-	8,  // 38: Common.TransactionCommission.TemplateMetadata:type_name -> Common.DescriptionMetadata
-	8,  // 39: Common.AccountingWhatsappInfo.DescriptionMetadata:type_name -> Common.DescriptionMetadata
-	9,  // 40: Common.AccountingInfo.TransactionMoney:type_name -> Common.Money
-	9,  // 41: Common.AccountingInfo.Commission:type_name -> Common.Money
-	9,  // 42: Common.RetrieveBankTransactionData.DraftOrderMoney:type_name -> Common.Money
-	43, // [43:43] is the sub-list for method output_type
-	43, // [43:43] is the sub-list for method input_type
-	43, // [43:43] is the sub-list for extension type_name
-	43, // [43:43] is the sub-list for extension extendee
-	0,  // [0:43] is the sub-list for field type_name
+	8,  // 26: Common.AccountsDocuments.ExtraMetaData:type_name -> Common.DescriptionMetadata
+	8,  // 27: Common.SendWhatsAppIntegratedCommand.DescriptionMetadata:type_name -> Common.DescriptionMetadata
+	3,  // 28: Common.BusinessIntelligenceDocumentReport.AccountType:type_name -> Common.ReportType
+	10, // 29: Common.BusinessIntelligenceDocumentReport.MoneyDocument:type_name -> Common.MoneyDocument
+	38, // 30: Common.InboxBusinessIntelligenceIntegratedCommand.Reports:type_name -> Common.BusinessIntelligenceDocumentReport
+	4,  // 31: Common.InboxBusinessIntelligenceIntegratedCommand.TransactionType:type_name -> Common.TransactionType
+	2,  // 32: Common.InboxBusinessIntelligenceIntegratedCommand.ActionType:type_name -> Common.BusinessActionType
+	41, // 33: Common.TransactionChangeIntegratedCommand.Moneys:type_name -> Common.TransactionMoney
+	42, // 34: Common.TransactionChangeIntegratedCommand.Commissions:type_name -> Common.TransactionCommission
+	4,  // 35: Common.TransactionChangeIntegratedCommand.TransactionType:type_name -> Common.TransactionType
+	10, // 36: Common.TransactionMoney.Money:type_name -> Common.MoneyDocument
+	8,  // 37: Common.TransactionMoney.TemplateMetadata:type_name -> Common.DescriptionMetadata
+	10, // 38: Common.TransactionCommission.Commission:type_name -> Common.MoneyDocument
+	8,  // 39: Common.TransactionCommission.TemplateMetadata:type_name -> Common.DescriptionMetadata
+	8,  // 40: Common.AccountingWhatsappInfo.DescriptionMetadata:type_name -> Common.DescriptionMetadata
+	9,  // 41: Common.AccountingInfo.TransactionMoney:type_name -> Common.Money
+	9,  // 42: Common.AccountingInfo.Commission:type_name -> Common.Money
+	9,  // 43: Common.RetrieveBankTransactionData.DraftOrderMoney:type_name -> Common.Money
+	44, // [44:44] is the sub-list for method output_type
+	44, // [44:44] is the sub-list for method input_type
+	44, // [44:44] is the sub-list for extension type_name
+	44, // [44:44] is the sub-list for extension extendee
+	0,  // [0:44] is the sub-list for field type_name
 }
 
 func init() { file_Common_proto_init() }
