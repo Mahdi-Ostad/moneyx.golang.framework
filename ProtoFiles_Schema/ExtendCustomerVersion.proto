@@ -15,6 +15,7 @@ message ExtendUserVersionIntegratedCommand {
   string CorrelationId = 3;
   string Id = 4;
   string ApplicationType = 5;
+  int32 AppType = 6;
 }
 
 message CommitOrRollbackExtendUserVersionIntegratedCommand {
