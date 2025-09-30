@@ -133,7 +133,6 @@ require (
 	google.golang.org/protobuf v1.36.6
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	gorm.io/driver/postgres v1.6.0
-	gorm.io/plugin/dbresolver v1.6.0
 	gorm.io/plugin/opentelemetry v0.1.15
 	gorm.io/plugin/opentracing v0.0.0-20211220013347-7d2b2af23560
 	gorm.io/plugin/prometheus v0.1.0
