@@ -31,6 +31,7 @@ message BuyVimoCreditReductionIntegratedCommand {
   string ManagerId = 8;
   string CorrelationId = 9;
   string Id = 10;
+  Common.Money PackageConvertedPrice = 11;
 }
 
 message BuyVimoCreditReductionResponseIntegratedCommand {
