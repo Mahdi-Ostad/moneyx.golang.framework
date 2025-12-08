@@ -15,6 +15,7 @@ message AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand {
     string ManagerId = 7;
     string CorrelationId = 8;
     string Id = 9;
+    string ExchangerCustomerAccountId = 10;
 }
 
 message AddAccountingDocumentInIncreaseCreditByAdminResponseIntegratedCommand {
@@ -37,6 +38,7 @@ message AddBankDocumentInIncreaseCreditByAdminIntegratedCommand {
     string ManagerId = 4;
     string CorrelationId = 5;
     string Id = 6;
+    string AccountId = 7;
 }
 
 message AddBankDocumentInIncreaseCreditByAdminResponseIntegratedCommand {
@@ -68,7 +70,6 @@ message NewBankTransactionInfoIncreaseAdminCreditIntegratedItem {
 
 message OldBankTransactionInfoIncreaseAdminCreditIntegratedItem {
     string TranId = 1;
-    string BankId = 2;
     Common.Money Money = 3;
 }
 
