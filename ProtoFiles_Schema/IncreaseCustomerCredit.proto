@@ -16,6 +16,7 @@ message AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand {
     string CorrelationId = 8;
     string Id = 9;
     string ExchangerCustomerAccountId = 10;
+    string ExchangerManagerId = 11;
 }
 
 message AddAccountingDocumentInIncreaseCreditByAdminResponseIntegratedCommand {

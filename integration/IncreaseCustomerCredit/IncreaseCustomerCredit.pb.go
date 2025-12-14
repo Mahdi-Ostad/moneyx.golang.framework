@@ -34,6 +34,7 @@ type AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand struct {
 	CorrelationId              string                 `protobuf:"bytes,8,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
 	Id                         string                 `protobuf:"bytes,9,opt,name=Id,proto3" json:"Id,omitempty"`
 	ExchangerCustomerAccountId string                 `protobuf:"bytes,10,opt,name=ExchangerCustomerAccountId,proto3" json:"ExchangerCustomerAccountId,omitempty"`
+	ExchangerManagerId         string                 `protobuf:"bytes,11,opt,name=ExchangerManagerId,proto3" json:"ExchangerManagerId,omitempty"`
 	unknownFields              protoimpl.UnknownFields
 	sizeCache                  protoimpl.SizeCache
 }
@@ -134,6 +135,13 @@ func (x *AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand) GetId() 
 func (x *AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand) GetExchangerCustomerAccountId() string {
 	if x != nil {
 		return x.ExchangerCustomerAccountId
+	}
+	return ""
+}
+
+func (x *AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand) GetExchangerManagerId() string {
+	if x != nil {
+		return x.ExchangerManagerId
 	}
 	return ""
 }
@@ -995,7 +1003,7 @@ var File_IncreaseCustomerCredit_proto protoreflect.FileDescriptor
 
 const file_IncreaseCustomerCredit_proto_rawDesc = "" +
 	"\n" +
-	"\x1cIncreaseCustomerCredit.proto\x12\x16IncreaseCustomerCredit\x1a\fCommon.proto\"\xa6\x03\n" +
+	"\x1cIncreaseCustomerCredit.proto\x12\x16IncreaseCustomerCredit\x1a\fCommon.proto\"\xd6\x03\n" +
 	"=AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand\x12\x1c\n" +
 	"\tAccountId\x18\x01 \x01(\tR\tAccountId\x12$\n" +
 	"\rTransactionId\x18\x02 \x01(\tR\rTransactionId\x12\x12\n" +
@@ -1007,7 +1015,8 @@ const file_IncreaseCustomerCredit_proto_rawDesc = "" +
 	"\rCorrelationId\x18\b \x01(\tR\rCorrelationId\x12\x0e\n" +
 	"\x02Id\x18\t \x01(\tR\x02Id\x12>\n" +
 	"\x1aExchangerCustomerAccountId\x18\n" +
-	" \x01(\tR\x1aExchangerCustomerAccountId\"\xc0\x01\n" +
+	" \x01(\tR\x1aExchangerCustomerAccountId\x12.\n" +
+	"\x12ExchangerManagerId\x18\v \x01(\tR\x12ExchangerManagerId\"\xc0\x01\n" +
 	"EAddAccountingDocumentInIncreaseCreditByAdminResponseIntegratedCommand\x12\x16\n" +
 	"\x06IsDone\x18\x01 \x01(\bR\x06IsDone\x12)\n" +
 	"\aFailure\x18\x02 \x01(\v2\x0f.Common.FailureR\aFailure\x12$\n" +
