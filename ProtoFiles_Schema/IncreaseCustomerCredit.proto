@@ -92,3 +92,15 @@ message CommitOrRollbackAddIncreaseCreditByAdminAttachmentsIntegratedCommand {
     string CorrelationId = 2;
     string Id = 3;
 }
+
+message GetManagerAccountInAdminPanelIntegratedQuery {
+  string ManagerId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message GetManagerAccountInAdminPanelResponseIntegratedQuery {
+  string AccountId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}

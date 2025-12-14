@@ -871,6 +871,126 @@ func (x *CommitOrRollbackAddIncreaseCreditByAdminAttachmentsIntegratedCommand) G
 	return ""
 }
 
+type GetManagerAccountInAdminPanelIntegratedQuery struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ManagerId     string                 `protobuf:"bytes,1,opt,name=ManagerId,proto3" json:"ManagerId,omitempty"`
+	CorrelationId string                 `protobuf:"bytes,2,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
+	Id            string                 `protobuf:"bytes,3,opt,name=Id,proto3" json:"Id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetManagerAccountInAdminPanelIntegratedQuery) Reset() {
+	*x = GetManagerAccountInAdminPanelIntegratedQuery{}
+	mi := &file_IncreaseCustomerCredit_proto_msgTypes[12]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetManagerAccountInAdminPanelIntegratedQuery) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetManagerAccountInAdminPanelIntegratedQuery) ProtoMessage() {}
+
+func (x *GetManagerAccountInAdminPanelIntegratedQuery) ProtoReflect() protoreflect.Message {
+	mi := &file_IncreaseCustomerCredit_proto_msgTypes[12]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetManagerAccountInAdminPanelIntegratedQuery.ProtoReflect.Descriptor instead.
+func (*GetManagerAccountInAdminPanelIntegratedQuery) Descriptor() ([]byte, []int) {
+	return file_IncreaseCustomerCredit_proto_rawDescGZIP(), []int{12}
+}
+
+func (x *GetManagerAccountInAdminPanelIntegratedQuery) GetManagerId() string {
+	if x != nil {
+		return x.ManagerId
+	}
+	return ""
+}
+
+func (x *GetManagerAccountInAdminPanelIntegratedQuery) GetCorrelationId() string {
+	if x != nil {
+		return x.CorrelationId
+	}
+	return ""
+}
+
+func (x *GetManagerAccountInAdminPanelIntegratedQuery) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type GetManagerAccountInAdminPanelResponseIntegratedQuery struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	AccountId     string                 `protobuf:"bytes,1,opt,name=AccountId,proto3" json:"AccountId,omitempty"`
+	CorrelationId string                 `protobuf:"bytes,2,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
+	Id            string                 `protobuf:"bytes,3,opt,name=Id,proto3" json:"Id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *GetManagerAccountInAdminPanelResponseIntegratedQuery) Reset() {
+	*x = GetManagerAccountInAdminPanelResponseIntegratedQuery{}
+	mi := &file_IncreaseCustomerCredit_proto_msgTypes[13]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *GetManagerAccountInAdminPanelResponseIntegratedQuery) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetManagerAccountInAdminPanelResponseIntegratedQuery) ProtoMessage() {}
+
+func (x *GetManagerAccountInAdminPanelResponseIntegratedQuery) ProtoReflect() protoreflect.Message {
+	mi := &file_IncreaseCustomerCredit_proto_msgTypes[13]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetManagerAccountInAdminPanelResponseIntegratedQuery.ProtoReflect.Descriptor instead.
+func (*GetManagerAccountInAdminPanelResponseIntegratedQuery) Descriptor() ([]byte, []int) {
+	return file_IncreaseCustomerCredit_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetManagerAccountInAdminPanelResponseIntegratedQuery) GetAccountId() string {
+	if x != nil {
+		return x.AccountId
+	}
+	return ""
+}
+
+func (x *GetManagerAccountInAdminPanelResponseIntegratedQuery) GetCorrelationId() string {
+	if x != nil {
+		return x.CorrelationId
+	}
+	return ""
+}
+
+func (x *GetManagerAccountInAdminPanelResponseIntegratedQuery) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
 var File_IncreaseCustomerCredit_proto protoreflect.FileDescriptor
 
 const file_IncreaseCustomerCredit_proto_rawDesc = "" +
@@ -940,6 +1060,14 @@ const file_IncreaseCustomerCredit_proto_rawDesc = "" +
 	"DCommitOrRollbackAddIncreaseCreditByAdminAttachmentsIntegratedCommand\x12 \n" +
 	"\vIsCommitted\x18\x01 \x01(\bR\vIsCommitted\x12$\n" +
 	"\rCorrelationId\x18\x02 \x01(\tR\rCorrelationId\x12\x0e\n" +
+	"\x02Id\x18\x03 \x01(\tR\x02Id\"\x82\x01\n" +
+	",GetManagerAccountInAdminPanelIntegratedQuery\x12\x1c\n" +
+	"\tManagerId\x18\x01 \x01(\tR\tManagerId\x12$\n" +
+	"\rCorrelationId\x18\x02 \x01(\tR\rCorrelationId\x12\x0e\n" +
+	"\x02Id\x18\x03 \x01(\tR\x02Id\"\x8a\x01\n" +
+	"4GetManagerAccountInAdminPanelResponseIntegratedQuery\x12\x1c\n" +
+	"\tAccountId\x18\x01 \x01(\tR\tAccountId\x12$\n" +
+	"\rCorrelationId\x18\x02 \x01(\tR\rCorrelationId\x12\x0e\n" +
 	"\x02Id\x18\x03 \x01(\tR\x02IdBnZ:moneyx.golang.framework/integration/IncreaseCustomerCredit\xaa\x02/Ariyana.Framework.Schema.IncreaseCustomerCreditb\x06proto3"
 
 var (
@@ -954,7 +1082,7 @@ func file_IncreaseCustomerCredit_proto_rawDescGZIP() []byte {
 	return file_IncreaseCustomerCredit_proto_rawDescData
 }
 
-var file_IncreaseCustomerCredit_proto_msgTypes = make([]protoimpl.MessageInfo, 12)
+var file_IncreaseCustomerCredit_proto_msgTypes = make([]protoimpl.MessageInfo, 14)
 var file_IncreaseCustomerCredit_proto_goTypes = []any{
 	(*AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand)(nil),                 // 0: IncreaseCustomerCredit.AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand
 	(*AddAccountingDocumentInIncreaseCreditByAdminResponseIntegratedCommand)(nil),         // 1: IncreaseCustomerCredit.AddAccountingDocumentInIncreaseCreditByAdminResponseIntegratedCommand
@@ -968,20 +1096,22 @@ var file_IncreaseCustomerCredit_proto_goTypes = []any{
 	(*AddIncreaseCreditByAdminAttachmentsIntegratedCommand)(nil),                          // 9: IncreaseCustomerCredit.AddIncreaseCreditByAdminAttachmentsIntegratedCommand
 	(*AddIncreaseCreditByAdminAttachmentsResponseIntegratedCommand)(nil),                  // 10: IncreaseCustomerCredit.AddIncreaseCreditByAdminAttachmentsResponseIntegratedCommand
 	(*CommitOrRollbackAddIncreaseCreditByAdminAttachmentsIntegratedCommand)(nil),          // 11: IncreaseCustomerCredit.CommitOrRollbackAddIncreaseCreditByAdminAttachmentsIntegratedCommand
-	(*common.Money)(nil),    // 12: Common.Money
-	(*common.Failure)(nil),  // 13: Common.Failure
-	(*common.FileItem)(nil), // 14: Common.FileItem
+	(*GetManagerAccountInAdminPanelIntegratedQuery)(nil),                                  // 12: IncreaseCustomerCredit.GetManagerAccountInAdminPanelIntegratedQuery
+	(*GetManagerAccountInAdminPanelResponseIntegratedQuery)(nil),                          // 13: IncreaseCustomerCredit.GetManagerAccountInAdminPanelResponseIntegratedQuery
+	(*common.Money)(nil),    // 14: Common.Money
+	(*common.Failure)(nil),  // 15: Common.Failure
+	(*common.FileItem)(nil), // 16: Common.FileItem
 }
 var file_IncreaseCustomerCredit_proto_depIdxs = []int32{
-	12, // 0: IncreaseCustomerCredit.AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand.Money:type_name -> Common.Money
-	13, // 1: IncreaseCustomerCredit.AddAccountingDocumentInIncreaseCreditByAdminResponseIntegratedCommand.Failure:type_name -> Common.Failure
+	14, // 0: IncreaseCustomerCredit.AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand.Money:type_name -> Common.Money
+	15, // 1: IncreaseCustomerCredit.AddAccountingDocumentInIncreaseCreditByAdminResponseIntegratedCommand.Failure:type_name -> Common.Failure
 	7,  // 2: IncreaseCustomerCredit.AddBankDocumentInIncreaseCreditByAdminIntegratedCommand.NewTransactionInfo:type_name -> IncreaseCustomerCredit.NewBankTransactionInfoIncreaseAdminCreditIntegratedItem
 	8,  // 3: IncreaseCustomerCredit.AddBankDocumentInIncreaseCreditByAdminIntegratedCommand.Old:type_name -> IncreaseCustomerCredit.OldBankTransactionInfoIncreaseAdminCreditIntegratedItem
-	13, // 4: IncreaseCustomerCredit.AddBankDocumentInIncreaseCreditByAdminResponseIntegratedCommand.Failure:type_name -> Common.Failure
+	15, // 4: IncreaseCustomerCredit.AddBankDocumentInIncreaseCreditByAdminResponseIntegratedCommand.Failure:type_name -> Common.Failure
 	6,  // 5: IncreaseCustomerCredit.AddBankDocumentInIncreaseCreditByAdminResponseIntegratedCommand.OldBankTransactionDetails:type_name -> IncreaseCustomerCredit.IncreaseCreditByAdminOldBankTransactionDetailsIntegratedItem
-	12, // 6: IncreaseCustomerCredit.NewBankTransactionInfoIncreaseAdminCreditIntegratedItem.Money:type_name -> Common.Money
-	12, // 7: IncreaseCustomerCredit.OldBankTransactionInfoIncreaseAdminCreditIntegratedItem.Money:type_name -> Common.Money
-	14, // 8: IncreaseCustomerCredit.AddIncreaseCreditByAdminAttachmentsIntegratedCommand.Files:type_name -> Common.FileItem
+	14, // 6: IncreaseCustomerCredit.NewBankTransactionInfoIncreaseAdminCreditIntegratedItem.Money:type_name -> Common.Money
+	14, // 7: IncreaseCustomerCredit.OldBankTransactionInfoIncreaseAdminCreditIntegratedItem.Money:type_name -> Common.Money
+	16, // 8: IncreaseCustomerCredit.AddIncreaseCreditByAdminAttachmentsIntegratedCommand.Files:type_name -> Common.FileItem
 	9,  // [9:9] is the sub-list for method output_type
 	9,  // [9:9] is the sub-list for method input_type
 	9,  // [9:9] is the sub-list for extension type_name
@@ -1000,7 +1130,7 @@ func file_IncreaseCustomerCredit_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_IncreaseCustomerCredit_proto_rawDesc), len(file_IncreaseCustomerCredit_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   12,
+			NumMessages:   14,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
