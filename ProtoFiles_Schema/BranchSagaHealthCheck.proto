@@ -1,0 +1,33 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.BranchSagaHealthCheck";
+option go_package = "moneyx.golang.framework/integration/BranchSagaHealthCheck";
+
+package BranchSagaHealthCheck;
+
+message BranchSagaHealthCheckAccountingIntegratedCommand {
+  repeated string SucceedSagaIds = 1;
+  repeated string FailedSagaIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message BranchSagaHealthCheckAccountingResponseIntegratedCommand {
+  repeated string SucceedMismatch = 1;
+  repeated string FailedMismatch = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message BranchSagaHealthCheckBankBookIntegratedCommand {
+  repeated string SucceedSagaIds = 1;
+  repeated string FailedSagaIds = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message BranchSagaHealthCheckBankBookResponseIntegratedCommand {
+  repeated string SucceedMismatch = 1;
+  repeated string FailedMismatch = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}

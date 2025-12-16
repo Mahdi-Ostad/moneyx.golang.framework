@@ -17,6 +17,7 @@ message FinalizeExpireTimeIntegratedCommand {
   int64 ExpireDate = 2;
   string CorrelationId = 3;
   string Id = 4;
+  int32 AppType = 5;
 }
 
 message CommitOrRollbackFinalizeExpireTimeIntegratedCommand {

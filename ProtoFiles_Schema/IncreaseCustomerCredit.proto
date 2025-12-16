@@ -15,6 +15,8 @@ message AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand {
     string ManagerId = 7;
     string CorrelationId = 8;
     string Id = 9;
+    string ExchangerCustomerAccountId = 10;
+    string ExchangerManagerId = 11;
 }
 
 message AddAccountingDocumentInIncreaseCreditByAdminResponseIntegratedCommand {
@@ -37,6 +39,7 @@ message AddBankDocumentInIncreaseCreditByAdminIntegratedCommand {
     string ManagerId = 4;
     string CorrelationId = 5;
     string Id = 6;
+    string AccountId = 7;
 }
 
 message AddBankDocumentInIncreaseCreditByAdminResponseIntegratedCommand {
@@ -68,7 +71,6 @@ message NewBankTransactionInfoIncreaseAdminCreditIntegratedItem {
 
 message OldBankTransactionInfoIncreaseAdminCreditIntegratedItem {
     string TranId = 1;
-    string BankId = 2;
     Common.Money Money = 3;
 }
 
@@ -90,4 +92,16 @@ message CommitOrRollbackAddIncreaseCreditByAdminAttachmentsIntegratedCommand {
     bool IsCommitted = 1;
     string CorrelationId = 2;
     string Id = 3;
+}
+
+message GetManagerAccountInAdminPanelIntegratedQuery {
+  string ManagerId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message GetManagerAccountInAdminPanelResponseIntegratedQuery {
+  string AccountId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
 }
