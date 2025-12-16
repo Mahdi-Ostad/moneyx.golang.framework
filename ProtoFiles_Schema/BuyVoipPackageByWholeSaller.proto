@@ -1,0 +1,30 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.BuyVoipPackageByWholeSaller";
+option go_package = "moneyx.golang.framework/integration/BuyVoipPackageByWholeSaller";
+package BuyVoipPackageByWholeSaller;
+
+import "Common.proto";
+
+message DecreaseCreditForBuyingVoipPackageByWholeSallerIntegratedMessage {
+  string ManagerId = 1;
+  string PhoneNumber = 2;
+  Common.Money Amount = 3;
+  int32 OperatorId = 4;
+  int32 PackageId = 5;
+  string ChargeTransactionId = 6;
+  string CorrelationId = 7;
+  string Id = 8;
+}
+
+message CommitOrRollbackDecreaseCreditForBuyingVoipPackageByWholeSallerIntegratedMessage {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message DecreaseCreditForBuyingVoipPackageByWholeSallerResponseIntegratedMessage {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
