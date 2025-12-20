@@ -14,6 +14,7 @@ message DecreaseCreditForBuyingVoipPackageByWholeSallerIntegratedMessage {
   string ChargeTransactionId = 6;
   string CorrelationId = 7;
   string Id = 8;
+  string PackageName = 9;
 }
 
 message CommitOrRollbackDecreaseCreditForBuyingVoipPackageByWholeSallerIntegratedMessage {

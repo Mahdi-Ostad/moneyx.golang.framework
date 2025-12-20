@@ -32,6 +32,7 @@ type DecreaseCreditForBuyingVoipPackageByWholeSallerIntegratedMessage struct {
 	ChargeTransactionId string                 `protobuf:"bytes,6,opt,name=ChargeTransactionId,proto3" json:"ChargeTransactionId,omitempty"`
 	CorrelationId       string                 `protobuf:"bytes,7,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
 	Id                  string                 `protobuf:"bytes,8,opt,name=Id,proto3" json:"Id,omitempty"`
+	PackageName         string                 `protobuf:"bytes,9,opt,name=PackageName,proto3" json:"PackageName,omitempty"`
 	unknownFields       protoimpl.UnknownFields
 	sizeCache           protoimpl.SizeCache
 }
@@ -118,6 +119,13 @@ func (x *DecreaseCreditForBuyingVoipPackageByWholeSallerIntegratedMessage) GetCo
 func (x *DecreaseCreditForBuyingVoipPackageByWholeSallerIntegratedMessage) GetId() string {
 	if x != nil {
 		return x.Id
+	}
+	return ""
+}
+
+func (x *DecreaseCreditForBuyingVoipPackageByWholeSallerIntegratedMessage) GetPackageName() string {
+	if x != nil {
+		return x.PackageName
 	}
 	return ""
 }
@@ -255,7 +263,7 @@ var File_BuyVoipPackageByWholeSaller_proto protoreflect.FileDescriptor
 
 const file_BuyVoipPackageByWholeSaller_proto_rawDesc = "" +
 	"\n" +
-	"!BuyVoipPackageByWholeSaller.proto\x12\x1bBuyVoipPackageByWholeSaller\x1a\fCommon.proto\"\xcf\x02\n" +
+	"!BuyVoipPackageByWholeSaller.proto\x12\x1bBuyVoipPackageByWholeSaller\x1a\fCommon.proto\"\xf1\x02\n" +
 	"@DecreaseCreditForBuyingVoipPackageByWholeSallerIntegratedMessage\x12\x1c\n" +
 	"\tManagerId\x18\x01 \x01(\tR\tManagerId\x12 \n" +
 	"\vPhoneNumber\x18\x02 \x01(\tR\vPhoneNumber\x12%\n" +
@@ -266,7 +274,8 @@ const file_BuyVoipPackageByWholeSaller_proto_rawDesc = "" +
 	"\tPackageId\x18\x05 \x01(\x05R\tPackageId\x120\n" +
 	"\x13ChargeTransactionId\x18\x06 \x01(\tR\x13ChargeTransactionId\x12$\n" +
 	"\rCorrelationId\x18\a \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\b \x01(\tR\x02Id\"\xaa\x01\n" +
+	"\x02Id\x18\b \x01(\tR\x02Id\x12 \n" +
+	"\vPackageName\x18\t \x01(\tR\vPackageName\"\xaa\x01\n" +
 	"PCommitOrRollbackDecreaseCreditForBuyingVoipPackageByWholeSallerIntegratedMessage\x12 \n" +
 	"\vIsCommitted\x18\x01 \x01(\bR\vIsCommitted\x12$\n" +
 	"\rCorrelationId\x18\x02 \x01(\tR\rCorrelationId\x12\x0e\n" +
