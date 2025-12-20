@@ -1,0 +1,28 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.IncreaseCreditByWholeSaller";
+option go_package = "moneyx.golang.framework/integration/IncreaseCreditByWholeSaller";
+package IncreaseCreditByWholeSaller;
+
+import "Common.proto";
+
+message IncreaseWalletCreditByWholeSallerIntegratedMessage {
+  string ManagerId = 1;
+  string PhoneNumber = 2;
+  string TansactionId = 3;
+  Common.Money Amount = 4;
+  string CorrelationId = 5;
+  string Id = 6;
+}
+
+message IncreaseWalletCreditByWholeSallerResponseIntegratedMessage {
+  bool IsDone = 1;
+  Common.Failure Failure = 2;
+  string CorrelationId = 3;
+  string Id = 4;
+}
+
+message CommitOrRollBackIncreaseWallletCreditByWholeSaller {
+  bool IsCommitted = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
