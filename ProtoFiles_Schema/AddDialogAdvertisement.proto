@@ -1,0 +1,27 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.AddDialogAdvertisement";
+option go_package = "moneyx.golang.framework/integration/AddDialogAdvertisement";
+import "Common.proto";
+
+package AddDialogAdvertisement;
+
+message AddPublicDialogAdvertisementFileIntegratedMessage {
+    repeated Common.FileItem Files = 1;
+    string ManagerId = 2;
+    string CorrelationId = 3;
+    string Id = 4;
+}
+
+message AddPublicDialogAdvertisementFileResponseIntegratedMessage {
+    bool IsDone = 1;
+    repeated string FileIds = 2;
+    Common.Failure Failure = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message CommitOrRollbackAddPublicDialogAdvertisementFileIntegratedMessage {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
