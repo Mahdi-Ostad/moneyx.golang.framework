@@ -1,0 +1,28 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.EditDialogAdvertisement";
+option go_package = "moneyx.golang.framework/integration/EditDialogAdvertisement";
+import "Common.proto";
+
+package EditDialogAdvertisement;
+
+message EditPublicDialogAdvertisementFileIntegratedMessage {
+    repeated Common.FileItem AddedFiles = 1;
+    repeated string RemovedFileIds = 2;
+    string ManagerId = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message EditPublicDialogAdvertisementFileResponseIntegratedMessage {
+    bool IsDone = 1;
+    repeated string FileIds = 2;
+    Common.Failure Failure = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message CommitOrRollbackEditPublicDialogAdvertisementFileIntegratedMessage {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}

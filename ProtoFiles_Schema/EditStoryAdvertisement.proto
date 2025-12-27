@@ -1,0 +1,28 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.EditStoryAdvertisement";
+option go_package = "moneyx.golang.framework/integration/EditStoryAdvertisement";
+package EditStoryAdvertisement;
+
+import "Common.proto";
+
+message EditPublicStoryAdvertisementFileIntegratedMessage {
+    repeated Common.FileItem AddedFiles = 1;
+    repeated string RemovedFileIds = 2;
+    string ManagerId = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message EditPublicStoryAdvertisementFileResponseIntegratedMessage {
+    bool IsDone = 1;
+    repeated string FileIds = 2;
+    Common.Failure Failure = 3;
+    string CorrelationId = 4;
+    string Id = 5;
+}
+
+message CommitOrRollbackEditPublicStoryAdvertisementFileIntegratedMessage {
+    bool IsCommitted = 1;
+    string CorrelationId = 2;
+    string Id = 3;
+}
