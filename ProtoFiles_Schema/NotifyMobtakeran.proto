@@ -1,0 +1,23 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.NotifyMobtakeran";
+option go_package = "moneyx.golang.framework/integration/NotifyMobtakeran";
+package NotifyMobtakeran;
+
+message NotifyMobtakeranBalanceIntegratedMessage {
+  string Balance = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message NotifyMobtakeranPanelIncreaseCreditIntegratedItem {
+  string TransactionId = 1;
+  int64 Amount = 2;
+  int64 Date = 3;
+  string Description = 4;
+}
+
+message NotifyMobtakeranPanelIncreaseCreditIntegratedMessage {
+  repeated NotifyMobtakeranPanelIncreaseCreditIntegratedItem Transactions = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}

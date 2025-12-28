@@ -722,6 +722,134 @@ func (x *SubmitOrCancelCustomFeatureIntegratedCommand) GetId() string {
 	return ""
 }
 
+type CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	IsEnable      bool                   `protobuf:"varint,1,opt,name=IsEnable,proto3" json:"IsEnable,omitempty"`
+	Failure       *common.Failure        `protobuf:"bytes,2,opt,name=Failure,proto3" json:"Failure,omitempty"`
+	CorrelationId string                 `protobuf:"bytes,3,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
+	Id            string                 `protobuf:"bytes,4,opt,name=Id,proto3" json:"Id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand) Reset() {
+	*x = CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand{}
+	mi := &file_BuyCustomFeature_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand) ProtoMessage() {}
+
+func (x *CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand) ProtoReflect() protoreflect.Message {
+	mi := &file_BuyCustomFeature_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand.ProtoReflect.Descriptor instead.
+func (*CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand) Descriptor() ([]byte, []int) {
+	return file_BuyCustomFeature_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand) GetIsEnable() bool {
+	if x != nil {
+		return x.IsEnable
+	}
+	return false
+}
+
+func (x *CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand) GetFailure() *common.Failure {
+	if x != nil {
+		return x.Failure
+	}
+	return nil
+}
+
+func (x *CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand) GetCorrelationId() string {
+	if x != nil {
+		return x.CorrelationId
+	}
+	return ""
+}
+
+func (x *CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type CustomFeatureCheckManagerChargeActivationIntegratedCommand struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	ManagerId     string                 `protobuf:"bytes,1,opt,name=ManagerId,proto3" json:"ManagerId,omitempty"`
+	CorrelationId string                 `protobuf:"bytes,2,opt,name=CorrelationId,proto3" json:"CorrelationId,omitempty"`
+	Id            string                 `protobuf:"bytes,3,opt,name=Id,proto3" json:"Id,omitempty"`
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *CustomFeatureCheckManagerChargeActivationIntegratedCommand) Reset() {
+	*x = CustomFeatureCheckManagerChargeActivationIntegratedCommand{}
+	mi := &file_BuyCustomFeature_proto_msgTypes[10]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *CustomFeatureCheckManagerChargeActivationIntegratedCommand) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CustomFeatureCheckManagerChargeActivationIntegratedCommand) ProtoMessage() {}
+
+func (x *CustomFeatureCheckManagerChargeActivationIntegratedCommand) ProtoReflect() protoreflect.Message {
+	mi := &file_BuyCustomFeature_proto_msgTypes[10]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CustomFeatureCheckManagerChargeActivationIntegratedCommand.ProtoReflect.Descriptor instead.
+func (*CustomFeatureCheckManagerChargeActivationIntegratedCommand) Descriptor() ([]byte, []int) {
+	return file_BuyCustomFeature_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *CustomFeatureCheckManagerChargeActivationIntegratedCommand) GetManagerId() string {
+	if x != nil {
+		return x.ManagerId
+	}
+	return ""
+}
+
+func (x *CustomFeatureCheckManagerChargeActivationIntegratedCommand) GetCorrelationId() string {
+	if x != nil {
+		return x.CorrelationId
+	}
+	return ""
+}
+
+func (x *CustomFeatureCheckManagerChargeActivationIntegratedCommand) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
 var File_BuyCustomFeature_proto protoreflect.FileDescriptor
 
 const file_BuyCustomFeature_proto_rawDesc = "" +
@@ -787,7 +915,16 @@ const file_BuyCustomFeature_proto_rawDesc = "" +
 	"\aMessage\x18\x02 \x01(\tR\aMessage\x12\x1c\n" +
 	"\tManagerId\x18\x03 \x01(\tR\tManagerId\x12$\n" +
 	"\rCorrelationId\x18\x04 \x01(\tR\rCorrelationId\x12\x0e\n" +
-	"\x02Id\x18\x05 \x01(\tR\x02IdBbZ4moneyx.golang.framework/integration/BuyCustomFeature\xaa\x02)Ariyana.Framework.Schema.BuyCustomFeatureb\x06proto3"
+	"\x02Id\x18\x05 \x01(\tR\x02Id\"\xc1\x01\n" +
+	"BCustomFeatureCheckManagerChargeActivationResponseIntegratedCommand\x12\x1a\n" +
+	"\bIsEnable\x18\x01 \x01(\bR\bIsEnable\x12)\n" +
+	"\aFailure\x18\x02 \x01(\v2\x0f.Common.FailureR\aFailure\x12$\n" +
+	"\rCorrelationId\x18\x03 \x01(\tR\rCorrelationId\x12\x0e\n" +
+	"\x02Id\x18\x04 \x01(\tR\x02Id\"\x90\x01\n" +
+	":CustomFeatureCheckManagerChargeActivationIntegratedCommand\x12\x1c\n" +
+	"\tManagerId\x18\x01 \x01(\tR\tManagerId\x12$\n" +
+	"\rCorrelationId\x18\x02 \x01(\tR\rCorrelationId\x12\x0e\n" +
+	"\x02Id\x18\x03 \x01(\tR\x02IdBbZ4moneyx.golang.framework/integration/BuyCustomFeature\xaa\x02)Ariyana.Framework.Schema.BuyCustomFeatureb\x06proto3"
 
 var (
 	file_BuyCustomFeature_proto_rawDescOnce sync.Once
@@ -801,7 +938,7 @@ func file_BuyCustomFeature_proto_rawDescGZIP() []byte {
 	return file_BuyCustomFeature_proto_rawDescData
 }
 
-var file_BuyCustomFeature_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
+var file_BuyCustomFeature_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_BuyCustomFeature_proto_goTypes = []any{
 	(*CustomFeatureCheckCustomerActivationIntegratedCommand)(nil),                 // 0: BuyCustomFeature.CustomFeatureCheckCustomerActivationIntegratedCommand
 	(*CustomFeatureCheckCustomerActivationResponseIntegratedCommand)(nil),         // 1: BuyCustomFeature.CustomFeatureCheckCustomerActivationResponseIntegratedCommand
@@ -812,25 +949,28 @@ var file_BuyCustomFeature_proto_goTypes = []any{
 	(*AddAccountingCustomFeatureDocumentsResponseIntegratedCommand)(nil),          // 6: BuyCustomFeature.AddAccountingCustomFeatureDocumentsResponseIntegratedCommand
 	(*CommitOrRollbackAddedCustomFeatureAccountingDocumentIntegratedCommand)(nil), // 7: BuyCustomFeature.CommitOrRollbackAddedCustomFeatureAccountingDocumentIntegratedCommand
 	(*SubmitOrCancelCustomFeatureIntegratedCommand)(nil),                          // 8: BuyCustomFeature.SubmitOrCancelCustomFeatureIntegratedCommand
-	(*common.Failure)(nil),                    // 9: Common.Failure
-	(*common.Money)(nil),                      // 10: Common.Money
-	(*common.CreditReductionMetaContext)(nil), // 11: Common.CreditReductionMetaContext
-	(*common.BuyChargeAccountingInfo)(nil),    // 12: Common.BuyChargeAccountingInfo
+	(*CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand)(nil),    // 9: BuyCustomFeature.CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand
+	(*CustomFeatureCheckManagerChargeActivationIntegratedCommand)(nil),            // 10: BuyCustomFeature.CustomFeatureCheckManagerChargeActivationIntegratedCommand
+	(*common.Failure)(nil),                    // 11: Common.Failure
+	(*common.Money)(nil),                      // 12: Common.Money
+	(*common.CreditReductionMetaContext)(nil), // 13: Common.CreditReductionMetaContext
+	(*common.BuyChargeAccountingInfo)(nil),    // 14: Common.BuyChargeAccountingInfo
 }
 var file_BuyCustomFeature_proto_depIdxs = []int32{
-	9,  // 0: BuyCustomFeature.CustomFeatureCheckCustomerActivationResponseIntegratedCommand.Failure:type_name -> Common.Failure
-	10, // 1: BuyCustomFeature.CustomFeatureCreditReductionIntegratedCommand.ExchangerProfit:type_name -> Common.Money
-	10, // 2: BuyCustomFeature.CustomFeatureCreditReductionIntegratedCommand.ExchangerPrice:type_name -> Common.Money
-	10, // 3: BuyCustomFeature.CustomFeatureCreditReductionIntegratedCommand.PackageConvertedPrice:type_name -> Common.Money
-	11, // 4: BuyCustomFeature.CommitOrRollbackCustomFeatureCreditReductionIntegratedCommand.Context:type_name -> Common.CreditReductionMetaContext
-	9,  // 5: BuyCustomFeature.CustomFeatureCreditReductionResponseIntegratedCommand.Failure:type_name -> Common.Failure
-	12, // 6: BuyCustomFeature.AddAccountringCustomFeatureDocumentsIntegratedCommand.BuyChargeInfo:type_name -> Common.BuyChargeAccountingInfo
-	9,  // 7: BuyCustomFeature.AddAccountingCustomFeatureDocumentsResponseIntegratedCommand.Failure:type_name -> Common.Failure
-	8,  // [8:8] is the sub-list for method output_type
-	8,  // [8:8] is the sub-list for method input_type
-	8,  // [8:8] is the sub-list for extension type_name
-	8,  // [8:8] is the sub-list for extension extendee
-	0,  // [0:8] is the sub-list for field type_name
+	11, // 0: BuyCustomFeature.CustomFeatureCheckCustomerActivationResponseIntegratedCommand.Failure:type_name -> Common.Failure
+	12, // 1: BuyCustomFeature.CustomFeatureCreditReductionIntegratedCommand.ExchangerProfit:type_name -> Common.Money
+	12, // 2: BuyCustomFeature.CustomFeatureCreditReductionIntegratedCommand.ExchangerPrice:type_name -> Common.Money
+	12, // 3: BuyCustomFeature.CustomFeatureCreditReductionIntegratedCommand.PackageConvertedPrice:type_name -> Common.Money
+	13, // 4: BuyCustomFeature.CommitOrRollbackCustomFeatureCreditReductionIntegratedCommand.Context:type_name -> Common.CreditReductionMetaContext
+	11, // 5: BuyCustomFeature.CustomFeatureCreditReductionResponseIntegratedCommand.Failure:type_name -> Common.Failure
+	14, // 6: BuyCustomFeature.AddAccountringCustomFeatureDocumentsIntegratedCommand.BuyChargeInfo:type_name -> Common.BuyChargeAccountingInfo
+	11, // 7: BuyCustomFeature.AddAccountingCustomFeatureDocumentsResponseIntegratedCommand.Failure:type_name -> Common.Failure
+	11, // 8: BuyCustomFeature.CustomFeatureCheckManagerChargeActivationResponseIntegratedCommand.Failure:type_name -> Common.Failure
+	9,  // [9:9] is the sub-list for method output_type
+	9,  // [9:9] is the sub-list for method input_type
+	9,  // [9:9] is the sub-list for extension type_name
+	9,  // [9:9] is the sub-list for extension extendee
+	0,  // [0:9] is the sub-list for field type_name
 }
 
 func init() { file_BuyCustomFeature_proto_init() }
@@ -844,7 +984,7 @@ func file_BuyCustomFeature_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_BuyCustomFeature_proto_rawDesc), len(file_BuyCustomFeature_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   9,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

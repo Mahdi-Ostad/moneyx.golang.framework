@@ -1,0 +1,19 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ReceiveMobtakeranTransactions";
+option go_package = "moneyx.golang.framework/integration/ReceiveMobtakeranTransactions";
+package ReceiveMobtakeranTransactions;
+
+message MobtakeranTransactionItem {
+  string ReferenceId = 1;
+  string ChargeNumber = 2;
+  int64 DateTime = 3;
+  string OperatorName = 4;
+  string Amount = 5;
+  string Commission = 6;
+}
+
+message ReceiveMobtakeranTransactionsIntegratedMessage {
+  repeated MobtakeranTransactionItem Transactions = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}

@@ -68,6 +68,7 @@ message NewBankTransactionInfoIncreaseAdminCreditIntegratedItem {
     Common.Money Money = 3;
     int64 Date = 4;
     string Description = 5;
+    string AccountId = 6;
 }
 
 message OldBankTransactionInfoIncreaseAdminCreditIntegratedItem {

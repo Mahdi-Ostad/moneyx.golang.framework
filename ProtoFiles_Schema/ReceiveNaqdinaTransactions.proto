@@ -1,0 +1,23 @@
+syntax = "proto3";
+option csharp_namespace = "Ariyana.Framework.Schema.ReceiveNaqdinaTransactions";
+option go_package = "moneyx.golang.framework/integration/ReceiveNaqdinaTransactions";
+package ReceiveNaqdinaTransactions;
+
+message NaqdinaTransactionItem {
+  string RequestID = 1;
+  string ConsumerNo = 2;
+  int64 RequestDateTime = 3;
+  string RequestType = 4;
+  string OperatorName = 5;
+  string RequestStatus = 6;
+  double Amount = 7;
+  string OperatorTransId = 8;
+  string ErrorMessage = 9;
+  double Commission = 10;
+}
+
+message ReceiveNaqdinaTransactionsIntegratedMessage {
+  repeated NaqdinaTransactionItem Transactions = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
