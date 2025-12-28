@@ -397,6 +397,7 @@ message RetrieveBankTransactionData {
     Common.Money DraftOrderMoney = 3;
     bool IsOutgoingDraftOrder = 4;
     string BankId = 5;
+    NullableString ReceiptNumber = 6;
 }
 
 message SendSystemLanguageIntegratedCommand {
