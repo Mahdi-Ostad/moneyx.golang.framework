@@ -9,7 +9,7 @@ message AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand {
     string AccountId = 1;
     string TransactionId = 2;
     int64 Date = 3;
-    Common.Money Money = 4;
+    Common.Money IncreaseCreditMoney = 4;
     string Description = 5;
     string OldBankTransactionId = 6;
     string ManagerId = 7;
@@ -17,6 +17,7 @@ message AddAccountingDocumentInIncreaseCreditByAdminIntegratedCommand {
     string Id = 9;
     string ExchangerCustomerAccountId = 10;
     string ExchangerManagerId = 11;
+    Common.Money TransferTransactionMoney = 12;
 }
 
 message AddAccountingDocumentInIncreaseCreditByAdminResponseIntegratedCommand {
@@ -102,6 +103,20 @@ message GetManagerAccountInAdminPanelIntegratedQuery {
 
 message GetManagerAccountInAdminPanelResponseIntegratedQuery {
   string AccountId = 1;
+  string CorrelationId = 2;
+  string Id = 3;
+}
+
+message GetManagerCustomerAccountBalanceIntgeratedQuery {
+  string AccountId = 1;
+  string CurrencyCode = 2;
+  string ManagerId = 3;
+  string CorrelationId = 4;
+  string Id = 5;
+}
+
+message GetManagerCustomerAccountBalanceResponseIntgeratedQuery {
+  double DebtorAmount = 1;
   string CorrelationId = 2;
   string Id = 3;
 }
